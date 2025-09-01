@@ -12,6 +12,13 @@ public class FolderManager : MonoBehaviour
     public GameObject leftPage;          // Static left page
     public GameObject[] rightPages;      // Only the right pages
 
+    //For page flip
+    [Header("Navigation")]
+    public Button nextPageButton;        // Arrow ? next page
+    public Button prevPageButton;        // Arrow ? previous page
+    public Button[] tabButtons;          // Buttons to jump directly to pages
+
+
     [Header("Animation Settings")]
     public bool useScaleAnimation = true;  // Set false to skip scaling
     public float openDuration = 0.3f;
@@ -31,6 +38,23 @@ public class FolderManager : MonoBehaviour
         // Setup button listeners
         folderButton.onClick.AddListener(OpenFolder);
         backgroundButton.onClick.AddListener(CloseFolder);
+
+        ShowRightPage(0); // Show first right page by default
+
+
+        //to move next page
+        if (nextPageButton != null)
+            nextPageButton.onClick.AddListener(NextPage);
+
+        if (prevPageButton != null)
+            prevPageButton.onClick.AddListener(PreviousPage);
+
+        // Setup tab listeners
+        for (int i = 0; i < tabButtons.Length; i++)
+        {
+            int index = i; // capture loop variable
+            tabButtons[i].onClick.AddListener(() => ShowRightPage(index));
+        }
 
         ShowRightPage(0); // Show first right page by default
     }
@@ -71,8 +95,7 @@ public class FolderManager : MonoBehaviour
 
     public void ShowRightPage(int index)
     {
-        if (index == currentRightPage || index < 0 || index >= rightPages.Length)
-            return;
+        if (index < 0 || index >= rightPages.Length) return;
 
         for (int i = 0; i < rightPages.Length; i++)
         {
@@ -80,5 +103,22 @@ public class FolderManager : MonoBehaviour
         }
 
         currentRightPage = index;
+
+        // Update navigation arrows (disable if at ends)
+        if (nextPageButton != null)
+            nextPageButton.interactable = (currentRightPage < rightPages.Length - 1);
+
+        if (prevPageButton != null)
+            prevPageButton.interactable = (currentRightPage > 0);
+    }
+
+    public void NextPage()
+    {
+        ShowRightPage(currentRightPage + 1);
+    }
+
+    public void PreviousPage()
+    {
+        ShowRightPage(currentRightPage - 1);
     }
 }
