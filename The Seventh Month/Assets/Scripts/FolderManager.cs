@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class FolderManager : MonoBehaviour
@@ -14,8 +14,8 @@ public class FolderManager : MonoBehaviour
 
     //For page flip
     [Header("Navigation")]
-    public Button nextPageButton;        // Arrow ? next page
-    public Button prevPageButton;        // Arrow ? previous page
+    public Button nextPageButton;        // Arrow → next page
+    public Button prevPageButton;        // Arrow → previous page
     public Button[] tabButtons;          // Buttons to jump directly to pages
 
 
@@ -23,7 +23,7 @@ public class FolderManager : MonoBehaviour
     public bool useScaleAnimation = true;  // Set false to skip scaling
     public float openDuration = 0.3f;
     public float closeDuration = 0.2f;
-    public Vector3 foldedScale = Vector3.one; // Scale when �closed� (small tab)
+    public Vector3 foldedScale = Vector3.one; // Scale when “closed” (small tab)
     public Vector3 openScale = Vector3.one;   // Scale when open (designed size)
 
     private int currentRightPage = 0;
