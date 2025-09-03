@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_OrangMinyak
+  m_EditorClassIdentifier: 
+  caseName: Orang Minyak Encounter
+  description: I always feel someone is watching me
+  evidencePhotos:
+  - {fileID: 21300000, guid: 1485a65e567d3694ea6f88613e2e6f65, type: 3}
+  - {fileID: 21300000, guid: 41268041a643ac941b4aca671a7b547b, type: 3}
+  - {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
+  requiredItems:
+  - Salt
+  - Ash
+  failureOutcome: "\u201CThe spirit harms the customer.\u201D"
+  successOutcome: "\u201CThe spirit is repelled successfully.\u201D"
