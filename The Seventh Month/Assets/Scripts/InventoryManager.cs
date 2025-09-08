@@ -1,74 +1,91 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
 
-    [Header("Inventory Slots")]
-    public SpriteRenderer[] inventorySlots;
+    [Header("Inventory Slots (SpriteRenderers)")]
+    public SpriteRenderer[] inventorySlots;   // UI slots showing item sprites
 
-    private int nextSlotIndex = 0;
+    private List<ItemData> inventoryItems = new List<ItemData>();
+
 
     void Awake()
     {
         if (instance == null) instance = this;
+        else Destroy(gameObject);
     }
 
-    public void AddItem(Sprite itemIcon)
+
+    // Add item to first empty slot
+    public void AddItem(ItemData itemData)
     {
-        if (nextSlotIndex >= inventorySlots.Length)
+        if (IsFull())
         {
-            Debug.Log("Inventory full!");
+            Debug.Log("Inventory full! Remove an item before adding new ones.");
             return;
         }
 
-        inventorySlots[nextSlotIndex].sprite = itemIcon;
-        inventorySlots[nextSlotIndex].enabled = true;
-
-        // Assign index to slot so it knows where it belongs
-        InventorySlot slotScript = inventorySlots[nextSlotIndex].GetComponent<InventorySlot>();
-        if (slotScript != null) slotScript.SetSlotIndex(nextSlotIndex);
-
-        nextSlotIndex++;
+        inventoryItems.Add(itemData);
+        UpdateInventoryUI();
     }
 
-    public void RemoveItem(int index)
+    // Remove item at slot index
+    public void RemoveItem(int slotIndex)
     {
-        if (index < 0 || index >= inventorySlots.Length) return;
-
-        inventorySlots[index].sprite = null;
-        inventorySlots[index].enabled = false;
-
-        Debug.Log("Removed item from slot " + index);
-
-        RearrangeInventory();
-    }
-
-    private void RearrangeInventory()
-    {
-        int fillIndex = 0;
-
-        for (int i = 0; i < inventorySlots.Length; i++)
+        if (slotIndex < 0 || slotIndex >= inventoryItems.Count)
         {
-            if (inventorySlots[i].sprite != null)
-            {
-                // Move sprite down if needed
-                if (fillIndex != i)
-                {
-                    inventorySlots[fillIndex].sprite = inventorySlots[i].sprite;
-                    inventorySlots[fillIndex].enabled = true;
-
-                    inventorySlots[i].sprite = null;
-                    inventorySlots[i].enabled = false;
-                }
-
-                InventorySlot slotScript = inventorySlots[fillIndex].GetComponent<InventorySlot>();
-                if (slotScript != null) slotScript.SetSlotIndex(fillIndex);
-
-                fillIndex++;
-            }
+            Debug.LogWarning("Invalid inventory slot index");
+            return;
         }
 
-        nextSlotIndex = fillIndex;
+        inventoryItems.RemoveAt(slotIndex);
+        UpdateInventoryUI();
+    }
+
+    public List<ItemData> GetCurrentItemsData()
+    {
+        return new List<ItemData>(inventoryItems); // return a copy of the list
+    }
+
+
+    // Check if inventory is full
+    public bool IsFull()
+    {
+        return inventoryItems.Count >= inventorySlots.Length;
+    }
+
+    // Return list of current item names for solution checking
+    public List<string> GetCurrentItemNames()
+    {
+        List<string> names = new List<string>();
+        foreach (var item in inventoryItems)
+            names.Add(item.itemName);
+        return names;
+    }
+
+    // --- Update the UI sprites based on inventoryItems list ---
+    private void UpdateInventoryUI()
+    {
+        // Clear all slots first
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i].sprite = null;
+            inventorySlots[i].enabled = false;
+        }
+
+        // Fill in current items
+        for (int i = 0; i < inventoryItems.Count; i++)
+        {
+            inventorySlots[i].sprite = inventoryItems[i].itemSprite;
+            inventorySlots[i].enabled = true;
+
+            InventorySlot slotScript = inventorySlots[i].GetComponent<InventorySlot>();
+            if (slotScript != null)
+                slotScript.SetSlotIndex(i);
+        }
     }
 }
+
+

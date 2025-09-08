@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 41268041a643ac941b4aca671a7b547b, type: 3}
   - {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
   requiredItems:
-  - Salt
-  - Ash
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
+  - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
   failureOutcome: "\u201CThe spirit harms the customer.\u201D"
   successOutcome: "\u201CThe spirit is repelled successfully.\u201D"

@@ -13,6 +13,7 @@ public class CustomerCasePair
         customer = c;
         customerCase = cc;
     }
+
 }
 
 public class CustomerManager : MonoBehaviour
@@ -65,4 +66,12 @@ public class CustomerManager : MonoBehaviour
             photoPanelManager.ShowEvidencePhotos(activeCase.evidencePhotos);
         }
     }
+
+    // -----------------------------
+    // Public getter for the current active case
+    public CustomerCase GetActiveCase()
+    {
+        return activeCase;
+    }
 }
+

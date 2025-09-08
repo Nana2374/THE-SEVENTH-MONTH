@@ -19,6 +19,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1485a65e567d3694ea6f88613e2e6f65, type: 3}
   - {fileID: 21300000, guid: 9c13d821bcf04be4da71a779c00e4a82, type: 3}
   requiredItems:
-  - Talisman
+  - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
+  - {fileID: 11400000, guid: bcd6f16eafde1c14ba7323c4c3c7a699, type: 2}
+  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  - {fileID: 11400000, guid: a96113c7c9ab5a7459f0268cfe87c1cc, type: 2}
   failureOutcome: "\u201CThe spirit drags the customer to the water.\u201D"
   successOutcome: "\u201CThe spirit has returned to the water....\u201D"

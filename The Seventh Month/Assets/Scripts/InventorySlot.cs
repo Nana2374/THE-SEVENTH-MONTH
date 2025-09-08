@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class InventorySlot : MonoBehaviour
@@ -20,6 +21,7 @@ public class InventorySlot : MonoBehaviour
         if (sr != null && sr.sprite != null)
         {
             InventoryManager.instance.RemoveItem(slotIndex);
+            Debug.Log("Item removed");
         }
     }
 }

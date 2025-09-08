@@ -6,12 +6,12 @@ using UnityEngine;
 public class CustomerCase : ScriptableObject
 {
     [Header("Case Info")]
-    public string caseName;              // e.g. "Orang Minyak Encounter"
+    public string caseName;               // e.g. "Orang Minyak Encounter"
     [TextArea] public string description; // What the customer says or shows
-    public Sprite[] evidencePhotos;      // Evidence picture shown to player
+    public Sprite[] evidencePhotos;       // Evidence pictures
 
     [Header("Solution")]
-    public string[] requiredItems;        // Items needed to solve (names or IDs)
+    public ItemData[] requiredItems;      // Items needed to solve the case
     public string failureOutcome;         // What happens if unsolved
     public string successOutcome;         // What happens if solved
 }

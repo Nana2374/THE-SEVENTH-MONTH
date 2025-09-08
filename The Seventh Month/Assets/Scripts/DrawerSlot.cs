@@ -2,25 +2,37 @@ using UnityEngine;
 
 public class DrawerSlot : MonoBehaviour
 {
-    public Sprite itemIcon;           // Sprite to add to inventory
-    public SpriteRenderer itemSprite; // Child SpriteRenderer showing the item
+    public ItemData itemData;         // assign the ScriptableObject in the Inspector
+    public SpriteRenderer itemSprite; // optional: shows the item in the drawer visually
 
     void Start()
     {
-        // Show item in the drawer
-        if (itemSprite != null && itemIcon != null)
+        // Show the sprite in the drawer
+        if (itemSprite != null && itemData != null)
         {
-            itemSprite.sprite = itemIcon;
+            itemSprite.sprite = itemData.itemSprite;
             itemSprite.gameObject.SetActive(true);
         }
     }
 
     void OnMouseDown()
     {
-        InventoryManager.instance.AddItem(itemIcon);
-        // Optional: hide the item if you only allow taking once
-        // itemSprite.gameObject.SetActive(false);
-        Debug.Log("Item clicked!");
+        if (itemData == null) return;
+
+        // Check if InventoryManager exists
+        if (InventoryManager.instance == null) return;
+
+        // Check if inventory is full
+        if (InventoryManager.instance.IsFull())
+        {
+            Debug.Log("Inventory is full! Remove an item before adding.");
+            // Optional: play sound, flash UI, or animate the slot
+            return;
+        }
+
+        // Add item to inventory
+        InventoryManager.instance.AddItem(itemData);
+        Debug.Log("Added " + itemData.itemName + " to inventory");
     }
 }
 
