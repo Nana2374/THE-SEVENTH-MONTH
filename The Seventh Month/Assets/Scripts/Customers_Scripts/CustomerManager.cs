@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static CustomerCase;
 
 [System.Serializable]
 
@@ -35,6 +36,8 @@ public class CustomerManager : MonoBehaviour
 
     private int customersServed = 0; // track number of customers
     public int maxCustomers = 5;     // stop after 5
+
+    private int stalkerSpawned = 0;
 
     public float bufferTime = 2f; // default = 2 seconds
 
@@ -73,18 +76,66 @@ public class CustomerManager : MonoBehaviour
             return;
         }
 
-        // Pick a random pair
-        int index = Random.Range(0, availablePairs.Count);
-        CustomerCasePair pair = availablePairs[index];
-        // Remove the pair so it won't spawn again
-        availablePairs.RemoveAt(index);
+        CustomerCasePair pairToSpawn = null;
 
-        activeCase = pair.customerCase;
+        // Calculate remaining customers and ensure at least 1 stalker
+        int remainingCustomers = maxCustomers - customersServed;
+        bool mustSpawnStalker = (stalkerSpawned == 0 && remainingCustomers == 1);
+
+        if (mustSpawnStalker)
+        {
+            // Pick a stalker case
+            List<CustomerCasePair> stalkerPairs = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
+            if (stalkerPairs.Count > 0)
+            {
+                int index = Random.Range(0, stalkerPairs.Count);
+                pairToSpawn = stalkerPairs[index];
+            }
+        }
+        else
+        {
+            // Normal random weighted spawn (4 Ghost : 1 Stalker)
+            List<CustomerCasePair> ghostPairs = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Ghost);
+            List<CustomerCasePair> stalkerPairs = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
+
+            float totalWeight = ghostPairs.Count * 4 + stalkerPairs.Count * 1;
+            float r = Random.Range(0f, totalWeight);
+
+            if (r < ghostPairs.Count * 4)
+            {
+                int index = Random.Range(0, ghostPairs.Count);
+                pairToSpawn = ghostPairs[index];
+            }
+            else if (stalkerPairs.Count > 0)
+            {
+                int index = Random.Range(0, stalkerPairs.Count);
+                pairToSpawn = stalkerPairs[index];
+            }
+        }
+
+        if (pairToSpawn == null)
+        {
+            // fallback: just pick any
+            int index = Random.Range(0, availablePairs.Count);
+            pairToSpawn = availablePairs[index];
+        }
+
+
+        //// Pick a random pair
+        //int index = Random.Range(0, availablePairs.Count);
+        //CustomerCasePair pair = availablePairs[index];
+        // Remove the pair so it won't spawn again
+        availablePairs.Remove(pairToSpawn);
+
+        activeCase = pairToSpawn.customerCase;
 
         if (activeCustomer != null) Destroy(activeCustomer);
-        activeCustomer = Instantiate(pair.customer.customerPrefab, spawnPoint.position, spawnPoint.rotation);
+        activeCustomer = Instantiate(pairToSpawn.customer.customerPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        Debug.Log($"Customer: {activeCustomer.name}, Case: {activeCase.caseName}");
+        if (activeCase.caseType == CaseType.Stalker)
+            stalkerSpawned++;
+
+        Debug.Log($"Customer: {activeCustomer.name}, Case: {activeCase.caseName} ({activeCase.caseType})");
 
 
         Sprite[] randomPhotos = GetRandomPhotos(activeCase.evidencePhotos, 3);
