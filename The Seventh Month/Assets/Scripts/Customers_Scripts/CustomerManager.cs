@@ -30,6 +30,7 @@ public class CustomerManager : MonoBehaviour
 
     private GameObject activeCustomer;
     private CustomerCase activeCase;
+    public DialogueManager dialogueManager;
 
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
 
@@ -122,9 +123,6 @@ public class CustomerManager : MonoBehaviour
 
 
         //// Pick a random pair
-        //int index = Random.Range(0, availablePairs.Count);
-        //CustomerCasePair pair = availablePairs[index];
-        // Remove the pair so it won't spawn again
         availablePairs.Remove(pairToSpawn);
 
         activeCase = pairToSpawn.customerCase;
@@ -143,9 +141,22 @@ public class CustomerManager : MonoBehaviour
         if (photoPanelManager != null)
         {
             photoPanelManager.ShowEvidencePhotos(randomPhotos);
+
+            StartCoroutine(ShowThumbnailNextFrame());
+        }
+
+        // Show the dialogue box with typing effect
+        if (activeCase != null && dialogueManager != null)
+        {
+            dialogueManager.ShowDialogue(activeCase.description);
         }
     }
-
+    // 👇 Place the coroutine here (still inside the class)
+    private IEnumerator ShowThumbnailNextFrame()
+    {
+        yield return null; // wait for next frame
+        photoPanelManager.ShowThumbnail();
+    }
 
     public void CustomerDone(float bufferTime)
     {
@@ -159,6 +170,16 @@ public class CustomerManager : MonoBehaviour
             clockManager.AdvanceHour();
         }
 
+        if (photoPanelManager != null)
+        {
+            photoPanelManager.HideThumbnail();
+        }
+
+        if (dialogueManager != null)
+        {
+            dialogueManager.HideDialogue();
+        }
+
 
         if (customersServed < maxCustomers)
         {
@@ -168,6 +189,9 @@ public class CustomerManager : MonoBehaviour
         {
             Debug.Log("All customers served for today.");
         }
+
+
+
     }
 
     private IEnumerator SpawnNextCustomerAfterDelay(float delay)

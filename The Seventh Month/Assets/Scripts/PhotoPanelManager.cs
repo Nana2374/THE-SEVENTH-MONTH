@@ -11,10 +11,14 @@ public class PhotoPanelManager : MonoBehaviour
     [Header("Photo Slots")]
     public Image[] photoSlots; // Drag 3 UI Image components here in the Inspector
 
+
+
     void Start()
     {
         expandedPanel.SetActive(false);
         backgroundButton.gameObject.SetActive(false);
+        thumbnailButton.gameObject.SetActive(false); // hide at start
+
 
         thumbnailButton.onClick.AddListener(OpenPanel);
         backgroundButton.onClick.AddListener(ClosePanel);
@@ -55,5 +59,17 @@ public class PhotoPanelManager : MonoBehaviour
                 photoSlots[i].gameObject.SetActive(false); // hide unused slots
             }
         }
+    }
+
+    public void ShowThumbnail()
+    {
+        Debug.Log("Thumbnail shown!");
+        thumbnailButton.gameObject.SetActive(true);
+    }
+
+    public void HideThumbnail()
+    {
+        Debug.Log("Thumbnail hidden!");
+        thumbnailButton.gameObject.SetActive(false);
     }
 }
