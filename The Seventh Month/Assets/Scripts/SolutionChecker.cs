@@ -9,15 +9,9 @@ public class SolutionChecker : MonoBehaviour
     public void SubmitSolution()
     {
         // --- Safety checks ---
-        if (inventoryManager == null)
+        if (inventoryManager == null || customerManager == null)
         {
-            Debug.LogWarning("InventoryManager reference is missing in SolutionChecker!");
-            return;
-        }
-
-        if (customerManager == null)
-        {
-            Debug.LogWarning("CustomerManager reference is missing in SolutionChecker!");
+            Debug.LogWarning("Missing references!");
             return;
         }
 
@@ -56,6 +50,7 @@ public class SolutionChecker : MonoBehaviour
             Debug.Log("Failure... " + currentCase.failureOutcome);
             // TODO: Trigger failure UI here
         }
+        customerManager.CustomerDone(customerManager.bufferTime);
     }
 }
 

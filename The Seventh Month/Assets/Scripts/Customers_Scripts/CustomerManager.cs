@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+
+
 public class CustomerCasePair
 {
     public CustomerData customer;
@@ -22,10 +24,20 @@ public class CustomerManager : MonoBehaviour
     public Transform spawnPoint;
     public PhotoPanelManager photoPanelManager;
 
+
+    public ClockManager clockManager; // Assign in inspector
+
     private GameObject activeCustomer;
     private CustomerCase activeCase;
 
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
+
+
+    private int customersServed = 0; // track number of customers
+    public int maxCustomers = 5;     // stop after 5
+
+    public float bufferTime = 2f; // default = 2 seconds
+
 
     void Start()
     {
@@ -36,11 +48,25 @@ public class CustomerManager : MonoBehaviour
             {
                 availablePairs.Add(new CustomerCasePair(customer, c));
             }
+
+            // 👇 Reset clock to 1 PM at game start
+            if (clockManager != null)
+            {
+                clockManager.ResetClock();
+            }
         }
+        // Start the cycle automatically
+        SpawnRandomCustomer();
     }
 
     public void SpawnRandomCustomer()
     {
+        if (customersServed >= maxCustomers)
+        {
+            Debug.Log("All customers have been served!");
+            return;
+        }
+
         if (availablePairs.Count == 0)
         {
             Debug.Log("All customer-case pairs have been spawned!");
@@ -50,7 +76,6 @@ public class CustomerManager : MonoBehaviour
         // Pick a random pair
         int index = Random.Range(0, availablePairs.Count);
         CustomerCasePair pair = availablePairs[index];
-
         // Remove the pair so it won't spawn again
         availablePairs.RemoveAt(index);
 
@@ -70,6 +95,35 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+
+    public void CustomerDone(float bufferTime)
+    {
+        if (activeCustomer != null) Destroy(activeCustomer);
+        activeCustomer = null;
+        customersServed++;
+
+        // Advance clock by 1 hour
+        if (clockManager != null)
+        {
+            clockManager.AdvanceHour();
+        }
+
+
+        if (customersServed < maxCustomers)
+        {
+            StartCoroutine(SpawnNextCustomerAfterDelay(bufferTime));
+        }
+        else
+        {
+            Debug.Log("All customers served for today.");
+        }
+    }
+
+    private IEnumerator SpawnNextCustomerAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpawnRandomCustomer();
+    }
 
 
     // -----------------------------
