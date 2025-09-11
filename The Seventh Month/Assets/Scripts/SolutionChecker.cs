@@ -53,7 +53,7 @@ public class SolutionChecker : MonoBehaviour
             // --- Show the failure poster ---
             if (customerManager.failurePosterManager != null && currentCase.failurePoster != null)
             {
-                customerManager.failurePosterManager.ShowPoster(currentCase.failurePoster);
+                customerManager.failurePosterManager.QueuePoster(currentCase.failurePoster);
             }
 
         }
