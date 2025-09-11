@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float moveAmount = 10f; // how much to move up/down
     public float moveSpeed = 5f;   // how fast to move (smooth)
 
     public Button buttonUp;
@@ -14,12 +13,20 @@ public class CameraMovement : MonoBehaviour
     // Other UI elements to hide/show when moving camera
     public GameObject[] uiElementsToToggle;
 
+    private Vector3 deskPosition;   // fixed starting pos
+    private Vector3 drawerPosition; // fixed lower pos
     private Vector3 targetPosition;
+
+    public float moveAmount = 10f; // how far down to move from desk
 
     void Start()
     {
-        // Start at current position
-        targetPosition = transform.position;
+        // Save fixed desk/drawer positions
+        deskPosition = transform.position;
+        drawerPosition = deskPosition + new Vector3(0, -moveAmount, 0);
+
+        // Start at desk
+        targetPosition = deskPosition;
 
         if (buttonUp != null) buttonUp.onClick.AddListener(MoveUp);
         if (buttonDown != null) buttonDown.onClick.AddListener(MoveDown);
@@ -37,7 +44,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveDown()
     {
-        targetPosition = transform.position + new Vector3(0, -moveAmount, 0);
+        targetPosition = drawerPosition; // go to fixed drawer pos
 
         ToggleUI(false);
 
@@ -48,7 +55,7 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveUp()
     {
-        targetPosition = transform.position + new Vector3(0, moveAmount, 0);
+        targetPosition = deskPosition; // go back to fixed desk pos
 
         ToggleUI(true);
 
