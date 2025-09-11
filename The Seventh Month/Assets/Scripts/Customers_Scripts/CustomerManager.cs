@@ -4,8 +4,6 @@ using UnityEngine;
 using static CustomerCase;
 
 [System.Serializable]
-
-
 public class CustomerCasePair
 {
     public CustomerData customer;
@@ -16,7 +14,6 @@ public class CustomerCasePair
         customer = c;
         customerCase = cc;
     }
-
 }
 
 public class CustomerManager : MonoBehaviour
@@ -24,108 +21,93 @@ public class CustomerManager : MonoBehaviour
     public CustomerData[] customers;
     public Transform spawnPoint;
     public PhotoPanelManager photoPanelManager;
-
     public FailurePosterManager failurePosterManager;
 
-    public ClockManager clockManager; // Assign in inspector
+    public ClockManager clockManager;
+    public TMPro.TextMeshProUGUI dayText; // in inspector
+
+
+    public DialogueManager dialogueManager;
 
     private GameObject activeCustomer;
     private CustomerCase activeCase;
-    public DialogueManager dialogueManager;
 
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
+    private Dictionary<CustomerData, int> failureCounts = new Dictionary<CustomerData, int>();
 
-
-    private int customersServed = 0; // track number of customers
-    public int maxCustomers = 5;     // stop after 5
+    private int customersServed = 0;
+    public int maxCustomers = 5;
 
     private int stalkerSpawned = 0;
+    public float bufferTime = 2f;
 
-    public float bufferTime = 2f; // default = 2 seconds
-
+    private int currentDay = 1;
+    private int maxDays = 4;
 
     void Start()
     {
-        // Fill availablePairs with all possible customer-case combinations
+        StartDay();
+    }
+
+    private void StartDay()
+    {
+        Debug.Log($"--- DAY {currentDay} START ---");
+
+        customersServed = 0;
+        stalkerSpawned = 0;
+
+        FillAvailablePairs();
+
+        if (clockManager != null)
+            clockManager.ResetClock();
+
+        // Update day text
+        if (dayText != null)
+            dayText.text = $"Day {currentDay}";
+
+        // Optional: animate day text
+        //if (dayText != null)
+        //    LeanTween.scale(dayText.gameObject, Vector3.one * 1.5f, 0.3f).setEasePunch().setOnComplete(() =>
+        //        LeanTween.scale(dayText.gameObject, Vector3.one, 0.2f));
+
+        SpawnRandomCustomer();
+    }
+
+
+    private void FillAvailablePairs()
+    {
+        availablePairs.Clear();
+
         foreach (var customer in customers)
         {
+            // skip "dead" customers
+            if (failureCounts.ContainsKey(customer) && failureCounts[customer] >= 2)
+                continue;
+
             foreach (var c in customer.possibleCases)
             {
                 availablePairs.Add(new CustomerCasePair(customer, c));
             }
-
-            // 👇 Reset clock to 1 PM at game start
-            if (clockManager != null)
-            {
-                clockManager.ResetClock();
-            }
         }
-        // Start the cycle automatically
-        SpawnRandomCustomer();
     }
 
     public void SpawnRandomCustomer()
     {
         if (customersServed >= maxCustomers)
         {
-            Debug.Log("All customers have been served!");
+            Debug.Log("All customers served for today.");
             return;
         }
 
         if (availablePairs.Count == 0)
         {
-            Debug.Log("All customer-case pairs have been spawned!");
+            Debug.Log("No available customers left to spawn.");
             return;
         }
 
-        CustomerCasePair pairToSpawn = null;
+        CustomerCasePair pairToSpawn = PickCustomerCasePair();
 
-        // Calculate remaining customers and ensure at least 1 stalker
-        int remainingCustomers = maxCustomers - customersServed;
-        bool mustSpawnStalker = (stalkerSpawned == 0 && remainingCustomers == 1);
-
-        if (mustSpawnStalker)
-        {
-            // Pick a stalker case
-            List<CustomerCasePair> stalkerPairs = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
-            if (stalkerPairs.Count > 0)
-            {
-                int index = Random.Range(0, stalkerPairs.Count);
-                pairToSpawn = stalkerPairs[index];
-            }
-        }
-        else
-        {
-            // Normal random weighted spawn (4 Ghost : 1 Stalker)
-            List<CustomerCasePair> ghostPairs = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Ghost);
-            List<CustomerCasePair> stalkerPairs = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
-
-            float totalWeight = ghostPairs.Count * 4 + stalkerPairs.Count * 1;
-            float r = Random.Range(0f, totalWeight);
-
-            if (r < ghostPairs.Count * 4)
-            {
-                int index = Random.Range(0, ghostPairs.Count);
-                pairToSpawn = ghostPairs[index];
-            }
-            else if (stalkerPairs.Count > 0)
-            {
-                int index = Random.Range(0, stalkerPairs.Count);
-                pairToSpawn = stalkerPairs[index];
-            }
-        }
-
-        if (pairToSpawn == null)
-        {
-            // fallback: just pick any
-            int index = Random.Range(0, availablePairs.Count);
-            pairToSpawn = availablePairs[index];
-        }
-
-
-        //// Pick a random pair
         availablePairs.Remove(pairToSpawn);
-
         activeCase = pairToSpawn.customerCase;
 
         if (activeCustomer != null) Destroy(activeCustomer);
@@ -134,28 +116,58 @@ public class CustomerManager : MonoBehaviour
         if (activeCase.caseType == CaseType.Stalker)
             stalkerSpawned++;
 
-        Debug.Log($"Customer: {activeCustomer.name}, Case: {activeCase.caseName} ({activeCase.caseType})");
-
+        Debug.Log($"Customer spawned. Case: {activeCase.caseName} ({activeCase.caseType})");
 
         PhotoEvidence[] randomPhotos = GetRandomPhotos(activeCase.evidencePhotos, 3);
 
         if (photoPanelManager != null)
         {
             photoPanelManager.ShowEvidencePhotos(randomPhotos);
-
             StartCoroutine(ShowThumbnailNextFrame());
         }
 
-        // Show the dialogue box with typing effect
         if (activeCase != null && dialogueManager != null)
-        {
             dialogueManager.ShowDialogue(activeCase.description);
-        }
     }
-    // 👇 Place the coroutine here (still inside the class)
+
+    private CustomerCasePair PickCustomerCasePair()
+    {
+        int remaining = maxCustomers - customersServed;
+        bool mustSpawnStalker = (stalkerSpawned == 0 && remaining == 1);
+
+        CustomerCasePair pair = null;
+
+        if (mustSpawnStalker)
+        {
+            var stalkers = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
+            if (stalkers.Count > 0)
+                pair = stalkers[Random.Range(0, stalkers.Count)];
+        }
+        else
+        {
+            var ghosts = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Ghost);
+            var stalkers = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
+
+            float stalkerWeight = 1f + (currentDay - 1) * 0.5f;
+            float totalWeight = ghosts.Count * 4 + stalkers.Count * stalkerWeight;
+
+            float r = Random.Range(0f, totalWeight);
+
+            if (r < ghosts.Count * 4 && ghosts.Count > 0)
+                pair = ghosts[Random.Range(0, ghosts.Count)];
+            else if (stalkers.Count > 0)
+                pair = stalkers[Random.Range(0, stalkers.Count)];
+        }
+
+        if (pair == null)
+            pair = availablePairs[Random.Range(0, availablePairs.Count)];
+
+        return pair;
+    }
+
     private IEnumerator ShowThumbnailNextFrame()
     {
-        yield return null; // wait for next frame
+        yield return null;
         photoPanelManager.ShowThumbnail();
     }
 
@@ -165,34 +177,23 @@ public class CustomerManager : MonoBehaviour
         activeCustomer = null;
         customersServed++;
 
-        // Advance clock by 1 hour
         if (clockManager != null)
         {
             clockManager.AdvanceHour();
+
+            // Since ClockManager doesn't expose currentHour, we assume 6 PM is reached when AdvanceHour stops advancing
+            if (customersServed >= maxCustomers)
+            {
+                EndDay();
+                return;
+            }
         }
 
-        if (photoPanelManager != null)
-        {
-            photoPanelManager.HideThumbnail();
-        }
-
-        if (dialogueManager != null)
-        {
-            dialogueManager.HideDialogue();
-        }
-
+        if (photoPanelManager != null) photoPanelManager.HideThumbnail();
+        if (dialogueManager != null) dialogueManager.HideDialogue();
 
         if (customersServed < maxCustomers)
-        {
             StartCoroutine(SpawnNextCustomerAfterDelay(bufferTime));
-        }
-        else
-        {
-            Debug.Log("All customers served for today.");
-        }
-
-
-
     }
 
     private IEnumerator SpawnNextCustomerAfterDelay(float delay)
@@ -201,9 +202,40 @@ public class CustomerManager : MonoBehaviour
         SpawnRandomCustomer();
     }
 
+    private void EndDay()
+    {
+        Debug.Log($"--- DAY {currentDay} END ---");
 
-    // -----------------------------
-    // Public getter for the current active case
+        currentDay++;
+        if (currentDay > maxDays)
+        {
+            Debug.Log("Game Over: all days completed!");
+            return;
+        }
+
+        StartDay();
+    }
+
+    public void RegisterFailure(CustomerData failedCustomer, Sprite failurePoster = null)
+    {
+        if (!failureCounts.ContainsKey(failedCustomer))
+            failureCounts[failedCustomer] = 0;
+
+        failureCounts[failedCustomer]++;
+
+        if (failureCounts[failedCustomer] >= 2)
+        {
+            Debug.Log($"Customer has died after 2 failures.");
+
+            if (failurePosterManager != null && failurePoster != null)
+                failurePosterManager.QueuePoster(failurePoster);
+        }
+        else
+        {
+            Debug.Log($"Customer failed once, will return later.");
+        }
+    }
+
     public CustomerCase GetActiveCase()
     {
         return activeCase;
@@ -212,8 +244,6 @@ public class CustomerManager : MonoBehaviour
     private PhotoEvidence[] GetRandomPhotos(PhotoEvidence[] pool, int count)
     {
         List<PhotoEvidence> shuffled = new List<PhotoEvidence>(pool);
-
-        // Fisher-Yates shuffle
         for (int i = 0; i < shuffled.Count; i++)
         {
             int randIndex = Random.Range(i, shuffled.Count);
@@ -221,13 +251,7 @@ public class CustomerManager : MonoBehaviour
             shuffled[i] = shuffled[randIndex];
             shuffled[randIndex] = temp;
         }
-
-        // Take first N
         int finalCount = Mathf.Min(count, shuffled.Count);
         return shuffled.GetRange(0, finalCount).ToArray();
     }
 }
-
-
-
-
