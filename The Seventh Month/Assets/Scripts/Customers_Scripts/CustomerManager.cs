@@ -136,7 +136,7 @@ public class CustomerManager : MonoBehaviour
         Debug.Log($"Customer: {activeCustomer.name}, Case: {activeCase.caseName} ({activeCase.caseType})");
 
 
-        Sprite[] randomPhotos = GetRandomPhotos(activeCase.evidencePhotos, 3);
+        PhotoEvidence[] randomPhotos = GetRandomPhotos(activeCase.evidencePhotos, 3);
 
         if (photoPanelManager != null)
         {
@@ -208,15 +208,15 @@ public class CustomerManager : MonoBehaviour
         return activeCase;
     }
 
-    private Sprite[] GetRandomPhotos(Sprite[] pool, int count)
+    private PhotoEvidence[] GetRandomPhotos(PhotoEvidence[] pool, int count)
     {
-        List<Sprite> shuffled = new List<Sprite>(pool);
+        List<PhotoEvidence> shuffled = new List<PhotoEvidence>(pool);
 
         // Fisher-Yates shuffle
         for (int i = 0; i < shuffled.Count; i++)
         {
             int randIndex = Random.Range(i, shuffled.Count);
-            Sprite temp = shuffled[i];
+            var temp = shuffled[i];
             shuffled[i] = shuffled[randIndex];
             shuffled[randIndex] = temp;
         }
@@ -226,6 +226,7 @@ public class CustomerManager : MonoBehaviour
         return shuffled.GetRange(0, finalCount).ToArray();
     }
 }
+
 
 
 

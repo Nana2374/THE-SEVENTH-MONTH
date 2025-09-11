@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+public class PhotoEvidence
+{
+    public Sprite photo;
+    [TextArea] public string caption;
+}
+
 [CreateAssetMenu(fileName = "NewCustomerCase", menuName = "Game/Customer Case")]
 public class CustomerCase : ScriptableObject
 {
@@ -13,7 +21,12 @@ public class CustomerCase : ScriptableObject
     [Header("Case Info")]
     public string caseName;               // e.g. "Orang Minyak Encounter"
     [TextArea] public string description; // What the customer says or shows
-    public Sprite[] evidencePhotos;       // Evidence pictures
+
+
+    [Header("Case Evidence")]
+    public PhotoEvidence[] evidencePhotos;  // Photos with captions
+
+
 
     [Header("Solution")]
     public ItemData[] requiredItems;      // Items needed to solve the case

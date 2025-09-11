@@ -16,9 +16,12 @@ MonoBehaviour:
   caseName: ObsessiveStalker
   description: Sometimes I hear footsteps behind me....
   evidencePhotos:
-  - {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
-  - {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
-  - {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
+  - photo: {fileID: 21300000, guid: 1485a65e567d3694ea6f88613e2e6f65, type: 3}
+    caption: OH
+  - photo: {fileID: 21300000, guid: 41268041a643ac941b4aca671a7b547b, type: 3}
+    caption: 'I hear '
+  - photo: {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
+    caption: Love letters are sent to my house
   requiredItems:
   - {fileID: 11400000, guid: b3b24b50acb92594aa5dd5fb3a275254, type: 2}
   failureOutcome: '"Customer got assaulted"'

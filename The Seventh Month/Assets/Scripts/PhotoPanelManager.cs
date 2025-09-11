@@ -10,7 +10,7 @@ public class PhotoPanelManager : MonoBehaviour
 
     [Header("Photo Slots")]
     public Image[] photoSlots; // Drag 3 UI Image components here in the Inspector
-
+    public TMPro.TextMeshProUGUI[] captionSlots;    // UI Text for captions
 
 
     void Start()
@@ -45,18 +45,27 @@ public class PhotoPanelManager : MonoBehaviour
     }
 
     // 👉 NEW METHOD to actually show the photos
-    public void ShowEvidencePhotos(Sprite[] photos)
+    public void ShowEvidencePhotos(PhotoEvidence[] evidences)
     {
-        for (int i = 0; i < photoSlots.Length; i++)
+        for (int i = 0; i < photoSlots.Length; i++) // will choose from the array 
         {
-            if (i < photos.Length)
+            if (i < evidences.Length)
             {
-                photoSlots[i].sprite = photos[i];
+                photoSlots[i].sprite = evidences[i].photo;
                 photoSlots[i].gameObject.SetActive(true);
+
+                if (i < captionSlots.Length)
+                {
+                    captionSlots[i].text = evidences[i].caption;
+                    captionSlots[i].gameObject.SetActive(true);
+                }
             }
             else
             {
                 photoSlots[i].gameObject.SetActive(false); // hide unused slots
+
+                if (i < captionSlots.Length)
+                    captionSlots[i].gameObject.SetActive(false);
             }
         }
     }
