@@ -34,3 +34,4 @@ public class CustomerCase : ScriptableObject
     public Sprite failurePoster; // assign a unique poster for each case
 }
 
+

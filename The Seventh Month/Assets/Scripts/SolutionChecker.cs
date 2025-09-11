@@ -5,6 +5,8 @@ public class SolutionChecker : MonoBehaviour
 {
     public InventoryManager inventoryManager;
     public CustomerManager customerManager;
+    public FailurePosterManager failurePosterManager; // must be linked in Inspector
+
 
     public void SubmitSolution()
     {
@@ -48,14 +50,13 @@ public class SolutionChecker : MonoBehaviour
         else
         {
             Debug.Log("Failure... " + currentCase.failureOutcome);
-            // TODO: Trigger failure UI here
 
-            // --- Show the failure poster ---
-            if (customerManager.failurePosterManager != null && currentCase.failurePoster != null)
+            // Tell CustomerManager about the failure
+            if (customerManager != null && customerManager.GetActiveCase() != null)
             {
-                customerManager.failurePosterManager.QueuePoster(currentCase.failurePoster);
+                CustomerData failedCustomer = customerManager.GetActiveCustomerData();
+                customerManager.RegisterFailure(failedCustomer);
             }
-
         }
         customerManager.CustomerDone(customerManager.bufferTime);
     }
