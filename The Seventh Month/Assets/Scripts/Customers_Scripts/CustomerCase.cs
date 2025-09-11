@@ -22,15 +22,15 @@ public class CustomerCase : ScriptableObject
     public string caseName;               // e.g. "Orang Minyak Encounter"
     [TextArea] public string description; // What the customer says or shows
 
-
     [Header("Case Evidence")]
     public PhotoEvidence[] evidencePhotos;  // Photos with captions
-
-
 
     [Header("Solution")]
     public ItemData[] requiredItems;      // Items needed to solve the case
     public string failureOutcome;         // What happens if unsolved
     public string successOutcome;         // What happens if solved
+
+    [Header("Failure Poster")]
+    public Sprite failurePoster; // assign a unique poster for each case
 }
 

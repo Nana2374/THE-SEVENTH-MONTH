@@ -49,6 +49,13 @@ public class SolutionChecker : MonoBehaviour
         {
             Debug.Log("Failure... " + currentCase.failureOutcome);
             // TODO: Trigger failure UI here
+
+            // --- Show the failure poster ---
+            if (customerManager.failurePosterManager != null && currentCase.failurePoster != null)
+            {
+                customerManager.failurePosterManager.ShowPoster(currentCase.failurePoster);
+            }
+
         }
         customerManager.CustomerDone(customerManager.bufferTime);
     }

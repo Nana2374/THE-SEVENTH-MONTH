@@ -25,6 +25,7 @@ public class CustomerManager : MonoBehaviour
     public Transform spawnPoint;
     public PhotoPanelManager photoPanelManager;
 
+    public FailurePosterManager failurePosterManager;
 
     public ClockManager clockManager; // Assign in inspector
 
