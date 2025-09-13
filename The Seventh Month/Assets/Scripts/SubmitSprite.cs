@@ -3,6 +3,7 @@ using UnityEngine;
 public class SubmitSprite : MonoBehaviour
 {
     public SolutionChecker solutionChecker; // assign in inspector
+    public CameraMovement cameraMovement;   // assign in inspector
 
     void OnMouseDown()
     {
@@ -10,6 +11,11 @@ public class SubmitSprite : MonoBehaviour
         {
             solutionChecker.SubmitSolution();
             Debug.Log("Submit sprite clicked!");
+        }
+
+        if (cameraMovement != null)
+        {
+            cameraMovement.MoveUp(); // pan camera back to desk
         }
     }
 }

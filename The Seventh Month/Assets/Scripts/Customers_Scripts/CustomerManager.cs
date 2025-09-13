@@ -34,6 +34,8 @@ public class CustomerManager : MonoBehaviour
 
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
     private Dictionary<CustomerData, int> failureCounts = new Dictionary<CustomerData, int>();
+    private Dictionary<CustomerData, int> lastFailureDay = new Dictionary<CustomerData, int>();
+
 
     private int customersServed = 0;
     public int maxCustomers = 5;
@@ -80,9 +82,14 @@ public class CustomerManager : MonoBehaviour
 
         foreach (var customer in customers)
         {
-            // skip "dead" customers
+            // Skip dead customers
             if (failureCounts.ContainsKey(customer) && failureCounts[customer] >= 2)
                 continue;
+
+            // Skip first-failure customers until the next day
+            if (lastFailureDay.ContainsKey(customer) && lastFailureDay[customer] == currentDay)
+                continue;
+
 
             foreach (var c in customer.possibleCases)
             {
@@ -90,6 +97,7 @@ public class CustomerManager : MonoBehaviour
             }
         }
     }
+
 
     public void SpawnRandomCustomer()
     {
@@ -173,25 +181,49 @@ public class CustomerManager : MonoBehaviour
 
     public void CustomerDone(float bufferTime)
     {
-        if (activeCustomer != null) Destroy(activeCustomer);
-        activeCustomer = null;
-        customersServed++;
+        // Start coroutine to keep customer for 2 seconds before leaving
+        StartCoroutine(CustomerLeaveAfterDelay(3f));
+    }
 
+    private IEnumerator CustomerLeaveAfterDelay(float delay)
+    {
+        // Show "thanks" dialogue
+        if (dialogueManager != null)
+        {
+            dialogueManager.ShowDialogue("Thanks, I'll try it out!");
+        }
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(delay);
+
+        // Hide dialogue
+        if (dialogueManager != null)
+            dialogueManager.HideDialogue();
+
+        // Destroy the active customer
+        if (activeCustomer != null)
+        {
+            Destroy(activeCustomer);
+            activeCustomer = null;
+        }
+
+        // Advance hour and check for end of day
+        customersServed++;
         if (clockManager != null)
         {
             clockManager.AdvanceHour();
-
-            // Since ClockManager doesn't expose currentHour, we assume 6 PM is reached when AdvanceHour stops advancing
             if (customersServed >= maxCustomers)
             {
                 EndDay();
-                return;
+                yield break;
             }
         }
 
-        if (photoPanelManager != null) photoPanelManager.HideThumbnail();
-        if (dialogueManager != null) dialogueManager.HideDialogue();
+        // Hide photo thumbnail
+        if (photoPanelManager != null)
+            photoPanelManager.HideThumbnail();
 
+        // Spawn next customer if any remain
         if (customersServed < maxCustomers)
             StartCoroutine(SpawnNextCustomerAfterDelay(bufferTime));
     }
@@ -227,27 +259,30 @@ public class CustomerManager : MonoBehaviour
 
         if (failures == 1)
         {
-            Debug.Log($"[CustomerManager] {failedCustomer.customerName} failed once, will return later.");
+            Debug.Log($"[CustomerManager] {failedCustomer.customerName} failed once, will return next day.");
 
-            // ✅ They can come back — just leave them in the available pool for next spawn cycle
-            // (no prefab change yet, you will handle appearance later)
+            // Record the day they failed
+            lastFailureDay[failedCustomer] = currentDay;
+
+            //  They will return tomorrow, do not remove from pool
         }
         else if (failures >= 2)
         {
             Debug.Log($"[CustomerManager] {failedCustomer.customerName} has died after 2 failures.");
 
-
-            // ✅ Spawn failure poster
+            // Spawn failure poster
             if (failurePosterManager != null && failurePoster != null)
             {
                 Debug.Log("[CustomerManager] Queuing poster for dead customer.");
                 failurePosterManager.QueuePoster(failurePoster);
             }
 
-            // ✅ Remove from pool so they never return
+            // Remove from pool permanently
+            Debug.Log($"[CustomerManager] {failedCustomer.customerName} has been removed from list.");
             availablePairs.RemoveAll(pair => pair.customer == failedCustomer);
         }
     }
+
     public CustomerData GetActiveCustomerData()
     {
         // Loop through all customers
