@@ -3791,12 +3791,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customers:
-  - customerPrefab: {fileID: 7794973099769785008, guid: af7786dda0608734582b15c4dff3b802, type: 3}
+  - customerName: 
+    customerPrefab: {fileID: 7794973099769785008, guid: af7786dda0608734582b15c4dff3b802, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: 9737bfc14912ffe41ab143aad18706f5, type: 2}
     - {fileID: 11400000, guid: aab2adb9297c6c14ea6afe9a38cad303, type: 2}
-  - customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
+  - customerName: 
+    customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
+    possibleCases:
+    - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
+    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
+    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+  - customerName: 
+    customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
+    possibleCases:
+    - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
+    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
+    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+  - customerName: 
+    customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
+    possibleCases:
+    - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
+    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
+    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+  - customerName: 
+    customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}

@@ -15,6 +15,7 @@ public class FailurePosterManager : MonoBehaviour
     {
         if (posterSprite != null)
         {
+            Debug.Log("Poster in queue");
             StartCoroutine(SpawnPosterAfterDelay(posterSprite));
         }
     }
@@ -24,6 +25,7 @@ public class FailurePosterManager : MonoBehaviour
         yield return new WaitForSeconds(posterDelay);
 
         // Spawn poster under the board
+        Debug.Log("Poster spawn");
         GameObject newPoster = Instantiate(posterPrefab, posterBoard);
         RectTransform rt = newPoster.GetComponent<RectTransform>();
         Image img = newPoster.GetComponent<Image>();

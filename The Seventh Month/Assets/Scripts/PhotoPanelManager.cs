@@ -72,13 +72,13 @@ public class PhotoPanelManager : MonoBehaviour
 
     public void ShowThumbnail()
     {
-        Debug.Log("Thumbnail shown!");
+        Debug.Log("Photo Thumbnail shown!");
         thumbnailButton.gameObject.SetActive(true);
     }
 
     public void HideThumbnail()
     {
-        Debug.Log("Thumbnail hidden!");
+        Debug.Log("Photo Thumbnail hidden!");
         thumbnailButton.gameObject.SetActive(false);
     }
 }

@@ -223,18 +223,48 @@ public class CustomerManager : MonoBehaviour
 
         failureCounts[failedCustomer]++;
 
-        if (failureCounts[failedCustomer] >= 2)
-        {
-            Debug.Log($"Customer has died after 2 failures.");
+        int failures = failureCounts[failedCustomer];
 
-            if (failurePosterManager != null && failurePoster != null)
-                failurePosterManager.QueuePoster(failurePoster);
-        }
-        else
+        if (failures == 1)
         {
-            Debug.Log($"Customer failed once, will return later.");
+            Debug.Log($"[CustomerManager] {failedCustomer.customerName} failed once, will return later.");
+
+            // ✅ They can come back — just leave them in the available pool for next spawn cycle
+            // (no prefab change yet, you will handle appearance later)
+        }
+        else if (failures >= 2)
+        {
+            Debug.Log($"[CustomerManager] {failedCustomer.customerName} has died after 2 failures.");
+
+
+            // ✅ Spawn failure poster
+            if (failurePosterManager != null && failurePoster != null)
+            {
+                Debug.Log("[CustomerManager] Queuing poster for dead customer.");
+                failurePosterManager.QueuePoster(failurePoster);
+            }
+
+            // ✅ Remove from pool so they never return
+            availablePairs.RemoveAll(pair => pair.customer == failedCustomer);
         }
     }
+    public CustomerData GetActiveCustomerData()
+    {
+        // Loop through all customers
+        foreach (var customer in customers)
+        {
+            // Check if this customer has the currently active case
+            foreach (var c in customer.possibleCases)
+            {
+                if (c == activeCase)
+                    return customer;
+            }
+        }
+
+        Debug.LogWarning("[CustomerManager] GetActiveCustomerData: No matching customer found for active case.");
+        return null;
+    }
+
 
     public CustomerCase GetActiveCase()
     {

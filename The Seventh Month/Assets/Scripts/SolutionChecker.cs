@@ -8,27 +8,23 @@ public class SolutionChecker : MonoBehaviour
 
     public void SubmitSolution()
     {
-        // --- Safety checks ---
         if (inventoryManager == null || customerManager == null)
         {
-            Debug.LogWarning("Missing references!");
+            Debug.LogWarning("[SolutionChecker] Missing references!");
             return;
         }
 
-        // --- Get the current active customer case ---
         CustomerCase currentCase = customerManager.GetActiveCase();
         if (currentCase == null)
         {
-            Debug.LogWarning("No active customer case. Make sure a customer has been spawned!");
+            Debug.LogWarning("[SolutionChecker] No active customer case.");
             return;
         }
 
-        Debug.Log("Submitting solution for customer case: " + currentCase.caseName);
+        Debug.Log($"[SolutionChecker] Checking solution for: {currentCase.caseName}");
 
-        // --- Get items in inventory ---
         List<ItemData> playerItems = inventoryManager.GetCurrentItemsData();
 
-        // --- Check if all required items are present ---
         bool solved = true;
         foreach (ItemData required in currentCase.requiredItems)
         {
@@ -39,24 +35,24 @@ public class SolutionChecker : MonoBehaviour
             }
         }
 
-        // --- Show outcome ---
         if (solved)
         {
-            Debug.Log("Success! " + currentCase.successOutcome);
-            // TODO: Trigger success UI here
+            Debug.Log($"[SolutionChecker] SUCCESS: {currentCase.successOutcome}");
+            // TODO: Trigger success UI/animation here
         }
         else
         {
-            Debug.Log("Failure... " + currentCase.failureOutcome);
-            // TODO: Trigger failure UI here
-
-            // --- Show the failure poster ---
-            if (customerManager.failurePosterManager != null && currentCase.failurePoster != null)
+            Debug.Log($"[SolutionChecker] FAILURE: {currentCase.failureOutcome}");
+            //  Delegate to CustomerManager so it decides whether to show poster
+            if (customerManager != null)
             {
-                customerManager.failurePosterManager.QueuePoster(currentCase.failurePoster);
+                customerManager.RegisterFailure(
+                    customerManager.GetActiveCustomerData(), // <- New helper to get current CustomerData
+                    currentCase.failurePoster
+                );
             }
-
         }
+
         customerManager.CustomerDone(customerManager.bufferTime);
     }
 }
