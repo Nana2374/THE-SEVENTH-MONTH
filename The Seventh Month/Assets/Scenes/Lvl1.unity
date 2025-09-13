@@ -3771,6 +3771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448714125}
   - component: {fileID: 448714124}
+  - component: {fileID: 448714126}
   m_Layer: 0
   m_Name: CustomerSpawner
   m_TagString: Untagged
@@ -3797,36 +3798,47 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: 9737bfc14912ffe41ab143aad18706f5, type: 2}
     - {fileID: 11400000, guid: aab2adb9297c6c14ea6afe9a38cad303, type: 2}
+    arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
+    departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Alex
     customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
+    departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Li
     customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
+    departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Ahmad
     customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
+    departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Xiao Mei
     customerPrefab: {fileID: 7794973099769785008, guid: af7786dda0608734582b15c4dff3b802, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
+    departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   spawnPoint: {fileID: 1957630579}
   photoPanelManager: {fileID: 1125538517}
   failurePosterManager: {fileID: 1214164728}
   clockManager: {fileID: 1937065524}
   dayText: {fileID: 386691837}
   dialogueManager: {fileID: 691174054}
+  audioSource: {fileID: 448714126}
   maxCustomers: 5
   bufferTime: 5
 --- !u!4 &448714125
@@ -3844,6 +3856,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 910990293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &448714126
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448714123}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &470491509
 GameObject:
   m_ObjectHideFlags: 0
@@ -11432,7 +11540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.589111, y: 393}
+  m_AnchoredPosition: {x: -31.589172, y: 393}
   m_SizeDelta: {x: -1409.183, y: -1002.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992575288

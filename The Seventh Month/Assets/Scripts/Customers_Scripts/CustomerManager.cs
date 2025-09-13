@@ -24,13 +24,14 @@ public class CustomerManager : MonoBehaviour
     public FailurePosterManager failurePosterManager;
 
     public ClockManager clockManager;
-    public TMPro.TextMeshProUGUI dayText; // in inspector
+    public TMPro.TextMeshProUGUI dayText;
 
 
     public DialogueManager dialogueManager;
 
     private GameObject activeCustomer;
     private CustomerCase activeCase;
+    public AudioSource audioSource;
 
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
     private Dictionary<CustomerData, int> failureCounts = new Dictionary<CustomerData, int>();
@@ -101,33 +102,33 @@ public class CustomerManager : MonoBehaviour
 
     public void SpawnRandomCustomer()
     {
-        if (customersServed >= maxCustomers)
-        {
-            Debug.Log("All customers served for today.");
+        if (customersServed >= maxCustomers || availablePairs.Count == 0)
             return;
-        }
-
-        if (availablePairs.Count == 0)
-        {
-            Debug.Log("No available customers left to spawn.");
-            return;
-        }
 
         CustomerCasePair pairToSpawn = PickCustomerCasePair();
-
         availablePairs.Remove(pairToSpawn);
         activeCase = pairToSpawn.customerCase;
 
+        CustomerData customer = pairToSpawn.customer;
+        StartCoroutine(SpawnCustomerAfterArrivalSound(customer));
+    }
+
+    private IEnumerator SpawnCustomerAfterArrivalSound(CustomerData customer)
+    {
+        // Play arrival audio first
+        if (customer.arrivalClip != null && audioSource != null)
+        {
+            audioSource.clip = customer.arrivalClip;
+            audioSource.Play();
+            yield return new WaitForSeconds(customer.arrivalClip.length);
+        }
+
+        // Spawn customer
         if (activeCustomer != null) Destroy(activeCustomer);
-        activeCustomer = Instantiate(pairToSpawn.customer.customerPrefab, spawnPoint.position, spawnPoint.rotation);
+        activeCustomer = Instantiate(customer.customerPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        if (activeCase.caseType == CaseType.Stalker)
-            stalkerSpawned++;
-
-        Debug.Log($"Customer spawned. Case: {activeCase.caseName} ({activeCase.caseType})");
-
+        // Show photos and dialogue
         PhotoEvidence[] randomPhotos = GetRandomPhotos(activeCase.evidencePhotos, 3);
-
         if (photoPanelManager != null)
         {
             photoPanelManager.ShowEvidencePhotos(randomPhotos);
@@ -137,7 +138,6 @@ public class CustomerManager : MonoBehaviour
         if (activeCase != null && dialogueManager != null)
             dialogueManager.ShowDialogue(activeCase.description);
     }
-
     private CustomerCasePair PickCustomerCasePair()
     {
         int remaining = maxCustomers - customersServed;
@@ -203,6 +203,13 @@ public class CustomerManager : MonoBehaviour
         // Destroy the active customer
         if (activeCustomer != null)
         {
+            // Play departure audio
+            CustomerData activeCustomerData = GetActiveCustomerData();
+            if (audioSource != null && activeCustomerData != null && activeCustomerData.departureClip != null)
+            {
+                audioSource.PlayOneShot(activeCustomerData.departureClip);
+            }
+
             Destroy(activeCustomer);
             activeCustomer = null;
         }
