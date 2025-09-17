@@ -4,10 +4,12 @@ using UnityEngine;
 using static CustomerCase;
 
 [System.Serializable]
+
 public class CustomerCasePair
 {
     public CustomerData customer;
     public CustomerCase customerCase;
+
 
     public CustomerCasePair(CustomerData c, CustomerCase cc)
     {
@@ -15,6 +17,8 @@ public class CustomerCasePair
         customerCase = cc;
     }
 }
+
+
 
 public class CustomerManager : MonoBehaviour
 {
@@ -34,6 +38,11 @@ public class CustomerManager : MonoBehaviour
     private CustomerData activeCustomerData;  // <-- Track current customer
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
     private Dictionary<CustomerData, int> failureCounts = new Dictionary<CustomerData, int>();
+<<<<<<< Updated upstream
+=======
+    private Dictionary<CustomerData, int> lastFailureDay = new Dictionary<CustomerData, int>();
+    private Dictionary<CustomerData, CustomerAppearanceData> customerAppearances = new Dictionary<CustomerData, CustomerAppearanceData>();
+>>>>>>> Stashed changes
 
     private int customersServed = 0;
     public int maxCustomers = 5;
@@ -142,6 +151,28 @@ public class CustomerManager : MonoBehaviour
 
         Debug.Log($"Customer: {activeCustomerData.customerName}, Case: {activeCase.caseName} ({activeCase.caseType})");
 
+<<<<<<< Updated upstream
+=======
+        // Get CustomerAppearance component
+        CustomerAppearance appearance = activeCustomer.GetComponent<CustomerAppearance>();
+        if (appearance != null)
+        {
+            // Check if we already have a saved appearance
+            if (!customerAppearances.ContainsKey(customer))
+            {
+                // First time: randomize and save it
+                appearance.RandomizeAppearance();
+                customerAppearances[customer] = appearance.GetAppearanceData();
+            }
+            else
+            {
+                // Apply previously saved appearance
+                appearance.ApplyAppearance(customerAppearances[customer]);
+            }
+        }
+
+        // Show photos and dialogue
+>>>>>>> Stashed changes
         PhotoEvidence[] randomPhotos = GetRandomPhotos(activeCase.evidencePhotos, 3);
         if (photoPanelManager != null)
         {
@@ -152,6 +183,45 @@ public class CustomerManager : MonoBehaviour
         if (activeCase != null && dialogueManager != null)
             dialogueManager.ShowDialogue(activeCase.description);
     }
+<<<<<<< Updated upstream
+=======
+
+
+    private CustomerCasePair PickCustomerCasePair()
+    {
+        int remaining = maxCustomers - customersServed;
+        bool mustSpawnStalker = (stalkerSpawned == 0 && remaining == 1);
+
+        CustomerCasePair pair = null;
+
+        if (mustSpawnStalker)
+        {
+            var stalkers = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
+            if (stalkers.Count > 0)
+                pair = stalkers[Random.Range(0, stalkers.Count)];
+        }
+        else
+        {
+            var ghosts = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Ghost);
+            var stalkers = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
+
+            float stalkerWeight = 1f + (currentDay - 1) * 0.5f;
+            float totalWeight = ghosts.Count * 4 + stalkers.Count * stalkerWeight;
+
+            float r = Random.Range(0f, totalWeight);
+
+            if (r < ghosts.Count * 4 && ghosts.Count > 0)
+                pair = ghosts[Random.Range(0, ghosts.Count)];
+            else if (stalkers.Count > 0)
+                pair = stalkers[Random.Range(0, stalkers.Count)];
+        }
+
+        if (pair == null)
+            pair = availablePairs[Random.Range(0, availablePairs.Count)];
+
+        return pair;
+    }
+>>>>>>> Stashed changes
 
     private IEnumerator ShowThumbnailNextFrame()
     {
@@ -191,6 +261,7 @@ public class CustomerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SpawnRandomCustomer();
+
     }
 
     private void EndDay()

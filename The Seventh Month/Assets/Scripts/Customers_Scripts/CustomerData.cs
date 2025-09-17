@@ -9,5 +9,17 @@ public class CustomerData
     public GameObject customerPrefab;    // Drag your prefab here
     public Sprite posterSprite;          //  Add this field for the bulletin board poster
     public CustomerCase[] possibleCases; // Drag your ScriptableObject cases here
+<<<<<<< Updated upstream
+=======
+
+
+
+    // Audio
+    public AudioClip arrivalClip;
+    public AudioClip departureClip;
+
+    // Appearance (persistent per customer)
+    public CustomerAppearanceData appearanceData; // <-- store chosen look here
+>>>>>>> Stashed changes
 }
 
