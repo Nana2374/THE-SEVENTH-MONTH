@@ -251,6 +251,17 @@ public class CustomerManager : MonoBehaviour
             return;
         }
 
+        StartCoroutine(PlayDayTransition(currentDay));
+    }
+
+    private IEnumerator PlayDayTransition(int day)
+    {
+        // Find transition manager in scene
+        DayTransitionManager transition = FindObjectOfType<DayTransitionManager>();
+
+        if (transition != null)
+            yield return StartCoroutine(transition.PlayTransition(day));
+
         StartDay();
     }
 
