@@ -3915,6 +3915,7 @@ MonoBehaviour:
   customers:
   - customerName: Linda
     customerSprite: {fileID: -2068456435, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
+    failureSprite: {fileID: -555975967, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: 9737bfc14912ffe41ab143aad18706f5, type: 2}
@@ -3923,6 +3924,7 @@ MonoBehaviour:
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Alex
     customerSprite: {fileID: -1132926918, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
+    failureSprite: {fileID: -1047789125, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
@@ -3931,6 +3933,7 @@ MonoBehaviour:
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Li
     customerSprite: {fileID: 1142806183, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
+    failureSprite: {fileID: 884855267, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
@@ -3939,6 +3942,7 @@ MonoBehaviour:
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Ahmad
     customerSprite: {fileID: 1476766343, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
+    failureSprite: {fileID: 1097096904, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
@@ -3947,6 +3951,7 @@ MonoBehaviour:
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Xiao Mei
     customerSprite: {fileID: -1282960431, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
+    failureSprite: {fileID: 676766398, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
@@ -3955,6 +3960,7 @@ MonoBehaviour:
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Bryan
     customerSprite: {fileID: 1752000242, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
+    failureSprite: {fileID: 966239041, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}

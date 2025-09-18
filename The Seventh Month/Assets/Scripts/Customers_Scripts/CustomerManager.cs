@@ -122,6 +122,13 @@ public class CustomerManager : MonoBehaviour
         SpriteRenderer sr = activeCustomer.AddComponent<SpriteRenderer>();
         sr.sprite = customer.customerSprite;
 
+        //For failure look
+        if (failureCounts.ContainsKey(customer) && failureCounts[customer] > 0)
+            sr.sprite = customer.failureSprite;   // Show worsened sprite
+        else
+            sr.sprite = customer.customerSprite;  // Show normal sprite
+
+
         // Optional: adjust sorting layer so it shows up in front
         sr.sortingLayerName = "Characters";
 

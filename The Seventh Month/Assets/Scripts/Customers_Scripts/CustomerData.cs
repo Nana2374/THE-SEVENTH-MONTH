@@ -7,6 +7,7 @@ public class CustomerData
 {
     public string customerName;         // Add this line
     public Sprite customerSprite;  // <--- ADD SPRITE
+    public Sprite failureSprite;       // Appearance if failed previously
     public CustomerCase[] possibleCases; // Drag your ScriptableObject cases here
 
     // Audio
