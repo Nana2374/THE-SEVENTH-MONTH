@@ -25,18 +25,15 @@ public class CustomerManager : MonoBehaviour
 
     public ClockManager clockManager;
     public TMPro.TextMeshProUGUI dayText;
-
-
     public DialogueManager dialogueManager;
+    public AudioSource audioSource;
 
     private GameObject activeCustomer;
-    private CustomerCase activeCase;
-    public AudioSource audioSource;
+    private CustomerCasePair activePair; // store active customer + case
 
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
     private Dictionary<CustomerData, int> failureCounts = new Dictionary<CustomerData, int>();
     private Dictionary<CustomerData, int> lastFailureDay = new Dictionary<CustomerData, int>();
-
 
     private int customersServed = 0;
     public int maxCustomers = 5;
@@ -64,18 +61,11 @@ public class CustomerManager : MonoBehaviour
         if (clockManager != null)
             clockManager.ResetClock();
 
-        // Update day text
         if (dayText != null)
             dayText.text = $"Day {currentDay}";
 
-        // Optional: animate day text
-        //if (dayText != null)
-        //    LeanTween.scale(dayText.gameObject, Vector3.one * 1.5f, 0.3f).setEasePunch().setOnComplete(() =>
-        //        LeanTween.scale(dayText.gameObject, Vector3.one, 0.2f));
-
         SpawnRandomCustomer();
     }
-
 
     private void FillAvailablePairs()
     {
@@ -91,14 +81,15 @@ public class CustomerManager : MonoBehaviour
             if (lastFailureDay.ContainsKey(customer) && lastFailureDay[customer] == currentDay)
                 continue;
 
-
-            foreach (var c in customer.possibleCases)
+            // Pick ONE random case for this customer
+            if (customer.possibleCases.Length > 0)
             {
-                availablePairs.Add(new CustomerCasePair(customer, c));
+                // Optionally instantiate a copy if modifying cases at runtime
+                CustomerCase randomCase = customer.possibleCases[Random.Range(0, customer.possibleCases.Length)];
+                availablePairs.Add(new CustomerCasePair(customer, randomCase));
             }
         }
     }
-
 
     public void SpawnRandomCustomer()
     {
@@ -107,15 +98,14 @@ public class CustomerManager : MonoBehaviour
 
         CustomerCasePair pairToSpawn = PickCustomerCasePair();
         availablePairs.Remove(pairToSpawn);
-        activeCase = pairToSpawn.customerCase;
 
+        activePair = pairToSpawn;
         CustomerData customer = pairToSpawn.customer;
         StartCoroutine(SpawnCustomerAfterArrivalSound(customer));
     }
 
     private IEnumerator SpawnCustomerAfterArrivalSound(CustomerData customer)
     {
-        // Play arrival audio first
         if (customer.arrivalClip != null && audioSource != null)
         {
             audioSource.clip = customer.arrivalClip;
@@ -123,21 +113,25 @@ public class CustomerManager : MonoBehaviour
             yield return new WaitForSeconds(customer.arrivalClip.length);
         }
 
-        // Spawn customer
         if (activeCustomer != null) Destroy(activeCustomer);
         activeCustomer = Instantiate(customer.customerPrefab, spawnPoint.position, spawnPoint.rotation);
 
+        // DEBUG: Log which customer spawned
+        Debug.Log($"[CustomerManager] Customer Spawned: {customer.customerName}");
+
+
         // Show photos and dialogue
-        PhotoEvidence[] randomPhotos = GetRandomPhotos(activeCase.evidencePhotos, 3);
+        PhotoEvidence[] randomPhotos = GetRandomPhotos(activePair.customerCase.evidencePhotos, 3);
         if (photoPanelManager != null)
         {
             photoPanelManager.ShowEvidencePhotos(randomPhotos);
             StartCoroutine(ShowThumbnailNextFrame());
         }
 
-        if (activeCase != null && dialogueManager != null)
-            dialogueManager.ShowDialogue(activeCase.description);
+        if (activePair.customerCase != null && dialogueManager != null)
+            dialogueManager.ShowDialogue(activePair.customerCase.description);
     }
+
     private CustomerCasePair PickCustomerCasePair()
     {
         int remaining = maxCustomers - customersServed;
@@ -167,7 +161,7 @@ public class CustomerManager : MonoBehaviour
                 pair = stalkers[Random.Range(0, stalkers.Count)];
         }
 
-        if (pair == null)
+        if (pair == null && availablePairs.Count > 0)
             pair = availablePairs[Random.Range(0, availablePairs.Count)];
 
         return pair;
@@ -181,40 +175,32 @@ public class CustomerManager : MonoBehaviour
 
     public void CustomerDone(float bufferTime)
     {
-        // Start coroutine to keep customer for 2 seconds before leaving
-        StartCoroutine(CustomerLeaveAfterDelay(3f));
+        StartCoroutine(CustomerLeaveAfterDelay(bufferTime));
     }
 
     private IEnumerator CustomerLeaveAfterDelay(float delay)
     {
-        // Show "thanks" dialogue
         if (dialogueManager != null)
         {
             dialogueManager.ShowDialogue("Thanks, I'll try it out!");
         }
 
-        // Wait for 2 seconds
         yield return new WaitForSeconds(delay);
 
-        // Hide dialogue
         if (dialogueManager != null)
             dialogueManager.HideDialogue();
 
-        // Destroy the active customer
         if (activeCustomer != null)
         {
-            // Play departure audio
-            CustomerData activeCustomerData = GetActiveCustomerData();
-            if (audioSource != null && activeCustomerData != null && activeCustomerData.departureClip != null)
+            if (audioSource != null && activePair != null && activePair.customer.departureClip != null)
             {
-                audioSource.PlayOneShot(activeCustomerData.departureClip);
+                audioSource.PlayOneShot(activePair.customer.departureClip);
             }
 
             Destroy(activeCustomer);
             activeCustomer = null;
         }
 
-        // Advance hour and check for end of day
         customersServed++;
         if (clockManager != null)
         {
@@ -226,11 +212,9 @@ public class CustomerManager : MonoBehaviour
             }
         }
 
-        // Hide photo thumbnail
         if (photoPanelManager != null)
             photoPanelManager.HideThumbnail();
 
-        // Spawn next customer if any remain
         if (customersServed < maxCustomers)
             StartCoroutine(SpawnNextCustomerAfterDelay(bufferTime));
     }
@@ -244,7 +228,6 @@ public class CustomerManager : MonoBehaviour
     private void EndDay()
     {
         Debug.Log($"--- DAY {currentDay} END ---");
-
         currentDay++;
         if (currentDay > maxDays)
         {
@@ -261,56 +244,32 @@ public class CustomerManager : MonoBehaviour
             failureCounts[failedCustomer] = 0;
 
         failureCounts[failedCustomer]++;
-
         int failures = failureCounts[failedCustomer];
 
         if (failures == 1)
         {
-            Debug.Log($"[CustomerManager] {failedCustomer.customerName} failed once, will return next day.");
-
-            // Record the day they failed
             lastFailureDay[failedCustomer] = currentDay;
-
-            //  They will return tomorrow, do not remove from pool
+            Debug.Log($"[CustomerManager] {failedCustomer.customerName} failed once, will return next day.");
         }
         else if (failures >= 2)
         {
             Debug.Log($"[CustomerManager] {failedCustomer.customerName} has died after 2 failures.");
 
-            // Spawn failure poster
             if (failurePosterManager != null && failurePoster != null)
-            {
-                Debug.Log("[CustomerManager] Queuing poster for dead customer.");
                 failurePosterManager.QueuePoster(failurePoster);
-            }
 
-            // Remove from pool permanently
-            Debug.Log($"[CustomerManager] {failedCustomer.customerName} has been removed from list.");
             availablePairs.RemoveAll(pair => pair.customer == failedCustomer);
         }
     }
 
     public CustomerData GetActiveCustomerData()
     {
-        // Loop through all customers
-        foreach (var customer in customers)
-        {
-            // Check if this customer has the currently active case
-            foreach (var c in customer.possibleCases)
-            {
-                if (c == activeCase)
-                    return customer;
-            }
-        }
-
-        Debug.LogWarning("[CustomerManager] GetActiveCustomerData: No matching customer found for active case.");
-        return null;
+        return activePair?.customer;
     }
-
 
     public CustomerCase GetActiveCase()
     {
-        return activeCase;
+        return activePair?.customerCase;
     }
 
     private PhotoEvidence[] GetRandomPhotos(PhotoEvidence[] pool, int count)
