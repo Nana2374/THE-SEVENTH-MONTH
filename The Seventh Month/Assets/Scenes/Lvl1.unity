@@ -3914,7 +3914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customers:
   - customerName: Linda
-    customerPrefab: {fileID: 7794973099769785008, guid: af7786dda0608734582b15c4dff3b802, type: 3}
+    customerSprite: {fileID: -2068456435, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: 9737bfc14912ffe41ab143aad18706f5, type: 2}
@@ -3922,7 +3922,7 @@ MonoBehaviour:
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Alex
-    customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
+    customerSprite: {fileID: -1132926918, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
@@ -3930,7 +3930,7 @@ MonoBehaviour:
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Li
-    customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
+    customerSprite: {fileID: 1142806183, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
@@ -3938,7 +3938,7 @@ MonoBehaviour:
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Ahmad
-    customerPrefab: {fileID: 4119621528642949431, guid: c1c8d45278a32dd48935060200259423, type: 3}
+    customerSprite: {fileID: 1476766343, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
@@ -3946,11 +3946,19 @@ MonoBehaviour:
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Xiao Mei
-    customerPrefab: {fileID: 7794973099769785008, guid: af7786dda0608734582b15c4dff3b802, type: 3}
+    customerSprite: {fileID: -1282960431, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
+    departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
+  - customerName: Bryan
+    customerSprite: {fileID: 1752000242, guid: 2a9fa7e3db8eb814a880975f471f6896, type: 3}
+    possibleCases:
+    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
+    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   spawnPoint: {fileID: 1957630579}
@@ -12174,7 +12182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.589233, y: 393}
+  m_AnchoredPosition: {x: -31.589355, y: 393}
   m_SizeDelta: {x: -1409.183, y: -1002.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992575288

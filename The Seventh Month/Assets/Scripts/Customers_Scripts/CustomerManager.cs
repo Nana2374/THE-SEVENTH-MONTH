@@ -114,7 +114,16 @@ public class CustomerManager : MonoBehaviour
         }
 
         if (activeCustomer != null) Destroy(activeCustomer);
-        activeCustomer = Instantiate(customer.customerPrefab, spawnPoint.position, spawnPoint.rotation);
+        // Create a new GameObject with SpriteRenderer
+        activeCustomer = new GameObject(customer.customerName);
+        activeCustomer.transform.position = spawnPoint.position;
+        activeCustomer.transform.rotation = spawnPoint.rotation;
+
+        SpriteRenderer sr = activeCustomer.AddComponent<SpriteRenderer>();
+        sr.sprite = customer.customerSprite;
+
+        // Optional: adjust sorting layer so it shows up in front
+        sr.sortingLayerName = "Characters";
 
         // DEBUG: Log which customer spawned
         Debug.Log($"[CustomerManager] Customer Spawned: {customer.customerName}");
