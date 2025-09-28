@@ -8229,6 +8229,16 @@ MonoBehaviour:
   - {fileID: 1153468637}
   - {fileID: 142225769}
   - {fileID: 439386902}
+  damageOverlays:
+  - {fileID: 21300000, guid: 444f0976093bb504e9a8897b5054ae59, type: 3}
+  alphaPerDay: 0.25
+  scribbleColor: {r: 1, g: 0, b: 0, a: 1}
+  scribbleWords:
+  - ??
+  - LIAR
+  - FAKE
+  - WHO?
+  currentDay: 1
 --- !u!1 &1134714031
 GameObject:
   m_ObjectHideFlags: 0

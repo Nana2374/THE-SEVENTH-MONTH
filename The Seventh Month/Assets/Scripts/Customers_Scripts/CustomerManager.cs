@@ -84,7 +84,6 @@ public class CustomerManager : MonoBehaviour
             // Pick ONE random case for this customer
             if (customer.possibleCases.Length > 0)
             {
-                // Optionally instantiate a copy if modifying cases at runtime
                 CustomerCase randomCase = customer.possibleCases[Random.Range(0, customer.possibleCases.Length)];
                 availablePairs.Add(new CustomerCasePair(customer, randomCase));
             }
@@ -114,35 +113,29 @@ public class CustomerManager : MonoBehaviour
         }
 
         if (activeCustomer != null) Destroy(activeCustomer);
-        // Create a new GameObject with SpriteRenderer
         activeCustomer = new GameObject(customer.customerName);
         activeCustomer.transform.position = spawnPoint.position;
         activeCustomer.transform.rotation = spawnPoint.rotation;
 
         SpriteRenderer sr = activeCustomer.AddComponent<SpriteRenderer>();
-        sr.sprite = customer.customerSprite;
+        sr.sprite = (failureCounts.ContainsKey(customer) && failureCounts[customer] > 0)
+            ? customer.failureSprite
+            : customer.customerSprite;
 
-        //For failure look
-        if (failureCounts.ContainsKey(customer) && failureCounts[customer] > 0)
-            sr.sprite = customer.failureSprite;   // Show worsened sprite
-        else
-            sr.sprite = customer.customerSprite;  // Show normal sprite
-
-
-        // Optional: adjust sorting layer so it shows up in front
         sr.sortingLayerName = "Characters";
 
-        // DEBUG: Log which customer spawned
         Debug.Log($"[CustomerManager] Customer Spawned: {customer.customerName}");
 
-
         // Show photos and dialogue
-        PhotoEvidence[] randomPhotos = GetRandomPhotos(activePair.customerCase.evidencePhotos, 3);
+        EvidencePhoto[] randomPhotos = GetRandomPhotos(activePair.customerCase.evidencePhotos, 3); // updated type
         if (photoPanelManager != null)
         {
-            photoPanelManager.ShowEvidencePhotos(randomPhotos);
+            // Pass currentDay to the panel
+            photoPanelManager.currentDay = currentDay;
+            photoPanelManager.ShowEvidencePhotos(randomPhotos); // now expects EvidencePhoto[]
             StartCoroutine(ShowThumbnailNextFrame());
         }
+
 
         if (activePair.customerCase != null && dialogueManager != null)
             dialogueManager.ShowDialogue(activePair.customerCase.description);
@@ -197,9 +190,7 @@ public class CustomerManager : MonoBehaviour
     private IEnumerator CustomerLeaveAfterDelay(float delay)
     {
         if (dialogueManager != null)
-        {
             dialogueManager.ShowDialogue("Thanks, I'll try it out!");
-        }
 
         yield return new WaitForSeconds(delay);
 
@@ -209,9 +200,7 @@ public class CustomerManager : MonoBehaviour
         if (activeCustomer != null)
         {
             if (audioSource != null && activePair != null && activePair.customer.departureClip != null)
-            {
                 audioSource.PlayOneShot(activePair.customer.departureClip);
-            }
 
             Destroy(activeCustomer);
             activeCustomer = null;
@@ -256,9 +245,7 @@ public class CustomerManager : MonoBehaviour
 
     private IEnumerator PlayDayTransition(int day)
     {
-        // Find transition manager in scene
         DayTransitionManager transition = FindObjectOfType<DayTransitionManager>();
-
         if (transition != null)
             yield return StartCoroutine(transition.PlayTransition(day));
 
@@ -299,9 +286,9 @@ public class CustomerManager : MonoBehaviour
         return activePair?.customerCase;
     }
 
-    private PhotoEvidence[] GetRandomPhotos(PhotoEvidence[] pool, int count)
+    private EvidencePhoto[] GetRandomPhotos(EvidencePhoto[] pool, int count)
     {
-        List<PhotoEvidence> shuffled = new List<PhotoEvidence>(pool);
+        List<EvidencePhoto> shuffled = new List<EvidencePhoto>(pool);
         for (int i = 0; i < shuffled.Count; i++)
         {
             int randIndex = Random.Range(i, shuffled.Count);
@@ -312,4 +299,5 @@ public class CustomerManager : MonoBehaviour
         int finalCount = Mathf.Min(count, shuffled.Count);
         return shuffled.GetRange(0, finalCount).ToArray();
     }
+
 }
