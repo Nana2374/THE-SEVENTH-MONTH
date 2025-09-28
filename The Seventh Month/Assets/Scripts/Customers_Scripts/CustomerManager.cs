@@ -132,7 +132,7 @@ public class CustomerManager : MonoBehaviour
         {
             // Pass currentDay to the panel
             photoPanelManager.currentDay = currentDay;
-            photoPanelManager.ShowEvidencePhotos(randomPhotos); // now expects EvidencePhoto[]
+            photoPanelManager.ShowEvidencePhotos(randomPhotos);
             StartCoroutine(ShowThumbnailNextFrame());
         }
 
