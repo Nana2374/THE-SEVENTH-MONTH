@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -13,9 +13,29 @@ public class MainMenuController : MonoBehaviour
     public TMP_Text continueText; // optional: show "Continue Day X"
 
 
+    [Header("Confirmation Popup")]
+    public GameObject newGamePopup;  // The confirmation panel (set this in the Inspector)
+    public Button yesButton;         // "Yes" button on popup
+    public Button noButton;          // "No" button on popup
+
+
+
     private void Start()
     {
         CheckSavedProgress();
+
+        // Ensure popup is hidden at start
+        if (newGamePopup != null)
+            newGamePopup.SetActive(false);
+
+        // Hook up popup buttons
+        if (yesButton != null)
+            yesButton.onClick.AddListener(OnConfirmNewGame);
+
+        if (noButton != null)
+            noButton.onClick.AddListener(OnCancelNewGame);
+
+
     }
 
     private void CheckSavedProgress()
@@ -37,9 +57,26 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
+        if (newGamePopup != null)
+            newGamePopup.SetActive(true);
+    }
+
+    // Player clicks "Yes" → start new game
+    private void OnConfirmNewGame()
+    {
+        if (newGamePopup != null)
+            newGamePopup.SetActive(false);
+
         // Reset save data for new game
         PlayerPrefs.DeleteKey("SavedDay");
         StartCoroutine(StartGameCoroutine());
+    }
+
+    // Player clicks "No" → close popup, stay on menu
+    private void OnCancelNewGame()
+    {
+        if (newGamePopup != null)
+            newGamePopup.SetActive(false);
     }
 
     public void ContinueGame()
