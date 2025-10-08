@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static CustomerCase;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class CustomerCasePair
@@ -46,7 +47,35 @@ public class CustomerManager : MonoBehaviour
 
     void Start()
     {
+        LoadProgress();
         StartDay();
+    }
+
+    // --- AUTOSAVE SYSTEM ---
+    private void SaveProgress()
+    {
+        PlayerPrefs.SetInt("SavedDay", currentDay);
+        PlayerPrefs.Save();
+        Debug.Log($"[AutoSave] Progress saved: Day {currentDay}");
+    }
+
+    private void LoadProgress()
+    {
+        if (PlayerPrefs.HasKey("SavedDay"))
+        {
+            currentDay = PlayerPrefs.GetInt("SavedDay");
+            Debug.Log($"[AutoSave] Loaded saved day: {currentDay}");
+        }
+        else
+        {
+            currentDay = 1; // default if no save exists
+        }
+    }
+
+    private void ResetProgress()
+    {
+        PlayerPrefs.DeleteKey("SavedDay");
+        Debug.Log("[AutoSave] Progress reset");
     }
 
     private void StartDay()
@@ -233,7 +262,14 @@ public class CustomerManager : MonoBehaviour
     private void EndDay()
     {
         Debug.Log($"--- DAY {currentDay} END ---");
+
+
         currentDay++;
+
+
+        // Autosave progress here
+        SaveProgress();
+
         if (currentDay > maxDays)
         {
             Debug.Log("Game Over: all days completed!");
