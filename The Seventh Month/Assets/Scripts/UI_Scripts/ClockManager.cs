@@ -1,10 +1,11 @@
 using UnityEngine;
-using TMPro; // Only if you use TextMeshPro
+using TMPro;
 
 public class ClockManager : MonoBehaviour
 {
-    public TextMeshProUGUI clockText; // Assign in inspector
-    private int currentHour = 13; // Start at 13:00
+    public TextMeshProUGUI clockText;
+    private int currentHour = 13;
+
 
     public void ResetClock()
     {
@@ -14,16 +15,18 @@ public class ClockManager : MonoBehaviour
 
     public void AdvanceHour()
     {
-        if (currentHour < 18) // End at 18:00
+        if (currentHour < 18)
         {
             currentHour++;
             UpdateClockUI();
         }
     }
 
+
     private void UpdateClockUI()
     {
-        // Format as 24-hour time with leading zero if needed
         clockText.text = $"{currentHour:00}:00";
+
     }
 }
+
