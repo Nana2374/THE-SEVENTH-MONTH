@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class PhotoPanelManager : MonoBehaviour
 {
@@ -48,25 +49,56 @@ public class PhotoPanelManager : MonoBehaviour
             });
     }
 
-    /// <summary>
-    /// Shows photos with torn masks based on current day.
-    /// </summary>
+
+    // Shows photos with torn masks based on current day.
     public void ShowEvidencePhotos(EvidencePhoto[] evidences)
     {
+        // Determine how many photos to damage
+        int damageCount = (currentDay == 1) ? Mathf.Min(3, evidences.Length) : evidences.Length;
+        List<int> damagedIndices = new List<int>();
+
+        // Weighted selection for day 1: prefer index 1 (undamaged)
+        while (damagedIndices.Count < damageCount)
+        {
+            int index;
+            if (currentDay == 1)
+            {
+                // Higher chance to pick undamaged photo
+                float r = Random.value;
+                if (r < 0.9f && evidences.Length > 1)
+                    index = Random.Range(0, evidences.Length);
+                else
+                    index = 0;
+            }
+            else
+            {
+                // Later days: pick any index
+                index = Random.Range(0, evidences.Length);
+            }
+
+            if (!damagedIndices.Contains(index))
+                damagedIndices.Add(index);
+        }
+
         for (int i = 0; i < photoSlots.Length; i++)
         {
             if (i < evidences.Length)
             {
                 var slot = photoSlots[i];
 
-                // Assign a random torn mask
-                if (damageOverlays.Length > 0)
+                // Apply damage only if this index is in the list
+                if (damageOverlays.Length > 0 && damagedIndices.Contains(i))
                 {
                     int randomIndex = Random.Range(0, damageOverlays.Length);
                     slot.maskImage.sprite = damageOverlays[randomIndex];
+                    slot.maskImage.gameObject.SetActive(true);
+                }
+                else
+                {
+                    slot.maskImage.gameObject.SetActive(false); // undamaged
                 }
 
-                // Set the original photo under the mask
+                // Set original photo
                 slot.photoImage.sprite = evidences[i].photo;
                 slot.photoImage.gameObject.SetActive(true);
 
@@ -83,9 +115,6 @@ public class PhotoPanelManager : MonoBehaviour
                         slot.captionText.text += $"\n<color=#{ColorUtility.ToHtmlStringRGB(scribbleColor)}>{scribble}</color>";
                     }
                 }
-
-                // Ensure mask is active
-                slot.maskImage.gameObject.SetActive(true);
             }
             else
             {
@@ -98,13 +127,14 @@ public class PhotoPanelManager : MonoBehaviour
         }
     }
 
+
+
     public void ShowThumbnail() => thumbnailButton.gameObject.SetActive(true);
     public void HideThumbnail() => thumbnailButton.gameObject.SetActive(false);
 }
 
-/// <summary>
+
 /// Helper class to combine mask and photo image
-/// </summary>
 [System.Serializable]
 public class PhotoSlotUI
 {
