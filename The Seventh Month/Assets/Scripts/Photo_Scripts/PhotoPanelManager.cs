@@ -65,10 +65,16 @@ public class PhotoPanelManager : MonoBehaviour
             {
                 // Higher chance to pick undamaged photo
                 float r = Random.value;
+                Debug.Log("r value" + r);
+
                 if (r < 0.9f && evidences.Length > 1)
-                    index = Random.Range(0, evidences.Length);
-                else
                     index = 0;
+                //index = Random.Range(0, evidences.Length);
+
+
+                else
+                    index = Random.Range(0, evidences.Length);
+                //index = 0;
             }
             else
             {
