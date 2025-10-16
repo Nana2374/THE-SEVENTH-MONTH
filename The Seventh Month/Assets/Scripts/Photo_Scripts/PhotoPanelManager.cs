@@ -115,7 +115,7 @@ public class PhotoPanelManager : MonoBehaviour
                     slot.captionText.gameObject.SetActive(true);
 
                     // Optional scribble for older photos
-                    if (currentDay >= 3)
+                    if (currentDay >= 1)
                     {
                         string scribble = scribbleWords[Random.Range(0, scribbleWords.Length)];
                         slot.captionText.text += $"\n<color=#{ColorUtility.ToHtmlStringRGB(scribbleColor)}>{scribble}</color>";
