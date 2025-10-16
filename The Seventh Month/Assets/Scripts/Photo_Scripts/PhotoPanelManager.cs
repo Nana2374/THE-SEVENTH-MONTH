@@ -99,9 +99,15 @@ public class PhotoPanelManager : MonoBehaviour
                 int damageIndex = 0;
                 switch (currentDay)
                 {
-                    case 1: damageIndex = 0; break;
-                    case 2: damageIndex = Random.Range(1, 2); break;
-                    case 3: damageIndex = Random.Range(0, 3); break;
+                    case 1:
+                        damageIndex = 0;
+                        break;
+                    case 2:
+                        damageIndex = Random.Range(1, 2);
+                        break;
+                    case 3:
+                        damageIndex = Random.Range(0, 4);
+                        break;
                 }
 
                 // Apply damage only if this index is in the list
