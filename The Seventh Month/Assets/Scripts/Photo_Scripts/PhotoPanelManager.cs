@@ -54,37 +54,40 @@ public class PhotoPanelManager : MonoBehaviour
     public void ShowEvidencePhotos(EvidencePhoto[] evidences)
     {
         // Determine how many photos to damage
-        int damageCount = (currentDay == 1) ? Mathf.Min(3, evidences.Length) : evidences.Length;
-        List<int> damagedIndices = new List<int>();
+        //int damageCount = (currentDay == 1) ? Mathf.Min(3, evidences.Length) : evidences.Length;
+        //List<int> damagedIndices = new List<int>();
 
         // Weighted selection for day 1: prefer index 1 (undamaged)
-        while (damagedIndices.Count < damageCount)
-        {
-            int index;
-            if (currentDay == 1)
-            {
-                // Higher chance to pick undamaged photo
-                float r = Random.value;
-                Debug.Log("r value" + r);
+        //while (damagedIndices.Count < damageCount)
+        //{
+        //    int index;
+        //    if (currentDay == 1)
+        //    {
+        //        Debug.Log("Day 1");
+        //        // Higher chance to pick undamaged photo
+        //        float r = Random.value;
+        //        //Debug.Log("r value" + r);
 
-                if (r < 0.9f && evidences.Length > 1)
-                    index = 0;
-                //index = Random.Range(0, evidences.Length);
+        //        if (r > 0.1f && evidences.Length > 1)
+        //            index = 0;
+        //        //index = Random.Range(0, evidences.Length);
 
 
-                else
-                    index = Random.Range(0, evidences.Length);
-                //index = 0;
-            }
-            else
-            {
-                // Later days: pick any index
-                index = Random.Range(0, evidences.Length);
-            }
+        //        else
+        //            index = Random.Range(0, evidences.Length);
+        //        //index = 0;
+        //        Debug.Log(index);
+        //    }
+        //    else
+        //    {
+        //        // Later days: pick any index
+        //        Debug.Log("Not day 1");
+        //        index = Random.Range(0, evidences.Length);
+        //    }
 
-            if (!damagedIndices.Contains(index))
-                damagedIndices.Add(index);
-        }
+        //    if (!damagedIndices.Contains(index))
+        //        damagedIndices.Add(index);
+        //}
 
         for (int i = 0; i < photoSlots.Length; i++)
         {
@@ -92,11 +95,19 @@ public class PhotoPanelManager : MonoBehaviour
             {
                 var slot = photoSlots[i];
 
-                // Apply damage only if this index is in the list
-                if (damageOverlays.Length > 0 && damagedIndices.Contains(i))
+                // TODO: Per day change chance of damage index.
+                int damageIndex = 0;
+                switch (currentDay)
                 {
-                    int randomIndex = Random.Range(0, damageOverlays.Length);
-                    slot.maskImage.sprite = damageOverlays[randomIndex];
+                    case 1: damageIndex = 0; break;
+                    case 2: damageIndex = Random.Range(1, 2); break;
+                    case 3: damageIndex = Random.Range(0, 3); break;
+                }
+
+                // Apply damage only if this index is in the list
+                if (damageOverlays.Length > 0)
+                {
+                    slot.maskImage.sprite = damageOverlays[damageIndex];
                     slot.maskImage.gameObject.SetActive(true);
                 }
                 else
