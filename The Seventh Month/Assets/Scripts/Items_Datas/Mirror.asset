@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Mirror
   m_EditorClassIdentifier: 
   itemName: Mirror
-  itemSprite: {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
+  itemSprite: {fileID: -1753024329, guid: e576df9f1225f4d4d9e4ef4443a92da8, type: 3}
   description: 

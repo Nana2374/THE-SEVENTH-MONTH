@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Kris
   m_EditorClassIdentifier: 
   itemName: Kris
-  itemSprite: {fileID: 2044333781, guid: d646d777e4d766444a4610e1eb3da9cd, type: 3}
+  itemSprite: {fileID: -671216879, guid: e576df9f1225f4d4d9e4ef4443a92da8, type: 3}
   description: 

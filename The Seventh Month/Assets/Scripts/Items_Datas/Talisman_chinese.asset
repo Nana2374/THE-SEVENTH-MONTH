@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f01d0155897e44945b5e34bb501ba4d2, type: 3}
-  m_Name: Talisman
+  m_Name: Talisman_chinese
   m_EditorClassIdentifier: 
-  itemName: Talisman
-  itemSprite: {fileID: 21300000, guid: 1485a65e567d3694ea6f88613e2e6f65, type: 3}
+  itemName: Talisman_chinese
+  itemSprite: {fileID: 1588241903, guid: e576df9f1225f4d4d9e4ef4443a92da8, type: 3}
   description: 
