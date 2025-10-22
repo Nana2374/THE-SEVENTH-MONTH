@@ -5,6 +5,9 @@ public class DrawerSlot : MonoBehaviour
     public ItemData itemData;         // assign the ScriptableObject in the Inspector
     public SpriteRenderer itemSprite; // optional: shows the item in the drawer visually
 
+    public AudioClip fullSound;
+    public AudioSource audioSource;   // assign in Inspector
+
     void Start()
     {
         // Show the sprite in the drawer
@@ -17,16 +20,13 @@ public class DrawerSlot : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (itemData == null) return;
+        if (itemData == null || InventoryManager.instance == null) return;
 
-        // Check if InventoryManager exists
-        if (InventoryManager.instance == null) return;
-
-        // Check if inventory is full
         if (InventoryManager.instance.IsFull())
         {
             Debug.Log("Inventory is full! Remove an item before adding.");
-            // Optional: play sound, flash UI, or animate the slot
+            if (fullSound != null && audioSource != null)
+                audioSource.PlayOneShot(fullSound);
             return;
         }
 
@@ -35,5 +35,7 @@ public class DrawerSlot : MonoBehaviour
         Debug.Log("Added " + itemData.itemName + " to inventory");
     }
 }
+
+
 
 

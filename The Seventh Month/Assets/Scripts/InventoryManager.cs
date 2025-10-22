@@ -8,6 +8,12 @@ public class InventoryManager : MonoBehaviour
     [Header("Inventory Slots (SpriteRenderers)")]
     public SpriteRenderer[] inventorySlots;   // UI slots showing item sprites
 
+    [Header("Audio")]
+    public AudioSource audioSource;           // Reference to an AudioSource component
+    public AudioClip addSound;                // Played when adding an item
+    public AudioClip removeSound;             // Played when removing an item
+
+
     private List<ItemData> inventoryItems = new List<ItemData>();
 
     void Awake()
@@ -17,6 +23,10 @@ public class InventoryManager : MonoBehaviour
 
         // Hide all slots at start
         HideAllSlots();
+
+        // Optional: automatically add an AudioSource if missing
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     /// <summary>
@@ -27,11 +37,14 @@ public class InventoryManager : MonoBehaviour
         if (IsFull())
         {
             Debug.Log("Inventory full! Remove an item before adding new ones.");
+
             return;
         }
 
         inventoryItems.Add(itemData);
         UpdateInventoryUI();
+
+        PlaySound(addSound);
     }
 
     /// <summary>
@@ -47,6 +60,8 @@ public class InventoryManager : MonoBehaviour
 
         inventoryItems.RemoveAt(slotIndex);
         UpdateInventoryUI();
+
+        PlaySound(removeSound);
     }
 
     /// <summary>
@@ -113,6 +128,16 @@ public class InventoryManager : MonoBehaviour
                 slot.enabled = false;
                 slot.gameObject.SetActive(false);
             }
+        }
+    }
+
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.pitch = Random.Range(0.95f, 1.05f); // small variation
+            audioSource.PlayOneShot(clip);
         }
     }
 }
