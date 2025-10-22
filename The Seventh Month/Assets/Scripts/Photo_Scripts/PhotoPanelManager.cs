@@ -49,76 +49,93 @@ public class PhotoPanelManager : MonoBehaviour
             });
     }
 
+    // ✅ Weighted random helper
+    int GetWeightedIndex(float[] weights)
+    {
+        float total = 0f;
+        foreach (float w in weights)
+            total += w;
+
+        float randomValue = Random.Range(0f, total);
+        float cumulative = 0f;
+
+        for (int i = 0; i < weights.Length; i++)
+        {
+            cumulative += weights[i];
+            if (randomValue <= cumulative)
+                return i;
+        }
+
+        return weights.Length - 1; // Fallback
+    }
 
     // Shows photos with torn masks based on current day.
     public void ShowEvidencePhotos(EvidencePhoto[] evidences)
     {
-        // Determine how many photos to damage
-        //int damageCount = (currentDay == 1) ? Mathf.Min(3, evidences.Length) : evidences.Length;
-        //List<int> damagedIndices = new List<int>();
-
-        // Weighted selection for day 1: prefer index 1 (undamaged)
-        //while (damagedIndices.Count < damageCount)
-        //{
-        //    int index;
-        //    if (currentDay == 1)
-        //    {
-        //        Debug.Log("Day 1");
-        //        // Higher chance to pick undamaged photo
-        //        float r = Random.value;
-        //        //Debug.Log("r value" + r);
-
-        //        if (r > 0.1f && evidences.Length > 1)
-        //            index = 0;
-        //        //index = Random.Range(0, evidences.Length);
-
-
-        //        else
-        //            index = Random.Range(0, evidences.Length);
-        //        //index = 0;
-        //        Debug.Log(index);
-        //    }
-        //    else
-        //    {
-        //        // Later days: pick any index
-        //        Debug.Log("Not day 1");
-        //        index = Random.Range(0, evidences.Length);
-        //    }
-
-        //    if (!damagedIndices.Contains(index))
-        //        damagedIndices.Add(index);
-        //}
-
         for (int i = 0; i < photoSlots.Length; i++)
         {
             if (i < evidences.Length)
             {
                 var slot = photoSlots[i];
 
-                // TODO: Per day change chance of damage index.
+                // Weighted probability
                 int damageIndex = 0;
+
+                float roll = Random.value; // gives a float between 0.0 and 1.0
+
                 switch (currentDay)
                 {
                     case 1:
-                        damageIndex = 0;
+                        // Day 1: almost always undamaged
+                        if (roll < 0.9f) damageIndex = 0;       // 90%
+                        else if (roll < 0.97f) damageIndex = 1; // 7%
+                        else if (roll < 0.995f) damageIndex = 2; // 2.5%
+                        else damageIndex = 3;                    // 0.5%
                         break;
+
                     case 2:
-                        damageIndex = Random.Range(1, 2);
+                        // Day 2: light damage appears more
+                        if (roll < 0.6f) damageIndex = 0;       // 60%
+                        else if (roll < 0.85f) damageIndex = 1; // 25%
+                        else if (roll < 0.95f) damageIndex = 2; // 10%
+                        else damageIndex = 3;                   // 5%
                         break;
+
                     case 3:
-                        damageIndex = Random.Range(0, 4);
+                        // Day 3: broader damage spread
+                        if (roll < 0.4f) damageIndex = 0;       // 40%
+                        else if (roll < 0.7f) damageIndex = 1;  // 30%
+                        else if (roll < 0.9f) damageIndex = 2;  // 20%
+                        else damageIndex = 3;                   // 10%
+                        break;
+
+                    case 4:
+                        // Day 4: heavily damaged photos more common
+                        if (roll < 0.2f) damageIndex = 0;       // 20%
+                        else if (roll < 0.5f) damageIndex = 1;  // 30%
+                        else if (roll < 0.8f) damageIndex = 2;  // 30%
+                        else damageIndex = 3;                   // 20%
+                        break;
+
+                    default:
+                        // Later days: evenly distributed damage
+                        if (roll < 0.25f) damageIndex = 0;
+                        else if (roll < 0.5f) damageIndex = 1;
+                        else if (roll < 0.75f) damageIndex = 2;
+                        else damageIndex = 3;
                         break;
                 }
 
-                // Apply damage only if this index is in the list
-                if (damageOverlays.Length > 0)
+
+                // Apply damage overlay
+                if (damageOverlays.Length > 0 && damageIndex < damageOverlays.Length)
                 {
                     slot.maskImage.sprite = damageOverlays[damageIndex];
                     slot.maskImage.gameObject.SetActive(true);
                 }
                 else
                 {
-                    slot.maskImage.gameObject.SetActive(false); // undamaged
+                    slot.maskImage.gameObject.SetActive(false);
                 }
 
                 // Set original photo
@@ -150,12 +167,9 @@ public class PhotoPanelManager : MonoBehaviour
         }
     }
 
-
-
     public void ShowThumbnail() => thumbnailButton.gameObject.SetActive(true);
     public void HideThumbnail() => thumbnailButton.gameObject.SetActive(false);
 }
-
 
 /// Helper class to combine mask and photo image
 [System.Serializable]
