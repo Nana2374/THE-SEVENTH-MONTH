@@ -31,3 +31,4 @@ MonoBehaviour:
   failureOutcome: "\u201CThe spirit harms the customer.\u201D"
   successOutcome: "\u201CThe spirit is repelled successfully.\u201D"
   failurePoster: {fileID: 21300000, guid: aebc5c19bc128d045ae0ecf31d85c080, type: 3}
+  failureDialogue: I don't feel too good....

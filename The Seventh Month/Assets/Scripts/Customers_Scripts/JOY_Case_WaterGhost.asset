@@ -34,3 +34,5 @@ MonoBehaviour:
   failureOutcome: "\u201CThe spirit drags the customer to the water.\u201D"
   successOutcome: "\u201CThe spirit has returned to the water....\u201D"
   failurePoster: {fileID: 21300000, guid: 6981528ecab3cc441964720a7876c849, type: 3}
+  failureDialogue: '*Huff huff* It totally did not help... PLEASE will you help??
+    *Huff huff*'

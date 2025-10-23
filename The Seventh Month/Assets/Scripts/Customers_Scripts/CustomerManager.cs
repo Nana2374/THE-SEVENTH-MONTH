@@ -196,8 +196,22 @@ public class CustomerManager : MonoBehaviour
 
 
         if (activePair.customerCase != null && dialogueManager != null)
-            dialogueManager.ShowDialogue(activePair.customerCase.description);
+        {
+            bool hasFailedBefore = failureCounts.ContainsKey(customer) && failureCounts[customer] > 0;
+
+            if (hasFailedBefore && !string.IsNullOrEmpty(activePair.customerCase.failureDialogue))
+            {
+                // Show the special "failure return" dialogue line
+                dialogueManager.ShowDialogue(activePair.customerCase.failureDialogue);
+            }
+            else
+            {
+                // Default normal introduction
+                dialogueManager.ShowDialogue(activePair.customerCase.description);
+            }
+        }
     }
+
 
     private CustomerCasePair PickCustomerCasePair()
     {

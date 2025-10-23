@@ -32,3 +32,4 @@ MonoBehaviour:
   failureOutcome: 
   successOutcome: 
   failurePoster: {fileID: 0}
+  failureDialogue: 'I don''t feel too good.... it does not work it does not work '
