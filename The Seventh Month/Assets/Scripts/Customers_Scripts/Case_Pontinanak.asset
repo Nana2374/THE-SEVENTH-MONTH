@@ -14,16 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caseType: 0
   caseName: Pontinanak Encounter
-  description: There is always hair everywhereeee.....
+  description: Can you help me? I keep seeing hairs everywhere
   evidencePhotos:
-  - photo: {fileID: 21300000, guid: 41268041a643ac941b4aca671a7b547b, type: 3}
-    caption: windy around me
-  - photo: {fileID: 21300000, guid: 9c13d821bcf04be4da71a779c00e4a82, type: 3}
-    caption: smell of flower..
-  - photo: {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
-    caption: I hear humming
+  - photo: {fileID: 244713833, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: I recently went hiking with a friend
+    dayTaken: 1
+  - photo: {fileID: 1135581961, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: I keep smelling flowers, followed by rotten smell
+    dayTaken: 1
+  - photo: {fileID: 504169650, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: My dogs keeps looking at the door
+    dayTaken: 1
   requiredItems:
-  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
   failureOutcome: "\u201CThe spirit harms the customer.\u201D"
   successOutcome: "\u201CThe spirit is repelled successfully.\u201D"
   failurePoster: {fileID: 21300000, guid: aebc5c19bc128d045ae0ecf31d85c080, type: 3}

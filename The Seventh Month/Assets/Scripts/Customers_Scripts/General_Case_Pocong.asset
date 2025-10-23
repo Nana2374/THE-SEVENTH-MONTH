@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: General_Case_Pocong
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: Pocong_general
+  description: Help me please. I can't sleep because of thumping noises!
+  evidencePhotos:
+  - photo: {fileID: -844000248, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: I saw a white cloth moving on the tree
+    dayTaken: 0
+  - photo: {fileID: 1592374387, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: 'I keep feeling cold wind.. '
+    dayTaken: 0
+  - photo: {fileID: 2047930569, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: My floor keeps getting dirt everywhere!
+    dayTaken: 0
+  requiredItems:
+  - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
+  - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
+  failureOutcome: 
+  successOutcome: 
+  failurePoster: {fileID: 0}

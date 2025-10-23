@@ -1767,8 +1767,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2566,7 +2566,7 @@ RectTransform:
   m_GameObject: {fileID: 234812971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.779084, y: 3.3232753, z: 0}
+  m_LocalScale: {x: 1.6658809, y: 2.382406, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 696026990}
@@ -2574,7 +2574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -555, y: -422}
+  m_AnchoredPosition: {x: -555, y: -458}
   m_SizeDelta: {x: 380.465, y: 70.085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234812973
@@ -4183,8 +4183,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4474,44 +4474,34 @@ MonoBehaviour:
     failureSprite: {fileID: 21300000, guid: 810a96cf31cffd949a2ecbe632b54889, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
-    - {fileID: 11400000, guid: 9737bfc14912ffe41ab143aad18706f5, type: 2}
-    - {fileID: 11400000, guid: aab2adb9297c6c14ea6afe9a38cad303, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
-  - customerName: AuntyLim
-    customerSprite: {fileID: 21300000, guid: e908f18838b487040aa7ea0ee18b75e3, type: 3}
-    failureSprite: {fileID: -1047789125, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
+  - customerName: Chad
+    customerSprite: {fileID: 21300000, guid: b436bff0a11cd1546bfad36c9eef3117, type: 3}
+    failureSprite: {fileID: 21300000, guid: 7a751c7d68d41d5489fca41df79ed3ae, type: 3}
     possibleCases:
-    - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
-    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
-    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    - {fileID: 11400000, guid: a305b9e846341744ab32fa2b4e1b8e0c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Dior
     customerSprite: {fileID: 21300000, guid: 24b18e0f21d28f14a9e6c874fa58f821, type: 3}
-    failureSprite: {fileID: 884855267, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
+    failureSprite: {fileID: 21300000, guid: a1324635bd57e13478720deea37218a3, type: 3}
     possibleCases:
-    - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
-    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
-    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    - {fileID: 11400000, guid: 51c3b3c8855c0c04095f7f28e5aa22aa, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   - customerName: Fatimah
     customerSprite: {fileID: 21300000, guid: 56308d5fbcc55004a825f7272af63957, type: 3}
-    failureSprite: {fileID: 1097096904, guid: fbb7aa495f5608d4d8d4cd8daf209856, type: 3}
+    failureSprite: {fileID: 21300000, guid: 3d976913eb2257841a350b6dbb3d2312, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
-    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
-    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
-  - customerName: Monday
-    customerSprite: {fileID: 21300000, guid: 0cf7dc97ea63f744b97c768b18e949f8, type: 3}
-    failureSprite: {fileID: 21300000, guid: 0cf7dc97ea63f744b97c768b18e949f8, type: 3}
+  - customerName: Shanti
+    customerSprite: {fileID: 21300000, guid: 3517cd46dfb2e144183b6497b5b4e7f7, type: 3}
+    failureSprite: {fileID: 21300000, guid: 13df8afd87ebf364b8012663fd0d6caa, type: 3}
     possibleCases:
-    - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
-    - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
-    - {fileID: 11400000, guid: dda43c6cf9a13f847a7d2f6155603820, type: 2}
+    - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
     departureClip: {fileID: 8300000, guid: 1e359d79299393e4dac072a8e2930b71, type: 3}
   spawnPoint: {fileID: 448714125}
@@ -4931,7 +4921,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -155.19153, y: -12.932556, z: -154.43127, w: -12.171875}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10038,8 +10028,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12500,7 +12490,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1496248276
 RectTransform:
@@ -15055,7 +15045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1992575287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15065,7 +15055,7 @@ RectTransform:
   m_GameObject: {fileID: 1992575286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.56, y: 1.8199, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 473209053}
@@ -15073,7 +15063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.590088, y: 393}
+  m_AnchoredPosition: {x: -61, y: -186}
   m_SizeDelta: {x: -1409.183, y: -1002.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992575288
@@ -15089,7 +15079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

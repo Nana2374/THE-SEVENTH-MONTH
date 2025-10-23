@@ -10,18 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
-  m_Name: Case_WaterGhost
+  m_Name: JOY_Case_WaterGhost
   m_EditorClassIdentifier: 
   caseType: 0
   caseName: WaterGhost Encounter
-  description: I keep seeing water spots on the floor....
+  description: '*Huff huff* Well, honestly it might just be my aura changing! But
+    maybe a professional opinion might help. *Huff huff*'
   evidencePhotos:
-  - photo: {fileID: 21300000, guid: 6981528ecab3cc441964720a7876c849, type: 3}
-    caption: WATER WATER EVERYWHERE!
-  - photo: {fileID: 21300000, guid: 9c13d821bcf04be4da71a779c00e4a82, type: 3}
-    caption: I hear water sounds
-  - photo: {fileID: 21300000, guid: 1485a65e567d3694ea6f88613e2e6f65, type: 3}
-    caption: AHHH
+  - photo: {fileID: 1942225224, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: "There\u2019s HAIR?? In my water bottle?"
+    dayTaken: 1
+  - photo: {fileID: -230434180, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: My sink has been making weird noises
+    dayTaken: 1
+  - photo: {fileID: -230434180, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
+    caption: "WEIRD, but I\u2019ve been seeing weird shadows in water"
+    dayTaken: 1
   requiredItems:
   - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
   - {fileID: 11400000, guid: bcd6f16eafde1c14ba7323c4c3c7a699, type: 2}
