@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static CustomerCase;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 [System.Serializable]
 public class CustomerCasePair
@@ -29,6 +30,7 @@ public class CustomerManager : MonoBehaviour
     public DialogueManager dialogueManager;
     public AudioSource audioSource;
 
+    public TextMeshProUGUI nameText;
     private GameObject activeCustomer;
     private CustomerCasePair activePair; // store active customer + case
 
@@ -181,6 +183,11 @@ public class CustomerManager : MonoBehaviour
             : customer.customerSprite;
 
         sr.sortingLayerName = "Characters";
+
+        if (nameText != null)
+        {
+            nameText.text = customer.customerName;
+        }
 
         Debug.Log($"[CustomerManager] Customer Spawned: {customer.customerName}");
 
