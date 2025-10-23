@@ -55,8 +55,21 @@ public class CustomerManager : MonoBehaviour
     private void SaveProgress()
     {
         PlayerPrefs.SetInt("SavedDay", currentDay);
+
+        // Save failure counts
+        foreach (var kvp in failureCounts)
+        {
+            PlayerPrefs.SetInt($"FailureCount_{kvp.Key.customerName}", kvp.Value);
+        }
+
+        // Save last failure days
+        foreach (var kvp in lastFailureDay)
+        {
+            PlayerPrefs.SetInt($"LastFailureDay_{kvp.Key.customerName}", kvp.Value);
+        }
+
         PlayerPrefs.Save();
-        Debug.Log($"[AutoSave] Progress saved: Day {currentDay}");
+        Debug.Log($"[AutoSave] Progress saved for Day {currentDay} with {failureCounts.Count} failure entries");
     }
 
     private void LoadProgress()
@@ -68,8 +81,24 @@ public class CustomerManager : MonoBehaviour
         }
         else
         {
-            currentDay = 1; // default if no save exists
+            currentDay = 1;
         }
+
+        failureCounts.Clear();
+        lastFailureDay.Clear();
+
+        foreach (var customer in customers)
+        {
+            string name = customer.customerName;
+
+            if (PlayerPrefs.HasKey($"FailureCount_{name}"))
+                failureCounts[customer] = PlayerPrefs.GetInt($"FailureCount_{name}");
+
+            if (PlayerPrefs.HasKey($"LastFailureDay_{name}"))
+                lastFailureDay[customer] = PlayerPrefs.GetInt($"LastFailureDay_{name}");
+        }
+
+        Debug.Log($"[AutoSave] Loaded {failureCounts.Count} failure records");
     }
 
     private void ResetProgress()

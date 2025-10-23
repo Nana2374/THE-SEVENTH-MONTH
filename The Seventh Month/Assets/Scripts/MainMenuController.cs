@@ -46,7 +46,7 @@ public class MainMenuController : MonoBehaviour
             continueButton.gameObject.SetActive(true);
 
             if (continueText != null)
-                continueText.text = $"Continue (Day {savedDay})";
+                continueText.text = $"(Day {savedDay})";
         }
         else
         {
