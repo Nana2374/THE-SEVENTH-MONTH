@@ -331,7 +331,7 @@ public class CustomerManager : MonoBehaviour
         StartDay();
     }
 
-    public void RegisterFailure(CustomerData failedCustomer, Sprite failurePoster = null)
+    public void RegisterFailure(CustomerData failedCustomer)
     {
         if (!failureCounts.ContainsKey(failedCustomer))
             failureCounts[failedCustomer] = 0;
@@ -348,8 +348,9 @@ public class CustomerManager : MonoBehaviour
         {
             Debug.Log($"[CustomerManager] {failedCustomer.customerName} has died after 2 failures.");
 
-            if (failurePosterManager != null && failurePoster != null)
-                failurePosterManager.QueuePoster(failurePoster);
+            // Use the failure poster from the customer data now
+            if (failurePosterManager != null && failedCustomer.failurePoster != null)
+                failurePosterManager.QueuePoster(failedCustomer.failurePoster);
 
             availablePairs.RemoveAll(pair => pair.customer == failedCustomer);
         }

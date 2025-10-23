@@ -46,10 +46,7 @@ public class SolutionChecker : MonoBehaviour
             //  Delegate to CustomerManager so it decides whether to show poster
             if (customerManager != null)
             {
-                customerManager.RegisterFailure(
-                    customerManager.GetActiveCustomerData(), // <- New helper to get current CustomerData
-                    currentCase.failurePoster
-                );
+                customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
             }
         }
 

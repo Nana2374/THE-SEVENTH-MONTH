@@ -4472,6 +4472,7 @@ MonoBehaviour:
   - customerName: Joy
     customerSprite: {fileID: 21300000, guid: b613d14cd8af6f24ba67e94f6356673e, type: 3}
     failureSprite: {fileID: 21300000, guid: 810a96cf31cffd949a2ecbe632b54889, type: 3}
+    failurePoster: {fileID: 21300000, guid: 810a96cf31cffd949a2ecbe632b54889, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -4479,6 +4480,7 @@ MonoBehaviour:
   - customerName: Chad
     customerSprite: {fileID: 21300000, guid: b436bff0a11cd1546bfad36c9eef3117, type: 3}
     failureSprite: {fileID: 21300000, guid: 7a751c7d68d41d5489fca41df79ed3ae, type: 3}
+    failurePoster: {fileID: 21300000, guid: 7a751c7d68d41d5489fca41df79ed3ae, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: a305b9e846341744ab32fa2b4e1b8e0c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -4486,6 +4488,7 @@ MonoBehaviour:
   - customerName: Dior
     customerSprite: {fileID: 21300000, guid: 24b18e0f21d28f14a9e6c874fa58f821, type: 3}
     failureSprite: {fileID: 21300000, guid: a1324635bd57e13478720deea37218a3, type: 3}
+    failurePoster: {fileID: 21300000, guid: a1324635bd57e13478720deea37218a3, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 51c3b3c8855c0c04095f7f28e5aa22aa, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -4493,6 +4496,7 @@ MonoBehaviour:
   - customerName: Fatimah
     customerSprite: {fileID: 21300000, guid: 56308d5fbcc55004a825f7272af63957, type: 3}
     failureSprite: {fileID: 21300000, guid: 3d976913eb2257841a350b6dbb3d2312, type: 3}
+    failurePoster: {fileID: 21300000, guid: 3d976913eb2257841a350b6dbb3d2312, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -4500,6 +4504,7 @@ MonoBehaviour:
   - customerName: Shanti
     customerSprite: {fileID: 21300000, guid: 3517cd46dfb2e144183b6497b5b4e7f7, type: 3}
     failureSprite: {fileID: 21300000, guid: 13df8afd87ebf364b8012663fd0d6caa, type: 3}
+    failurePoster: {fileID: 21300000, guid: 13df8afd87ebf364b8012663fd0d6caa, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}

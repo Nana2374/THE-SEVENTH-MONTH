@@ -8,6 +8,10 @@ public class CustomerData
     public string customerName;         // Add this line
     public Sprite customerSprite;  // <--- ADD SPRITE
     public Sprite failureSprite;       // Appearance if failed previously
+
+    [Header("Failure Assets")]
+    public Sprite failurePoster;    // Moved here! Customer-specific failure poster
+
     public CustomerCase[] possibleCases; // Drag your ScriptableObject cases here
 
     // Audio

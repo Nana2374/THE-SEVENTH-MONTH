@@ -21,9 +21,6 @@ public class CustomerCase : ScriptableObject
     public string failureOutcome;
     public string successOutcome;
 
-    [Header("Failure Poster")]
-    public Sprite failurePoster;
-
     [Header("Failure Dialogue")]
     [TextArea] public string failureDialogue; // Line that plays when customer returns after failing
 
