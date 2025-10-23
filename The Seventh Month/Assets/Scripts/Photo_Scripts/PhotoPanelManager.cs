@@ -16,8 +16,6 @@ public class PhotoPanelManager : MonoBehaviour
 
     [Header("Damage Options")]
     public Sprite[] damageOverlays;   // Torn PNGs for masking
-    public Color scribbleColor = Color.red;
-    public string[] scribbleWords = { "??", "LIAR", "FAKE", "WHO?" };
 
     public int currentDay = 1;
 
@@ -147,13 +145,6 @@ public class PhotoPanelManager : MonoBehaviour
                 {
                     slot.captionText.text = evidences[i].caption;
                     slot.captionText.gameObject.SetActive(true);
-
-                    // Optional scribble for older photos
-                    if (currentDay >= 1)
-                    {
-                        string scribble = scribbleWords[Random.Range(0, scribbleWords.Length)];
-                        slot.captionText.text += $"\n<color=#{ColorUtility.ToHtmlStringRGB(scribbleColor)}>{scribble}</color>";
-                    }
                 }
             }
             else
