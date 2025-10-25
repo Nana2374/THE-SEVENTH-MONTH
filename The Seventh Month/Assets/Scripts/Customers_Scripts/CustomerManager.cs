@@ -387,4 +387,20 @@ public class CustomerManager : MonoBehaviour
         return shuffled.GetRange(0, finalCount).ToArray();
     }
 
+
+    public void FullResetProgress()
+    {
+        PlayerPrefs.DeleteKey("SaveData"); // clear all save data
+        PlayerPrefs.DeleteKey("SavedDay"); // (in case you still store this somewhere)
+
+        PlayerPrefs.Save();
+        Debug.Log("[AutoSave] Full reset: cleared all save data");
+
+        // Reset runtime data too, in case this object isn't reloaded immediately
+        currentDay = 1;
+        failureCounts.Clear();
+        lastFailureDay.Clear();
+        availablePairs.Clear();
+    }
+
 }

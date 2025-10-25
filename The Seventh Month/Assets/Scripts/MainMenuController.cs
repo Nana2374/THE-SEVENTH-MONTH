@@ -35,7 +35,6 @@ public class MainMenuController : MonoBehaviour
         if (noButton != null)
             noButton.onClick.AddListener(OnCancelNewGame);
 
-
     }
 
     private void CheckSavedProgress()
@@ -67,8 +66,13 @@ public class MainMenuController : MonoBehaviour
         if (newGamePopup != null)
             newGamePopup.SetActive(false);
 
-        // Reset save data for new game
-        PlayerPrefs.DeleteKey("SavedDay");
+        // Delete ALL PlayerPrefs keys to fully reset
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+
+
+        Debug.Log("[MainMenu] Cleared all save data — starting fresh game.");
+
         StartCoroutine(StartGameCoroutine());
     }
 
