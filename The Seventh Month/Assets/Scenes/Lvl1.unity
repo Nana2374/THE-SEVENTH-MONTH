@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 68837678}
   - component: {fileID: 68837677}
   m_Layer: 5
-  m_Name: Tab_0_SchoolGhost
+  m_Name: Tab_19_SchoolGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,7 +777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
+  m_AnchoredPosition: {x: 994.0001, y: -203.00003}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &68837677
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Hungry Ghost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -2302,7 +2302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: -248}
+  m_AnchoredPosition: {x: 994.0001, y: -260.00003}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155956693
@@ -3428,7 +3428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &246907979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3996,7 +3996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: baf86987c897a0c4fa300aaed243f03d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4102,7 +4102,7 @@ GameObject:
   - component: {fileID: 356065328}
   - component: {fileID: 356065327}
   m_Layer: 5
-  m_Name: Tab_3_JiangShi
+  m_Name: Tab_6_JiangShi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4125,7 +4125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994, y: 304.99997}
+  m_AnchoredPosition: {x: -1004.0001, y: 223.00002}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356065327
@@ -4696,7 +4696,7 @@ GameObject:
   - component: {fileID: 443239687}
   - component: {fileID: 443239686}
   m_Layer: 5
-  m_Name: Tab_2_Potianak
+  m_Name: Tab_5_Potianak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4719,7 +4719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994, y: 379}
+  m_AnchoredPosition: {x: -1004, y: 282}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443239686
@@ -5473,7 +5473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d58910f07c439e944b0a22fc5d22c147, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5850,7 +5850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5d21759644ad2c4c810200db4ac5600, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6277,7 +6277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b035716a9dedf8f44b5de327b950168f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7491,7 +7491,7 @@ GameObject:
   - component: {fileID: 667240345}
   - component: {fileID: 667240344}
   m_Layer: 5
-  m_Name: Tab_0_ArmyRecruitGhost
+  m_Name: Tab_18_ArmyRecruitGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7514,8 +7514,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
-  m_SizeDelta: {x: 130, y: 30}
+  m_AnchoredPosition: {x: 994.0001, y: -142.11533}
+  m_SizeDelta: {x: 130, y: 36.8847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &667240344
 MonoBehaviour:
@@ -7912,7 +7912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fce8e9f9ad9ce144b3897acffb5c990, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9023,7 +9023,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Trinkets_page1
+  m_text: 'Trinkets
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -9249,7 +9251,7 @@ GameObject:
   - component: {fileID: 831203072}
   - component: {fileID: 831203071}
   m_Layer: 5
-  m_Name: Tab_5_Toyol
+  m_Name: Tab_8_Toyol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9272,7 +9274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 148.00002}
+  m_AnchoredPosition: {x: -1004, y: 99.000015}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831203071
@@ -9544,7 +9546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Jenglot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -9837,7 +9839,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Ghost Marriage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -9971,7 +9973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Penanggalan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -10105,7 +10107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Colonial Ghost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -10408,7 +10410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fed68d6270fd83f42b13c093543fffba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10439,7 +10441,7 @@ GameObject:
   - component: {fileID: 946612702}
   - component: {fileID: 946612701}
   m_Layer: 5
-  m_Name: Tab_0_Penanggalan
+  m_Name: Tab_16_Penanggalan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10462,7 +10464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
+  m_AnchoredPosition: {x: 994.0001, y: -7}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946612701
@@ -10908,7 +10910,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Marble-Play Children Ghost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -11370,7 +11372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7763397bcae173b41bbb6b66cf811c29, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12207,7 +12209,7 @@ GameObject:
   - component: {fileID: 1134714034}
   - component: {fileID: 1134714033}
   m_Layer: 5
-  m_Name: Tab_0_WaterGhost
+  m_Name: Tab_9_WaterGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12230,7 +12232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
+  m_AnchoredPosition: {x: -1004, y: 35.000015}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1134714033
@@ -13191,7 +13193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4ae4ad961086a344ada91acb1dd192a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13222,7 +13224,7 @@ GameObject:
   - component: {fileID: 1289739281}
   - component: {fileID: 1289739280}
   m_Layer: 5
-  m_Name: Tab_0_HungryGhost
+  m_Name: Tab_10_HungryGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13245,7 +13247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
+  m_AnchoredPosition: {x: -1004, y: -26.999985}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1289739280
@@ -13343,7 +13345,7 @@ GameObject:
   - component: {fileID: 1298877105}
   - component: {fileID: 1298877104}
   m_Layer: 5
-  m_Name: Tab_0_OrangMinyak
+  m_Name: Tab_11_OrangMinyak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13366,7 +13368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
+  m_AnchoredPosition: {x: -1004, y: -97.999985}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1298877104
@@ -13868,7 +13870,7 @@ GameObject:
   - component: {fileID: 1320899931}
   - component: {fileID: 1320899930}
   m_Layer: 5
-  m_Name: Tab_0_GhostMarriage
+  m_Name: Tab_15_GhostMarriage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13891,8 +13893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
-  m_SizeDelta: {x: 130, y: 30}
+  m_AnchoredPosition: {x: 994.0001, y: 69.769394}
+  m_SizeDelta: {x: 130, y: 43.7694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320899930
 MonoBehaviour:
@@ -15047,7 +15049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6dc2a4eddb046494b84c79e21c2b5825, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15307,7 +15309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9749edb60357db341ae44cc71ec0f68b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15382,7 +15384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: School Ghost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -15740,12 +15742,12 @@ GameObject:
   - component: {fileID: 1485463119}
   - component: {fileID: 1485463118}
   m_Layer: 5
-  m_Name: Tab_2_Trinkets_03
+  m_Name: Tab_4_Trinkets_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1485463117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16031,12 +16033,12 @@ GameObject:
   - component: {fileID: 1510037359}
   - component: {fileID: 1510037358}
   m_Layer: 5
-  m_Name: Tab_2_Trinkets_02
+  m_Name: Tab_3_Trinkets_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1510037357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16644,7 +16646,7 @@ GameObject:
   - component: {fileID: 1647571067}
   - component: {fileID: 1647571066}
   m_Layer: 5
-  m_Name: Tab_0_ColonialGhost
+  m_Name: Tab_17_ColonialGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16667,8 +16669,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
-  m_SizeDelta: {x: 130, y: 30}
+  m_AnchoredPosition: {x: 994.0001, y: -76.13178}
+  m_SizeDelta: {x: 130, y: 37.8682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1647571066
 MonoBehaviour:
@@ -16811,7 +16813,7 @@ GameObject:
   - component: {fileID: 1663361297}
   - component: {fileID: 1663361296}
   m_Layer: 5
-  m_Name: Tab_0_Marble-PlayChildren
+  m_Name: Tab_14_Marble-PlayChildren
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16834,8 +16836,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
-  m_SizeDelta: {x: 130, y: 30}
+  m_AnchoredPosition: {x: 994.0001, y: 188}
+  m_SizeDelta: {x: 130, y: 62.4565}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663361296
 MonoBehaviour:
@@ -17015,7 +17017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.53396225, g: 0.95308596, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17181,7 +17183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Lady In White
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -17392,7 +17394,7 @@ GameObject:
   - component: {fileID: 1742170645}
   - component: {fileID: 1742170644}
   m_Layer: 5
-  m_Name: Tab_4_PoCong
+  m_Name: Tab_7_Pocong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17415,7 +17417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 227.99998}
+  m_AnchoredPosition: {x: -1004, y: 162.00002}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742170644
@@ -18893,7 +18895,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Orang Minyak
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -19113,7 +19115,7 @@ GameObject:
   - component: {fileID: 1925823414}
   - component: {fileID: 1925823413}
   m_Layer: 5
-  m_Name: Tab_0_LadyInWhite
+  m_Name: Tab_13_LadyInWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19136,7 +19138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
+  m_AnchoredPosition: {x: 994.0001, y: 302}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925823413
@@ -19426,7 +19428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water Ghost
+  m_text: Army Recruit Ghost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -19516,7 +19518,7 @@ GameObject:
   - component: {fileID: 1964386171}
   - component: {fileID: 1964386170}
   m_Layer: 5
-  m_Name: Tab_0_Jenglot
+  m_Name: Tab_12_Jenglot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19539,7 +19541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 994.0001, y: 69.99998}
+  m_AnchoredPosition: {x: 994.0001, y: 370}
   m_SizeDelta: {x: 130, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964386170
@@ -19886,7 +19888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bdb2083a6ca8bf143aa0a1fbd86ccf23, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20882,7 +20884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 869c4f9d82eeb4a4f84cdfa752c3ce1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7406fae9194ebf46921a39e791785c1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
