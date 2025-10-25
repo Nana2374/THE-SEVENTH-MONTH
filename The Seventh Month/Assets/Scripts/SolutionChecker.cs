@@ -24,11 +24,33 @@ public class SolutionChecker : MonoBehaviour
         Debug.Log($"[SolutionChecker] Checking solution for: {currentCase.caseName}");
 
         List<ItemData> playerItems = inventoryManager.GetCurrentItemsData();
-
         bool solved = true;
+
         foreach (ItemData required in currentCase.requiredItems)
         {
-            if (!playerItems.Contains(required))
+            bool itemFound = false;
+
+            foreach (ItemData playerItem in playerItems)
+            {
+                //  Exact match
+                if (playerItem == required)
+                {
+                    itemFound = true;
+                    break;
+                }
+
+                //  Flexible rule: if case allows any talisman
+                if (currentCase.acceptsAnyTalisman &&
+                    playerItem.category == ItemData.ItemCategory.Talisman &&
+                    required.category == ItemData.ItemCategory.Talisman)
+                {
+                    Debug.Log($"[SolutionChecker] {playerItem.itemName} accepted as valid talisman substitute!");
+                    itemFound = true;
+                    break;
+                }
+            }
+
+            if (!itemFound)
             {
                 solved = false;
                 break;
@@ -43,7 +65,6 @@ public class SolutionChecker : MonoBehaviour
         else
         {
             Debug.Log($"[SolutionChecker] FAILURE: {currentCase.failureOutcome}");
-            //  Delegate to CustomerManager so it decides whether to show poster
             if (customerManager != null)
             {
                 customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
@@ -53,4 +74,3 @@ public class SolutionChecker : MonoBehaviour
         customerManager.CustomerDone(customerManager.bufferTime);
     }
 }
-

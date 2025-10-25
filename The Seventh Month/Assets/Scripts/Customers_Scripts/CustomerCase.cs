@@ -17,6 +17,7 @@ public class CustomerCase : ScriptableObject
     public EvidencePhoto[] evidencePhotos;  // Use EvidencePhoto array
 
     [Header("Solution")]
+    public bool acceptsAnyTalisman = false;  // NEW: case can accept any talisman
     public ItemData[] requiredItems;
     public string failureOutcome;
     public string successOutcome;

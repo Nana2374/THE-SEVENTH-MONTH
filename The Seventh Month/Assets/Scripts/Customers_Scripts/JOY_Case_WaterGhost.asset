@@ -26,13 +26,11 @@ MonoBehaviour:
   - photo: {fileID: -230434180, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
     caption: "WEIRD, but I\u2019ve been seeing weird shadows in water"
     dayTaken: 1
+  acceptsAnyTalisman: 1
   requiredItems:
   - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
-  - {fileID: 11400000, guid: bcd6f16eafde1c14ba7323c4c3c7a699, type: 2}
-  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
-  - {fileID: 11400000, guid: a96113c7c9ab5a7459f0268cfe87c1cc, type: 2}
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
   failureOutcome: "\u201CThe spirit drags the customer to the water.\u201D"
   successOutcome: "\u201CThe spirit has returned to the water....\u201D"
-  failurePoster: {fileID: 21300000, guid: 6981528ecab3cc441964720a7876c849, type: 3}
   failureDialogue: '*Huff huff* It totally did not help... PLEASE will you help??
     *Huff huff*'
