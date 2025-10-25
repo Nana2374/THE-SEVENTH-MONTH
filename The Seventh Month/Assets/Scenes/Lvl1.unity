@@ -4923,7 +4923,7 @@ MonoBehaviour:
   - customerName: Joy
     customerSprite: {fileID: 21300000, guid: b613d14cd8af6f24ba67e94f6356673e, type: 3}
     failureSprite: {fileID: 21300000, guid: 810a96cf31cffd949a2ecbe632b54889, type: 3}
-    failurePoster: {fileID: 21300000, guid: 810a96cf31cffd949a2ecbe632b54889, type: 3}
+    failurePoster: {fileID: 21300000, guid: 20d9f2c857bb353479bf10b4aabec752, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -4931,7 +4931,7 @@ MonoBehaviour:
   - customerName: Chad
     customerSprite: {fileID: 21300000, guid: b436bff0a11cd1546bfad36c9eef3117, type: 3}
     failureSprite: {fileID: 21300000, guid: 7a751c7d68d41d5489fca41df79ed3ae, type: 3}
-    failurePoster: {fileID: 21300000, guid: 7a751c7d68d41d5489fca41df79ed3ae, type: 3}
+    failurePoster: {fileID: 21300000, guid: d144f77785d07bf4181c45736cd83cec, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: a305b9e846341744ab32fa2b4e1b8e0c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -4939,7 +4939,7 @@ MonoBehaviour:
   - customerName: Dior
     customerSprite: {fileID: 21300000, guid: 24b18e0f21d28f14a9e6c874fa58f821, type: 3}
     failureSprite: {fileID: 21300000, guid: a1324635bd57e13478720deea37218a3, type: 3}
-    failurePoster: {fileID: 21300000, guid: a1324635bd57e13478720deea37218a3, type: 3}
+    failurePoster: {fileID: 21300000, guid: 56b781a38bc77124abc5de95f6f8f3c2, type: 3}
     possibleCases:
     - {fileID: 11400000, guid: 51c3b3c8855c0c04095f7f28e5aa22aa, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -19891,7 +19891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -56.000183, y: -282.10883}
+  m_AnchoredPosition: {x: -56, y: -282.1089}
   m_SizeDelta: {x: -1409.183, y: -994.5169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992575288
