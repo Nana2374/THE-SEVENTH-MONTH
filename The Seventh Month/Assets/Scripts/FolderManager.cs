@@ -9,7 +9,6 @@ public class FolderManager : MonoBehaviour
     public Button backgroundButton;      // Invisible full-screen button for closing
 
     [Header("Pages")]
-    public GameObject leftPage;          // Static left page
     public GameObject[] rightPages;      // Only the right pages
 
     //For page flip
