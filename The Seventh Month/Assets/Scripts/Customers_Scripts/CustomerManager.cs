@@ -206,17 +206,13 @@ public class CustomerManager : MonoBehaviour
         {
             bool hasFailedBefore = failureCounts.ContainsKey(customer) && failureCounts[customer] > 0;
 
-            if (hasFailedBefore && !string.IsNullOrEmpty(activePair.customerCase.failureDialogue))
-            {
-                // Show the special "failure return" dialogue line
-                dialogueManager.ShowDialogue(activePair.customerCase.failureDialogue);
-            }
-            else
-            {
-                // Default normal introduction
-                dialogueManager.ShowDialogue(activePair.customerCase.description);
-            }
+            string dialogueLine = (hasFailedBefore && !string.IsNullOrEmpty(activePair.customerCase.failureDialogue))
+                                  ? activePair.customerCase.failureDialogue
+                                  : activePair.customerCase.description;
+
+            dialogueManager.ShowDialogue(activePair.customerCase, dialogueLine);
         }
+
     }
 
 
@@ -269,7 +265,8 @@ public class CustomerManager : MonoBehaviour
     private IEnumerator CustomerLeaveAfterDelay(float delay)
     {
         if (dialogueManager != null)
-            dialogueManager.ShowDialogue("Thanks, I'll try it out!");
+            dialogueManager.ShowDialogue(activePair.customerCase, "Thanks, I'll try it out!");
+
 
         yield return new WaitForSeconds(delay);
 
