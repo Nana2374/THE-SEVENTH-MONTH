@@ -32,3 +32,4 @@ MonoBehaviour:
   failureOutcome: "\u201CThe spirit drags the customer to the water.\u201D"
   successOutcome: "\u201CThe spirit has returned to the water....\u201D"
   failureDialogue: '*Huff* WHAT WAS THAT?! *huff*'
+  caseGender: 1

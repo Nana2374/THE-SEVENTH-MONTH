@@ -25,10 +25,11 @@ MonoBehaviour:
   - photo: {fileID: 504169650, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
     caption: My dogs keeps looking at the door
     dayTaken: 1
+  acceptsAnyTalisman: 0
   requiredItems:
   - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
   - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
   failureOutcome: "\u201CThe spirit harms the customer.\u201D"
   successOutcome: "\u201CThe spirit is repelled successfully.\u201D"
-  failurePoster: {fileID: 21300000, guid: aebc5c19bc128d045ae0ecf31d85c080, type: 3}
   failureDialogue: I don't feel too good....
+  caseGender: 1

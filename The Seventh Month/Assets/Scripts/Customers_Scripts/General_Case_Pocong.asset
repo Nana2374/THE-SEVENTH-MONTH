@@ -25,11 +25,12 @@ MonoBehaviour:
   - photo: {fileID: 2047930569, guid: 5d40d88648ab3e74bb975f3ebc4b8c22, type: 3}
     caption: My floor keeps getting dirt everywhere!
     dayTaken: 0
+  acceptsAnyTalisman: 0
   requiredItems:
   - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
   - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
   - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
   failureOutcome: 
   successOutcome: 
-  failurePoster: {fileID: 0}
   failureDialogue: AHHH now I hear it everyday thumping and the rotten SMELL AHHH..
+  caseGender: 1

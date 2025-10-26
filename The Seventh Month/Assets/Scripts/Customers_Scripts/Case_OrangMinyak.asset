@@ -18,19 +18,27 @@ MonoBehaviour:
   evidencePhotos:
   - photo: {fileID: 21300000, guid: 1485a65e567d3694ea6f88613e2e6f65, type: 3}
     caption: 'I see shadows around me '
+    dayTaken: 1
   - photo: {fileID: 21300000, guid: 9c13d821bcf04be4da71a779c00e4a82, type: 3}
     caption: There is oil residue everytime
+    dayTaken: 1
   - photo: {fileID: 21300000, guid: 41268041a643ac941b4aca671a7b547b, type: 3}
     caption: 'I hear sound from behind '
+    dayTaken: 1
   - photo: {fileID: 21300000, guid: ffdbdcdb6adc63945a5637bf88b86b62, type: 3}
     caption: There is letters everywhere
+    dayTaken: 1
   - photo: {fileID: 21300000, guid: 1485a65e567d3694ea6f88613e2e6f65, type: 3}
     caption: HELPPP!
+    dayTaken: 1
   - photo: {fileID: 0}
     caption: 
+    dayTaken: 1
+  acceptsAnyTalisman: 0
   requiredItems:
   - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
   - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
   failureOutcome: "\u201CThe spirit harms the customer.\u201D"
   successOutcome: "\u201CThe spirit is repelled successfully.\u201D"
-  failurePoster: {fileID: 21300000, guid: e8aa29d288582fc4cb55b481ade2f0c2, type: 3}
+  failureDialogue: 
+  caseGender: 1
