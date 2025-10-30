@@ -47,6 +47,9 @@ public class CustomerManager : MonoBehaviour
     private int currentDay = 1;
     private int maxDays = 4;
 
+    public FinalSummaryUI finalSummaryUI;
+    private int customersDoomed = 0;
+
     void Start()
     {
         LoadProgress();
@@ -310,19 +313,32 @@ public class CustomerManager : MonoBehaviour
     {
         Debug.Log($"--- DAY {currentDay} END ---");
 
-
-        currentDay++;
-
-
         // Autosave progress here
         SaveProgress();
 
-        if (currentDay > maxDays)
+        if (currentDay >= maxDays)
         {
             Debug.Log("Game Over: all days completed!");
+            // Show final summary UI
+            if (finalSummaryUI != null)
+            {
+                finalSummaryUI.ShowSummary(customersDoomed); // pass any stats you want
+            }
+
+            // Optionally, disable further spawning
+            StopAllCoroutines();
+            if (activeCustomer != null)
+                Destroy(activeCustomer);
+
+            // Or load a GameOver scene
+            // SceneManager.LoadScene("GameOverScene");
+
+
             return;
+
         }
 
+        currentDay++;
         StartCoroutine(PlayDayTransition(currentDay));
     }
 
@@ -350,6 +366,7 @@ public class CustomerManager : MonoBehaviour
         }
         else if (failures >= 2)
         {
+            customersDoomed++; //  Track doomed customers
             Debug.Log($"[CustomerManager] {failedCustomer.customerName} has died after 2 failures.");
 
             // Use the failure poster from the customer data now
@@ -398,6 +415,37 @@ public class CustomerManager : MonoBehaviour
         failureCounts.Clear();
         lastFailureDay.Clear();
         availablePairs.Clear();
+    }
+
+    // For testing: skip directly to a specific day
+    public void SkipToDay(int targetDay)
+    {
+        if (targetDay < 1 || targetDay > maxDays)
+        {
+            Debug.LogWarning("Target day is out of range!");
+            return;
+        }
+
+        // Stop any ongoing customer coroutines
+        StopAllCoroutines();
+
+        // Destroy the current active customer if any
+        if (activeCustomer != null)
+        {
+            Destroy(activeCustomer);
+            activeCustomer = null;
+        }
+
+        // Set the day
+        currentDay = targetDay;
+        Debug.Log($"[CustomerManager] Skipping to Day {currentDay}");
+
+        // Update day text
+        if (dayText != null)
+            dayText.text = $"Day {currentDay}";
+
+        // Start the day immediately
+        StartDay();
     }
 
 }
