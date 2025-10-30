@@ -17,8 +17,8 @@ public class FinalSummaryUI : MonoBehaviour
         float penalty = doomed * 21f;     // $21 penalty per doomed customer
         float finalPay = Mathf.Max(0f, basePay - penalty);  // Prevent negative pay
 
-        doomedCountText.text = $"Customers Doomed: {doomed}";
-        paycheckText.text = $"Final Paycheck: ${finalPay:F2}";
+        doomedCountText.text = $"{doomed}";
+        paycheckText.text = $"{finalPay:F2}";
         paycheckInWordsText.text = NumberToWords((int)finalPay); // show spelled out
     }
 
