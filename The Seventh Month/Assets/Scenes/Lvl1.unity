@@ -3450,7 +3450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7, y: 2.0864868}
+  m_AnchoredPosition: {x: 7, y: 2.0864258}
   m_SizeDelta: {x: 118.8726, y: -135.9048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &246907980
@@ -6350,7 +6350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &558363978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11154,7 +11154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &970719834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12546,18 +12546,36 @@ MonoBehaviour:
   photoSlots:
   - maskImage: {fileID: 2114266868}
     photoImage: {fileID: 1742515795}
+    scribbleImage: {fileID: 558363979}
     captionText: {fileID: 1153468637}
   - maskImage: {fileID: 1158483420}
     photoImage: {fileID: 339896904}
+    scribbleImage: {fileID: 640098332}
     captionText: {fileID: 142225769}
   - maskImage: {fileID: 37607442}
     photoImage: {fileID: 1901164018}
+    scribbleImage: {fileID: 708631162}
     captionText: {fileID: 439386902}
   damageOverlays:
   - {fileID: 21300000, guid: 0d274e3c3cc97b1408d5892a25cddca3, type: 3}
   - {fileID: 21300000, guid: ffc9536dbecfd2a4ea3c23c5aeb4eef1, type: 3}
   - {fileID: 21300000, guid: b97083ae81a47c248a6c37ff2e7ff910, type: 3}
   - {fileID: 21300000, guid: 6d68efc8dbe60e4438576f194ab5f51e, type: 3}
+  scribbleOverlays:
+  - {fileID: -238429162, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: -2028571191, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 1326561175, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: -5184256, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 178679744, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 2117289929, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 1209347266, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: -1236268769, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 1683019808, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 2089940451, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 1776232281, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: 497776501, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: -877608918, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  scribbleChance: 0.4
   currentDay: 1
 --- !u!1 &1134714031
 GameObject:
@@ -12737,7 +12755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: testing text test test
+  m_text: I keep dreaming of marrying someone, I draw ah?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
   m_sharedMaterial: {fileID: -8001913542049110153, guid: cd96b4c7c2968cd4b865368dbca42fae, type: 2}
@@ -12771,7 +12789,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -17281,8 +17299,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -472, y: 50}
-  m_SizeDelta: {x: 227.792, y: 227.792}
+  m_AnchoredPosition: {x: -472, y: -40}
+  m_SizeDelta: {x: 227.792, y: 300.792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1660891900
 CanvasRenderer:
@@ -18029,7 +18047,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 227.792, y: 227.792}
+  m_SizeDelta: {x: 227.792, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742515795
 MonoBehaviour:
@@ -20157,7 +20175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -56.000427, y: -282.1089}
+  m_AnchoredPosition: {x: -56.00049, y: -282.1089}
   m_SizeDelta: {x: -1409.183, y: -994.5169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992575288
@@ -21142,7 +21160,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 227.792, y: 227.792}
+  m_SizeDelta: {x: 227.792, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114266868
 MonoBehaviour:

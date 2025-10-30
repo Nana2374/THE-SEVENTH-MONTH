@@ -17,6 +17,10 @@ public class PhotoPanelManager : MonoBehaviour
     [Header("Damage Options")]
     public Sprite[] damageOverlays;   // Torn PNGs for masking
 
+    [Header("Scribble Options")]
+    public Sprite[] scribbleOverlays;   // random scribbles to overlay on photos
+    public float scribbleChance = 0.4f; // 40% chance a photo gets scribbles
+
     public int currentDay = 1;
 
     void Start()
@@ -136,9 +140,31 @@ public class PhotoPanelManager : MonoBehaviour
                     slot.maskImage.gameObject.SetActive(false);
                 }
 
+
                 // Set original photo
                 slot.photoImage.sprite = evidences[i].photo;
                 slot.photoImage.gameObject.SetActive(true);
+
+
+                // Apply scribbles only from Day 2 onward
+                if (currentDay >= 2 && scribbleOverlays.Length > 0 && slot.scribbleImage != null)
+                {
+                    if (Random.value < scribbleChance)
+                    {
+                        Sprite randomScribble = scribbleOverlays[Random.Range(0, scribbleOverlays.Length)];
+                        slot.scribbleImage.sprite = randomScribble;
+                        slot.scribbleImage.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        slot.scribbleImage.gameObject.SetActive(false);
+                    }
+                }
+                else if (slot.scribbleImage != null)
+                {
+                    slot.scribbleImage.gameObject.SetActive(false); // Hide scribbles before Day 2
+                }
+
 
                 // Set caption
                 if (slot.captionText != null)
@@ -168,5 +194,6 @@ public class PhotoSlotUI
 {
     public Image maskImage;      // Torn PNG with Mask component
     public Image photoImage;     // Original photo (child of maskImage)
+    public Image scribbleImage;     //Scribble overlay layer
     public TextMeshProUGUI captionText;
 }
