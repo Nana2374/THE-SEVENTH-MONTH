@@ -6,6 +6,8 @@ public class SolutionChecker : MonoBehaviour
     public InventoryManager inventoryManager;
     public CustomerManager customerManager;
 
+    public AudioSource audioSource;
+
     public void SubmitSolution()
     {
         if (inventoryManager == null || customerManager == null)
@@ -67,6 +69,7 @@ public class SolutionChecker : MonoBehaviour
             Debug.Log($"[SolutionChecker] FAILURE: {currentCase.failureOutcome}");
             if (customerManager != null)
             {
+                audioSource.Play();
                 customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
             }
         }
