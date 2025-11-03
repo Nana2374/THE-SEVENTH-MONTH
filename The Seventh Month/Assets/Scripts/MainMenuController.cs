@@ -93,10 +93,10 @@ public class MainMenuController : MonoBehaviour
         yield return new WaitForSeconds(0f);
 
         // Load the loading scene asynchronously
-        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync("Loading");
+        AsyncOperation instructionsOperation = SceneManager.LoadSceneAsync("Instructions");
 
         // Wait until the loading scene is fully loaded
-        while (!loadingOperation.isDone)
+        while (!instructionsOperation.isDone)
         {
             yield return null;
         }
