@@ -13,10 +13,31 @@ MonoBehaviour:
   m_Name: Case_RecruitGhost
   m_EditorClassIdentifier: 
   caseType: 0
-  caseName: 
-  evidencePhotos: []
+  caseName: Army Recruit Ghost
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: df8ef25e80d78a441aa496400dff0743, type: 3}
+    caption: Walao, I keep waking up at this time.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 4286768697270fa45bc68d8a425dab46, type: 3}
+    caption: Some funny fella keep singing that army song
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 682e6dc6998d3e140ab0b8c24d19deaa, type: 3}
+    caption: Someone keeps marching at nigh
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: a5f7bde57bbbd6245b8263b4a0aeea4a, type: 3}
+    caption: "Who never shower sia\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 71f26a766537ee142963971427c1f680, type: 3}
+    caption: Damn cold eh.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: ae9d90972e49dda4f9f8dc65fd2911b5, type: 3}
+    caption: Wah, some funny fella keep sleeping in my bed.
+    dayTaken: 0
   acceptsAnyTalisman: 0
-  requiredItems: []
-  failureOutcome: 
-  successOutcome: 
+  requiredItems:
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
+  - {fileID: 11400000, guid: a96113c7c9ab5a7459f0268cfe87c1cc, type: 2}
+  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  failureOutcome: Recruit takes you
+  successOutcome: Recruit expelled
   caseGender: 0

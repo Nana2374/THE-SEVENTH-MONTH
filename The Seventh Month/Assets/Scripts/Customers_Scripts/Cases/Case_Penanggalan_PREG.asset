@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: Case_Penanggalan_PREG
   m_EditorClassIdentifier: 
   caseType: 0
-  caseName: General_Penanggalan
+  caseName: Pregnant_Penanggalan
   evidencePhotos:
   - photo: {fileID: 21300000, guid: eb5a0ecb43d567641b1f70d85e0a78d7, type: 3}
     caption: WTF is this??
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 33cf27490585bd5468c343135cb6b52e, type: 3}
-    caption: "I\u2019m not on my period\u2026 But I keep smelling blood"
+  - photo: {fileID: 21300000, guid: e3e25ff16c1021244890696dbcdc170b, type: 3}
+    caption: "I smell\u2026 blood? Urgh my head\u2026"
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 45fb1e79491413b419d0432e491b383b, type: 3}
-    caption: "Oh my god\u2026 my dog\u2026"
+  - photo: {fileID: 21300000, guid: 6778e3f1162add244acc3665f135ce04, type: 3}
+    caption: Who keeps taking my stuff out?
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 09f668496859fe74aad5709804bbfd8f, type: 3}
-    caption: I keep hearing weird  sounds
+  - photo: {fileID: 21300000, guid: 64ad9af94ecebb643891622ff9d8e0fb, type: 3}
+    caption: "My baby keeps kicking at night\u2026"
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 993700c6288b1994a974f81f7282c15a, type: 3}
-    caption: "What\u2019s this glowing thing?"
+  - photo: {fileID: 21300000, guid: 65ccf97faeab69b46b66fc08109306fb, type: 3}
+    caption: "Maybe because I\u2019m pregnant, its so cold..."
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 93198a5f72efa234b813bd5cd739a7aa, type: 3}
-    caption: "So cold\u2026"
+  - photo: {fileID: 21300000, guid: fc426bc498cc24840bfab616ed4cd833, type: 3}
+    caption: Urgh the smells, so strong.
     dayTaken: 0
   acceptsAnyTalisman: 0
   requiredItems:

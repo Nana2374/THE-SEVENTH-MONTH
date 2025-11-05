@@ -13,10 +13,31 @@ MonoBehaviour:
   m_Name: Case_ColonialGhost
   m_EditorClassIdentifier: 
   caseType: 0
-  caseName: 
-  evidencePhotos: []
+  caseName: Colonial Ghosts (WWII soldiers, nurses, etc.)
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: deadbd466aff8b043991fbc03943d0ec, type: 3}
+    caption: Something smells weird
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: de8d2c81fa510e64b902e533a214a8ce, type: 3}
+    caption: "It\u2019s so chilly\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 682e6dc6998d3e140ab0b8c24d19deaa, type: 3}
+    caption: Someone keeps marching at night
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 4504de939ac56d3489b3d3a7d1f2b845, type: 3}
+    caption: "So sleepy\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: abd26db04e795ba429e7007271906a34, type: 3}
+    caption: Who keeps singing that army song..
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 4cf2ac4afccbbf746be6a4543c0bd087, type: 3}
+    caption: I think someone is watching me
+    dayTaken: 0
   acceptsAnyTalisman: 0
-  requiredItems: []
-  failureOutcome: 
-  successOutcome: 
+  requiredItems:
+  - {fileID: 11400000, guid: 822af92fad9e4b743a192d9e557a1c80, type: 2}
+  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  - {fileID: 11400000, guid: bcd6f16eafde1c14ba7323c4c3c7a699, type: 2}
+  failureOutcome: Colonial attacks
+  successOutcome: Colonial expelled
   caseGender: 0

@@ -13,10 +13,30 @@ MonoBehaviour:
   m_Name: Case_SchoolGhost
   m_EditorClassIdentifier: 
   caseType: 0
-  caseName: 
-  evidencePhotos: []
+  caseName: School Student Ghost
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 5a2053e9e6392b147bfc1c5f1eba43a8, type: 3}
+    caption: Stayed for remedial class, but someone keeps crying.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: c8b8cfa96105a964fb06171101025e9d, type: 3}
+    caption: The locker spot next to mine always feels cold.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 767a4d31f98a6ee4f8479a47f1489b46, type: 3}
+    caption: Someone keeps drawing on the whiteboard.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: ef08e0cbeff961f4ebd79b296152203f, type: 3}
+    caption: "One toilet stall is always locked\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: e4eaf5f21ffa98f479ffd25b21ac275e, type: 3}
+    caption: Is that Cherie? I thought she transferred.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: b95e7c3bac5cae94abee97dc55b67bda, type: 3}
+    caption: "Huh, that\u2019s not mine."
+    dayTaken: 0
   acceptsAnyTalisman: 0
-  requiredItems: []
-  failureOutcome: 
-  successOutcome: 
+  requiredItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  failureOutcome: Ghost possess you
+  successOutcome: Ghost expelled
   caseGender: 0
