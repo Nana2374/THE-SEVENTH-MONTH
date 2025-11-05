@@ -5192,6 +5192,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 3595e47be113f9243a72a226bbb0b7ff, type: 3}
     failureSprite: {fileID: 21300000, guid: 30f302def23212b4bb5fd9dd2821b609, type: 3}
     failurePoster: {fileID: 21300000, guid: bc2f0384890421843b81bc0939a82815, type: 3}
+    caseDescription: Don't mess with me or my man!
+    failureDialogue: Please please, help me!
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5200,6 +5202,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: e908f18838b487040aa7ea0ee18b75e3, type: 3}
     failureSprite: {fileID: 21300000, guid: 1d78f86441d9e7a41a153a39d80a1ed5, type: 3}
     failurePoster: {fileID: 21300000, guid: 3bcff2a637be14440811a5aa0a2123ef, type: 3}
+    caseDescription: Aunty usually alllllllways healthy one.
+    failureDialogue: Aunty not feeling so good...
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5208,6 +5212,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 24b18e0f21d28f14a9e6c874fa58f821, type: 3}
     failureSprite: {fileID: 21300000, guid: a1324635bd57e13478720deea37218a3, type: 3}
     failurePoster: {fileID: 21300000, guid: 14027570fa4b5df4d97961654dfa6b95, type: 3}
+    caseDescription: I'll pay you double- NO, ten times the fee!
+    failureDialogue: I'LL PAY YOU ANYTHING.
     possibleCases:
     - {fileID: 11400000, guid: 51c3b3c8855c0c04095f7f28e5aa22aa, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5216,6 +5222,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 56308d5fbcc55004a825f7272af63957, type: 3}
     failureSprite: {fileID: 21300000, guid: 3d976913eb2257841a350b6dbb3d2312, type: 3}
     failurePoster: {fileID: 21300000, guid: f08ba80293ddac94c9ce9d9a208de302, type: 3}
+    caseDescription: I know I'm not Chinese, but it's 7th month...
+    failureDialogue: UH I don't think it worked!?
     possibleCases:
     - {fileID: 11400000, guid: 2bf573ccd162d71489342c2b915bcc6b, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5224,6 +5232,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: b613d14cd8af6f24ba67e94f6356673e, type: 3}
     failureSprite: {fileID: 21300000, guid: 810a96cf31cffd949a2ecbe632b54889, type: 3}
     failurePoster: {fileID: 21300000, guid: 49d135c80e941854b9fa3ff6b6ce008a, type: 3}
+    caseDescription: '*huff* Maybe I need a professional! *huff*'
+    failureDialogue: '*huff* UM, HELLO? It didn''t work! *huff*'
     possibleCases:
     - {fileID: 11400000, guid: 43dd42af4541c4040bc154f41cfe172c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5232,6 +5242,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: fed607585fdfc2e4996b55b8ad812345, type: 3}
     failureSprite: {fileID: 21300000, guid: c960ae5b0d746584196480083283de60, type: 3}
     failurePoster: {fileID: 21300000, guid: ac803713a00d2fc4ca42edb190f06f31, type: 3}
+    caseDescription: One second, the baby is kicking!
+    failureDialogue: At least save my baby, PLEASE!
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5240,6 +5252,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 0cf7dc97ea63f744b97c768b18e949f8, type: 3}
     failureSprite: {fileID: 21300000, guid: a06d088f2167b7042b0f0873f73a0881, type: 3}
     failurePoster: {fileID: 21300000, guid: 2a3310a5920e8a349833515ad2dd806c, type: 3}
+    caseDescription: "\u2026I don\u2019t need help."
+    failureDialogue: Fine, help me. Please!
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5248,6 +5262,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 72565b396eecd8c4ab29a26b82c22c34, type: 3}
     failureSprite: {fileID: 21300000, guid: fc47cbde85982684198bfab37afe8756, type: 3}
     failurePoster: {fileID: 21300000, guid: 8b57998a0af1a4b4d91c3c39f471bae4, type: 3}
+    caseDescription: I guess I need help, or whatever.
+    failureDialogue: ' Okay, I NEED help.'
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5256,6 +5272,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 3517cd46dfb2e144183b6497b5b4e7f7, type: 3}
     failureSprite: {fileID: 21300000, guid: 13df8afd87ebf364b8012663fd0d6caa, type: 3}
     failurePoster: {fileID: 21300000, guid: 12bd9b9dba96fab488d99e0ad7efb306, type: 3}
+    caseDescription: My cat has been acting weird, very weird.
+    failureDialogue: "I don\u2019t think it was my cat..."
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5264,6 +5282,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 0c0ab7bb02831fa49874ead453d10e5c, type: 3}
     failureSprite: {fileID: 21300000, guid: db5d4e479524778438411707581c276c, type: 3}
     failurePoster: {fileID: 21300000, guid: e9ba6890eac984143a52e4cc0e4efa47, type: 3}
+    caseDescription: Mumy said no talk to strangers!
+    failureDialogue: Help help help!
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5272,6 +5292,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 124f3dc6fd031fe409b7db33d39a62a1, type: 3}
     failureSprite: {fileID: 21300000, guid: a7609fad7ca662a4fa3923c5cb0e0e4b, type: 3}
     failurePoster: {fileID: 21300000, guid: 01ff724864464b0448fe25c15ebc444d, type: 3}
+    caseDescription: "I need to get back to my taxi\u2026Tolong, faster help me."
+    failureDialogue: Tolong.. it's still here I see it every where..
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5280,6 +5302,9 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 029388d965d4e0b47996852ded8acd10, type: 3}
     failureSprite: {fileID: 21300000, guid: a69b39977dd29a3499eccb4e6c208f95, type: 3}
     failurePoster: {fileID: 21300000, guid: 10d6c718f0400e74c93a750ca53036a8, type: 3}
+    caseDescription: "Oi, see what see, cock-eye ah! You lucky limpeh need your help
+      today, if not I get my brother come and \u6742 your \u5E97!"
+    failureDialogue: "I see her\u2026 I see her\u2026"
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5288,6 +5313,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: da3607a39426c0c44b759a3a84671211, type: 3}
     failureSprite: {fileID: 21300000, guid: 71dcce0b2c1b49743b324a77650ea99d, type: 3}
     failurePoster: {fileID: 21300000, guid: a7cdbce346c954348b993a746fabed23, type: 3}
+    caseDescription: "I\u2026 need some help. I think."
+    failureDialogue: Why.. is it still there...
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5296,6 +5323,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: b436bff0a11cd1546bfad36c9eef3117, type: 3}
     failureSprite: {fileID: 21300000, guid: 7a751c7d68d41d5489fca41df79ed3ae, type: 3}
     failurePoster: {fileID: 21300000, guid: a3aa83932a7295e4e8b7e8416cec14c8, type: 3}
+    caseDescription: Help a bro out? Gotta hit the gym later!
+    failureDialogue: BRO, IT DID not even work! Help!
     possibleCases:
     - {fileID: 11400000, guid: a305b9e846341744ab32fa2b4e1b8e0c, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5304,6 +5333,10 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 2a33a18ddb8ff1947a283e4239ea2e34, type: 3}
     failureSprite: {fileID: 21300000, guid: be8007f695cd44543b8699a19fbdd60e, type: 3}
     failurePoster: {fileID: 21300000, guid: 7360c105f119cc042b4565655fd7534a, type: 3}
+    caseDescription: 'My sister referred you to me. Hurry and help me, I still need
+      to study A. Math and Chemistry for O levels. '
+    failureDialogue: I'm going crazzyyy, help me please! At this rate I will fail
+      my exams!
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5312,6 +5345,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 7dabc547c3c846f4fb0a923ab5921ddc, type: 3}
     failureSprite: {fileID: 21300000, guid: 845a7731013569544b6278304ff2589d, type: 3}
     failurePoster: {fileID: 21300000, guid: abb38e25ac1c5cf46a203244198d6794, type: 3}
+    caseDescription: "Hey, so some weird things have been happening\u2026"
+    failureDialogue: I still see her.. can u help? Please?
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5320,6 +5355,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 1180726ee5dc8e44f95e5008009f1000, type: 3}
     failureSprite: {fileID: 21300000, guid: 660cba7390568d649ae77afbab9788a9, type: 3}
     failurePoster: {fileID: 21300000, guid: 574883343ae561e4ea266ef6210fd8bc, type: 3}
+    caseDescription: Recruit Keng Chow, sir! Requesting help, sir!
+    failureDialogue: HELP! HELP! I am really going to die. This time I really die!
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5328,6 +5365,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 874d47a91919aff48bab2c85b9593f82, type: 3}
     failureSprite: {fileID: 21300000, guid: eb093fae1ca32fa4684af2be39e7744a, type: 3}
     failurePoster: {fileID: 21300000, guid: 0c75597c3ecc3134aa65043bc797207c, type: 3}
+    caseDescription: "Does Dad know we\u2019re here? Uh, I dunno?"
+    failureDialogue: Help us! Help us! We're so scared. *sobs*
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5336,6 +5375,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: 360b337b2dcba2942882b4297cf4e483, type: 3}
     failureSprite: {fileID: 21300000, guid: 98964352ce5248a4c9f904181105cc6a, type: 3}
     failurePoster: {fileID: 21300000, guid: 34a2b3b32af83f94dbb0fe1a3b2c90b8, type: 3}
+    caseDescription: One of my men said you could help.
+    failureDialogue: Can you help? I'm still seeing it, I trust you. One last time.
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
@@ -5344,6 +5385,8 @@ MonoBehaviour:
     customerSprite: {fileID: 21300000, guid: d592e67d261c1594f9e8ba0723098523, type: 3}
     failureSprite: {fileID: 21300000, guid: 1507f41495c179642bb1f1e5f96950ea, type: 3}
     failurePoster: {fileID: 21300000, guid: c5e190ed2d2ccb04991eb5b193c620fa, type: 3}
+    caseDescription: Uncle so old already, first time this happen!
+    failureDialogue: Maybe... it's my time..
     possibleCases:
     - {fileID: 11400000, guid: 0e427c6d623234a46bf0c4d89f92b626, type: 2}
     arrivalClip: {fileID: 8300000, guid: 7cdc0920ed3f23948a6999b055113f34, type: 3}
