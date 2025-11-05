@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_Pontianak
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: General_Pontianak
+  description: 
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: ffac25d89a9002a439a28b23a6af4ea6, type: 3}
+    caption: I recently went hiking with friends
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 9ddcef474da57084cabb17b16e07558a, type: 3}
+    caption: I'm abit of a night owl, I like to walk at night
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: dd89530bcac250440a89ef659d302a55, type: 3}
+    caption: I keep smelling flowers, followed by a rotten smell
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 65f4249b97db40648b5fcf3f23e9743b, type: 3}
+    caption: Nice bit of nature near my place
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 3bab585ad73a439409372ccb9a06f22e, type: 3}
+    caption: My dog keeps looking at the door
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 6dfd38be43f2c9844adf23d0cdb5e577, type: 3}
+    caption: White cloth hanging on tree
+    dayTaken: 0
+  acceptsAnyTalisman: 0
+  requiredItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  failureOutcome: 
+  successOutcome: 
+  failureDialogue: 
+  caseGender: 0
