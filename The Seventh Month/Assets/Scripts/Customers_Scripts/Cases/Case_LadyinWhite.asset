@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_LadyinWhite
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: Lady in White/Red
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 7ea0c3db3a635c34ca53d1735521a3f8, type: 3}
+    caption: I saw a chiobu by the road.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 9eeef29b9fc5d4e43a0519a574756f79, type: 3}
+    caption: Been having headaches.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: b66ebf5307066c746be6a29916194023, type: 3}
+    caption: "My car feels very cold\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 67df21df62480044d9b20bfc4012412f, type: 3}
+    caption: My radio malfunctioning, maybe need repair.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: f1e57dc25d164a249bc16dac5bd6886a, type: 3}
+    caption: Walao, siao! Nearly got car accident.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 390d86cd80c8d934e9ed3be5b2156acb, type: 3}
+    caption: My lights not working well.
+    dayTaken: 0
+  acceptsAnyTalisman: 1
+  requiredItems:
+  - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
+  failureOutcome: 'Lady kills '
+  successOutcome: Lady expelled
+  caseGender: 0

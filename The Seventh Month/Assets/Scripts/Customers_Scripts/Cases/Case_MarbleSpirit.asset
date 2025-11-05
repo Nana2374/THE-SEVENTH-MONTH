@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_MarbleSpirit
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: General_Marble-Play Children Spirit
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 24270c95d2cabcf4794ff01f8757715c, type: 3}
+    caption: The children upstairs are playing happily.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 10270379ed6d87b4c9263ebe490b284c, type: 3}
+    caption: "There\u2019s this clinking, rolling sound\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: dece7ffe06d993d4cb57bef9c8a805a9, type: 3}
+    caption: Nearly slipped, so dangerous.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 0d0eaa5d029b34a4d83366841536e294, type: 3}
+    caption: A bit chilly.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: e153768db7e86eb42bd13ba002d6ca30, type: 3}
+    caption: My cat keeps staring at the wall.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: c3c55dce181ea2c45827c2cc97ddb5e4, type: 3}
+    caption: Who keeps leaving these around!?
+    dayTaken: 0
+  acceptsAnyTalisman: 1
+  requiredItems:
+  - {fileID: 11400000, guid: 4d909003010cdc7428d15a2b08efc8ce, type: 2}
+  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
+  failureOutcome: Marble sound increase
+  successOutcome: Marble expelled
+  caseGender: 0

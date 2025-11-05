@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_Ghost Marriage_AHBENG
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: AHBENG_Ghost Marriage
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 64732b9c6f4d32a4da824aafad608ac8, type: 3}
+    caption: 'Some cb play wedding music at night, siao gila
+
+'
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: cf99e6d7f51c492439dea244734217d2, type: 3}
+    caption: 'Pick up ang pao inside only $10 and this string, stingy sia
+
+'
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 691b208678a2d1742bd3abec6eae4c53, type: 3}
+    caption: I everytime kenah sick
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 0ab661eae2453fe4ab6f1e3f9966e41f, type: 3}
+    caption: My zha bo feels cold at night
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: abda295c11dc39f4a9c394d2cdb3b0e7, type: 3}
+    caption: Sick all the time
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 9a139043b514ff644b1f82867c2c1b0b, type: 3}
+    caption: I keep seeing ang pao
+    dayTaken: 0
+  acceptsAnyTalisman: 1
+  requiredItems:
+  - {fileID: 11400000, guid: b4eb087de24c6ca4c8f5d259a4e92726, type: 2}
+  - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
+  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  failureOutcome: Married to ghost
+  successOutcome: Ghost expelled
+  caseGender: 0

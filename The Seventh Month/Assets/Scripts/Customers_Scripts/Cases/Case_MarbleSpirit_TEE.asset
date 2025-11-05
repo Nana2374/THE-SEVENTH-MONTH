@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_MarbleSpirit_TEE
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: TEENEE_Marble-Play Children Spirit
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 9489e3ef0932873429999006aeee992c, type: 3}
+    caption: I see marbals, Mumy say no touch!
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 765a2ab704c55554f985f848b576570b, type: 3}
+    caption: I hear kids, Mumy say no hav :c
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: e2ddcc07e3c45d341a837c5c36416313, type: 3}
+    caption: 'Cold cold
+
+'
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: b34fb02b845b6cd4b8478ee061238c30, type: 3}
+    caption: Doggy weird?
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: b40bc24fc06595c4daa7d9b279e38d24, type: 3}
+    caption: Marbal! Many marbal!
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 9355ac02ce38cd3438782e2759fa61b3, type: 3}
+    caption: Tonk tonk sound?
+    dayTaken: 0
+  acceptsAnyTalisman: 1
+  requiredItems:
+  - {fileID: 11400000, guid: 4d909003010cdc7428d15a2b08efc8ce, type: 2}
+  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
+  failureOutcome: Marble sound increase
+  successOutcome: Marble expelled
+  caseGender: 1
