@@ -209,9 +209,9 @@ public class CustomerManager : MonoBehaviour
         {
             bool hasFailedBefore = failureCounts.ContainsKey(customer) && failureCounts[customer] > 0;
 
-            string dialogueLine = (hasFailedBefore && !string.IsNullOrEmpty(activePair.customerCase.failureDialogue))
-                                  ? activePair.customerCase.failureDialogue
-                                  : activePair.customerCase.description;
+            string dialogueLine = (hasFailedBefore && !string.IsNullOrEmpty(activePair.customer.failureDialogue))
+                                  ? activePair.customer.failureDialogue
+                                  : activePair.customer.caseDescription;
 
             dialogueManager.ShowDialogue(activePair.customerCase, dialogueLine);
         }

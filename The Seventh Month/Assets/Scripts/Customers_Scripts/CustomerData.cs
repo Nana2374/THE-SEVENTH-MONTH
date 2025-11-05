@@ -14,6 +14,13 @@ public class CustomerData
     [Header("Failure Assets")]
     public Sprite failurePoster;    // Moved here! Customer-specific failure poster
 
+
+    [Header("Case Data")]
+    [TextArea] public string caseDescription;   // Moved from CustomerCase
+    [TextArea] public string failureDialogue;   // Moved from CustomerCase
+
+
+
     public CustomerCase[] possibleCases; // Drag your ScriptableObject cases here
 
     // Audio

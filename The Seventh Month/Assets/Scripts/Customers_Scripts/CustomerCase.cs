@@ -12,7 +12,6 @@ public class CustomerCase : ScriptableObject
     [Header("Case Info")]
     public CaseType caseType;
     public string caseName;
-    [TextArea] public string description;
 
 
     [Header("Case Evidence")]
@@ -24,8 +23,6 @@ public class CustomerCase : ScriptableObject
     public string failureOutcome;
     public string successOutcome;
 
-    [Header("Failure Dialogue")]
-    [TextArea] public string failureDialogue;
 
     public gender caseGender;
 
