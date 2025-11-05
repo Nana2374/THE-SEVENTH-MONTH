@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_Jenglot
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: Jenglot
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: f657998025b40e94193405de11917aad, type: 3}
+    caption: "I keep dreaming of being in a forest\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: bc2bca7a5eba07743996e099e0b299fa, type: 3}
+    caption: Someone keeps whispering my name.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 5bb6bd214ed664043af16d1cab9d5503, type: 3}
+    caption: I keep scratching myself?
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 8920edbad493e654981c5ace315a8cf7, type: 3}
+    caption: I think my cat has been scratching me
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 5b615c5ecacac0749b75e1b4b1e286a4, type: 3}
+    caption: From my cat?
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: a57d581d4e7c22b45bf0c13dac1a9db0, type: 3}
+    caption: "I keep seeing a shadow on my bed but I can\u2019t move."
+    dayTaken: 0
+  acceptsAnyTalisman: 0
+  requiredItems:
+  - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
+  failureOutcome: Jenglot sucks your blood
+  successOutcome: Jenglot expelled
+  caseGender: 0

@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caseType: 0
   caseName: General_Pontianak
-  description: 
   evidencePhotos:
   - photo: {fileID: 21300000, guid: ffac25d89a9002a439a28b23a6af4ea6, type: 3}
     caption: I recently went hiking with friends
@@ -36,9 +35,8 @@ MonoBehaviour:
     dayTaken: 0
   acceptsAnyTalisman: 0
   requiredItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  failureOutcome: 
-  successOutcome: 
-  failureDialogue: 
+  - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
+  failureOutcome: Potianak Attacks!
+  successOutcome: Potianak Expelled!
   caseGender: 0

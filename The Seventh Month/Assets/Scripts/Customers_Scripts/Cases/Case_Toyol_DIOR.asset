@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_Toyol_DIOR
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: DIOR Toyol
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 8c084fcf9e25c1e40aff2115f803bc65, type: 3}
+    caption: I know my room is messy, but not usually THIS messy
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: fa22304a9a4cc2d4595a15f846373c0f, type: 3}
+    caption: My stuff keeps going missing
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: fc1fafe9633643a41a55bea78f12c940, type: 3}
+    caption: "My jewellery\u2026 Oh my jewellery\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 0b5de858dc0007d41bee7081279362d6, type: 3}
+    caption: My credit card SHOULD have been here
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: f2613419170f9544199c78f33d442d72, type: 3}
+    caption: Keep seeing these weird little smudges on my floor
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 5d10e02c29f1ef84e8faee7c3d33d81a, type: 3}
+    caption: A slice of my cake is missing!
+    dayTaken: 0
+  acceptsAnyTalisman: 0
+  requiredItems:
+  - {fileID: 11400000, guid: 4d909003010cdc7428d15a2b08efc8ce, type: 2}
+  - {fileID: 11400000, guid: 9f7e786db3ffeba4cabd5e8e4b7db954, type: 2}
+  - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  failureOutcome: Toyol steals
+  successOutcome: Toyol expelled
+  caseGender: 1

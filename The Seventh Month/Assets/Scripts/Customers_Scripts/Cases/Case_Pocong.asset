@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_Pocong
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: Pocong
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 6dfd38be43f2c9844adf23d0cdb5e577, type: 3}
+    caption: I saw a white cloth moving on the tree
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: de8d2c81fa510e64b902e533a214a8ce, type: 3}
+    caption: 'I keep feeling cold... '
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 6b67468e1a9753c4da772c0f5aa05754, type: 3}
+    caption: My floor keeps getting dirt everywhere!
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: f1c533c88449f124e8f214b6e541a729, type: 3}
+    caption: "Something smells\u2026 rotten\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 50a392c102c43c745ba90a3446d8966a, type: 3}
+    caption: I hear weird sounds at night
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: b99689586e8f9f947837353a0f5a44b1, type: 3}
+    caption: My bed smells weird..
+    dayTaken: 0
+  acceptsAnyTalisman: 0
+  requiredItems:
+  - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
+  - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
+  failureOutcome: Pocong attack!
+  successOutcome: Pocong Expelled
+  caseGender: 0

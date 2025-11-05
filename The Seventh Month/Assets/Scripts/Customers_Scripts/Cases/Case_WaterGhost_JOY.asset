@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_WaterGhost_JOY
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: JOY WaterGhost
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 9464acdeed81fd44eb851751e0a79df5, type: 3}
+    caption: "There\u2019s HAIR?? In my water bottle?"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: d714fac06dbb3f44588c25ed57e776b9, type: 3}
+    caption: My sink has been making weird noises
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 578ecf7109d249f4f93646c2b00609f4, type: 3}
+    caption: "WEIRD, but I\u2019ve been seeing weird shadows in water"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 5bb6bd214ed664043af16d1cab9d5503, type: 3}
+    caption: "I went swimming with my friends and\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 4cc67f0da737e1a46929bd1583d35afb, type: 3}
+    caption: "My back hurts\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 611b7ba720e862549a88dbcd0221e0b3, type: 3}
+    caption: Idk, I feel watched when I shower.
+    dayTaken: 0
+  acceptsAnyTalisman: 1
+  requiredItems:
+  - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  - {fileID: 11400000, guid: a96113c7c9ab5a7459f0268cfe87c1cc, type: 2}
+  - {fileID: 11400000, guid: bcd6f16eafde1c14ba7323c4c3c7a699, type: 2}
+  - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
+  failureOutcome: WaterGhost Drowns you
+  successOutcome: WaterGhost expelled
+  caseGender: 0

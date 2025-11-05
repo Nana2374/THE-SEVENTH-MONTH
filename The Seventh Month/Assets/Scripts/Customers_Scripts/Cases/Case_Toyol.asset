@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47136060ea202cb499e71b5e45ddddde, type: 3}
+  m_Name: Case_Toyol
+  m_EditorClassIdentifier: 
+  caseType: 0
+  caseName: General_Toyol
+  evidencePhotos:
+  - photo: {fileID: 21300000, guid: 5807f4241c242e84fa9dd02ab09485ab, type: 3}
+    caption: "I think someone has been stealing my stuff\u2026"
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: b259f0dc9be15d64da4cf756401c7518, type: 3}
+    caption: My coins keep going missing.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 99594dd57da8b8b48b3c37d9bcb9c604, type: 3}
+    caption: Who keeps messing up my room!
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 72ded53cf63ef2941868e2666286addc, type: 3}
+    caption: What are these weird marks?
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: b795f29a47ba6a64084daae241945c05, type: 3}
+    caption: I think my brother is stealing from me.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: bc4ade0449b7909409bbad3465efe4e5, type: 3}
+    caption: Someone is eating my food.
+    dayTaken: 0
+  acceptsAnyTalisman: 0
+  requiredItems:
+  - {fileID: 11400000, guid: 4d909003010cdc7428d15a2b08efc8ce, type: 2}
+  - {fileID: 11400000, guid: 9f7e786db3ffeba4cabd5e8e4b7db954, type: 2}
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
+  - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  failureOutcome: Toyol steals!
+  successOutcome: Toyol expelled
+  caseGender: 0
