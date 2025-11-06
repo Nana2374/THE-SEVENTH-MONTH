@@ -6568,8 +6568,7 @@ MonoBehaviour:
     failureSprite: {fileID: 21300000, guid: be8007f695cd44543b8699a19fbdd60e, type: 3}
     customerGender: 0
     failurePoster: {fileID: 21300000, guid: 7360c105f119cc042b4565655fd7534a, type: 3}
-    caseDescription: 'My sister referred you to me. Hurry and help me, I still need
-      to study A. Math and Chemistry for O levels. '
+    caseDescription: Hurry, I still need to study A. Math for O levels!
     failureDialogue: "My O levels\u2026 Study\u2026"
     possibleCases:
     - {fileID: 11400000, guid: d39910ff65746c244a569301fb061046, type: 2}
