@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -7,6 +8,19 @@ public class DayUnlockData
     public int dayNumber;
     public GameObject[] pagesToUnlock;
     public Button[] tabsToUnlock;
+}
+
+[System.Serializable]
+public class FoldedMemoData
+{
+    public Button memoButton;      // The small folded memo button
+    public GameObject memoPage;    // The page it opens
+}
+
+[System.Serializable]
+public class PageFoldedMemos
+{
+    public FoldedMemoData[] memos; // Array of memos for this page
 }
 
 public class FolderManager : MonoBehaviour
@@ -34,6 +48,10 @@ public class FolderManager : MonoBehaviour
     [Header("Progressive Unlocking")]
     public DayUnlockData[] dayUnlocks;
 
+    [Header("Folded Memos per Page")]
+    public PageFoldedMemos[] pageFoldedMemos; // Array of pages, each containing memos
+
+
     private int currentRightPage = 0;
 
     void Start()
@@ -60,7 +78,47 @@ public class FolderManager : MonoBehaviour
 
         // 🔓 Hide all pages/tabs first, then initialize for Day 1
         InitializeFolder(1); // <-- this ensures Day 1 pages/tabs are unlocked immediately
+        InitializeFoldedMemos();
     }
+
+
+    private void InitializeFoldedMemos()
+    {
+        for (int pageIndex = 0; pageIndex < pageFoldedMemos.Length; pageIndex++)
+        {
+            var memos = pageFoldedMemos[pageIndex].memos;
+            if (memos == null) continue;
+
+            foreach (var memo in memos)
+            {
+                if (memo.memoButton != null && memo.memoPage != null)
+                {
+                    memo.memoPage.SetActive(false);
+                    memo.memoButton.onClick.AddListener(() =>
+                    {
+                        ToggleFoldedMemo(memo.memoPage);
+                    });
+                }
+            }
+        }
+    }
+
+    private void ToggleFoldedMemo(GameObject memoPage)
+    {
+        // Hide all other memos of all pages
+        foreach (var page in pageFoldedMemos)
+        {
+            foreach (var memo in page.memos)
+            {
+                if (memo.memoPage != memoPage)
+                    memo.memoPage.SetActive(false);
+            }
+        }
+
+        // Toggle the clicked memo page
+        memoPage.SetActive(!memoPage.activeSelf);
+    }
+
 
     private void HideAllPagesAndTabs()
     {
@@ -120,7 +178,6 @@ public class FolderManager : MonoBehaviour
     }
 
     public void NextPage() => ShowRightPage(currentRightPage + 1);
-
     public void PreviousPage() => ShowRightPage(currentRightPage - 1);
 
     // 🔓 Build-up system: keeps previous days unlocked
