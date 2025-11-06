@@ -87,6 +87,7 @@ public class CustomerManager : MonoBehaviour
         else
         {
             currentDay = 1;
+            Debug.Log("[AutoSave] No saved day found. Starting at Day 1.");
         }
 
         failureCounts.Clear();
@@ -313,8 +314,6 @@ public class CustomerManager : MonoBehaviour
     {
         Debug.Log($"--- DAY {currentDay} END ---");
 
-        // Autosave progress here
-        SaveProgress();
 
         if (currentDay >= maxDays)
         {
@@ -339,6 +338,10 @@ public class CustomerManager : MonoBehaviour
         }
 
         currentDay++;
+
+        // Autosave progress here
+        SaveProgress();
+
         StartCoroutine(PlayDayTransition(currentDay));
     }
 
