@@ -35,11 +35,11 @@ MonoBehaviour:
   - photo: {fileID: 21300000, guid: 5b53ad00692a326469f95d46c80cd694, type: 3}
     caption: No feels to eat, I need buff up man.
     dayTaken: 0
-  acceptsAnyTalisman: 1
+  acceptsAnyTalisman: 0
   requiredItems:
   - {fileID: 11400000, guid: b4eb087de24c6ca4c8f5d259a4e92726, type: 2}
   - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
   - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
+  - {fileID: 11400000, guid: bcd6f16eafde1c14ba7323c4c3c7a699, type: 2}
   failureOutcome: Married to ghost
   successOutcome: Ghost expelled
-  caseGender: 0

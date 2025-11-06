@@ -38,6 +38,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d909003010cdc7428d15a2b08efc8ce, type: 2}
   - {fileID: 11400000, guid: 9f7e786db3ffeba4cabd5e8e4b7db954, type: 2}
   - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
+  - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
   failureOutcome: Toyol steals
   successOutcome: Toyol expelled
-  caseGender: 1
