@@ -14572,7 +14572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1031101745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19988,7 +19988,6 @@ MonoBehaviour:
   - {fileID: 551808790}
   - {fileID: 309227257}
   - {fileID: 719080970}
-  - {fileID: 1031101744}
   nextPageButton: {fileID: 1543080211}
   prevPageButton: {fileID: 30739117}
   tabButtons:
