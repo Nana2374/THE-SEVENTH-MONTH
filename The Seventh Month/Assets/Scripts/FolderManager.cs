@@ -68,7 +68,7 @@ public class FolderManager : MonoBehaviour
             if (page != null) page.SetActive(false);
 
         foreach (var tab in tabButtons)
-            if (tab != null) tab.interactable = false;
+            if (tab != null) tab.gameObject.SetActive(false); // hide completely
     }
 
     public void OpenFolder()
@@ -120,6 +120,7 @@ public class FolderManager : MonoBehaviour
     }
 
     public void NextPage() => ShowRightPage(currentRightPage + 1);
+
     public void PreviousPage() => ShowRightPage(currentRightPage - 1);
 
     // 🔓 Build-up system: keeps previous days unlocked
@@ -141,7 +142,7 @@ public class FolderManager : MonoBehaviour
                 foreach (var tab in data.tabsToUnlock)
                 {
                     if (tab != null)
-                        tab.interactable = true;
+                        tab.gameObject.SetActive(true); // show unlocked tab
                 }
             }
         }
