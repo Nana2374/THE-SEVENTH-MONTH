@@ -9,6 +9,7 @@ public class LoadingController : MonoBehaviour
     private void Start()
     {
         StartCoroutine(LoadLevelAfterDelay());
+
     }
 
     private IEnumerator LoadLevelAfterDelay()
@@ -18,7 +19,7 @@ public class LoadingController : MonoBehaviour
 
         // Load the level scene asynchronously
         AsyncOperation levelOperation = SceneManager.LoadSceneAsync(levelToLoad);
-        levelOperation.allowSceneActivation = false;
+
 
         // Optionally, wait until the level scene is fully loaded
         while (!levelOperation.isDone)
@@ -26,4 +27,9 @@ public class LoadingController : MonoBehaviour
             yield return null;
         }
     }
+
+
+
+
+
 }
