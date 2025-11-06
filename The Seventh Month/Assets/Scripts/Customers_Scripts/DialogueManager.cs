@@ -21,12 +21,11 @@ public class DialogueManager : MonoBehaviour
     private bool isMale = true;
 
     //  New method: start dialogue using a CustomerCase
-    public void ShowDialogue(CustomerCase customerCase, string dialogue)
+    public void ShowDialogue(CustomerData customerData, string dialogue)
     {
-        isMale = customerCase.caseGender == CustomerCase.gender.Male; // assign to the field, not a local
+        isMale = customerData.customerGender == CustomerData.Gender.Male;
         ShowDialogue(dialogue, isMale);
     }
-
 
 
 

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,9 @@ public class CustomerData
     public string customerName;         // Add this line
     public Sprite customerSprite;  // <--- ADD SPRITE
     public Sprite failureSprite;       // Appearance if failed previously
+
+    public enum Gender { Male, Female }
+    public Gender customerGender; // 👈 New field for voice logic
 
 
     [Header("Failure Assets")]

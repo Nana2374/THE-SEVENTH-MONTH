@@ -7,7 +7,6 @@ using UnityEngine.Analytics;
 public class CustomerCase : ScriptableObject
 {
     public enum CaseType { Ghost, Stalker }
-    public enum gender { Male, Female }
 
     [Header("Case Info")]
     public CaseType caseType;
@@ -23,8 +22,6 @@ public class CustomerCase : ScriptableObject
     public string failureOutcome;
     public string successOutcome;
 
-
-    public gender caseGender;
 
 }
 

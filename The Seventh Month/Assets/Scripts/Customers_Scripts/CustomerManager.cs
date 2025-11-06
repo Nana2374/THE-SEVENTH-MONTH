@@ -206,7 +206,7 @@ public class CustomerManager : MonoBehaviour
         }
 
 
-        if (activePair.customerCase != null && dialogueManager != null)
+        if (activePair.customer != null && dialogueManager != null)
         {
             bool hasFailedBefore = failureCounts.ContainsKey(customer) && failureCounts[customer] > 0;
 
@@ -214,7 +214,8 @@ public class CustomerManager : MonoBehaviour
                                   ? activePair.customer.failureDialogue
                                   : activePair.customer.caseDescription;
 
-            dialogueManager.ShowDialogue(activePair.customerCase, dialogueLine);
+            // Use CustomerData for correct voice gender
+            dialogueManager.ShowDialogue(activePair.customer, dialogueLine);
         }
 
     }
@@ -269,7 +270,7 @@ public class CustomerManager : MonoBehaviour
     private IEnumerator CustomerLeaveAfterDelay(float delay)
     {
         if (dialogueManager != null)
-            dialogueManager.ShowDialogue(activePair.customerCase, "Thanks, I'll try it out!");
+            dialogueManager.ShowDialogue(activePair.customer, "Thanks, I'll try it out!");
 
 
         yield return new WaitForSeconds(delay);
