@@ -56,6 +56,7 @@ public class CustomerManager : MonoBehaviour
         StartDay();
     }
 
+
     // --- AUTOSAVE SYSTEM ---
     private void SaveProgress()
     {
@@ -127,6 +128,12 @@ public class CustomerManager : MonoBehaviour
 
         if (dayText != null)
             dayText.text = $"Day {currentDay}";
+
+        FolderManager folder = FindObjectOfType<FolderManager>();
+        if (folder != null)
+        {
+            folder.InitializeFolder(currentDay); // use saved/current day
+        }
 
         SpawnRandomCustomer();
     }

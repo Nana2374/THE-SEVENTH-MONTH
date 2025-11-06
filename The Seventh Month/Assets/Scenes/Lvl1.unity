@@ -2416,7 +2416,7 @@ GameObject:
   - component: {fileID: 155956694}
   - component: {fileID: 155956693}
   m_Layer: 5
-  m_Name: Tab_0_Stalker
+  m_Name: Tab_20_Stalker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3565,7 +3565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &246907979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17262,6 +17262,33 @@ MonoBehaviour:
   closeDuration: 0.2
   foldedScale: {x: 0, y: 0, z: 0}
   openScale: {x: 0.8, y: 0.9, z: 1}
+  dayUnlocks:
+  - dayNumber: 1
+    pagesToUnlock:
+    - {fileID: 718029967}
+    - {fileID: 850038236}
+    - {fileID: 1357053997}
+    - {fileID: 1060102686}
+    - {fileID: 78879143}
+    tabsToUnlock:
+    - {fileID: 443239686}
+    - {fileID: 356065327}
+    - {fileID: 1742170644}
+    - {fileID: 831203071}
+    - {fileID: 1134714033}
+  - dayNumber: 2
+    pagesToUnlock:
+    - {fileID: 1442789476}
+    - {fileID: 2009362026}
+    tabsToUnlock:
+    - {fileID: 1289739280}
+    - {fileID: 1298877104}
+  - dayNumber: 3
+    pagesToUnlock: []
+    tabsToUnlock: []
+  - dayNumber: 4
+    pagesToUnlock: []
+    tabsToUnlock: []
 --- !u!1 &1510037356
 GameObject:
   m_ObjectHideFlags: 0
