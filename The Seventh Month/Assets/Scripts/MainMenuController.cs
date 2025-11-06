@@ -90,16 +90,11 @@ public class MainMenuController : MonoBehaviour
 
     private IEnumerator StartGameCoroutine()
     {
-        yield return new WaitForSeconds(0f);
+        // No delay needed, and no loading screen here
+        yield return null;
 
-        // Load the loading scene asynchronously
-        AsyncOperation instructionsOperation = SceneManager.LoadSceneAsync("Instructions");
-
-        // Wait until the loading scene is fully loaded
-        while (!instructionsOperation.isDone)
-        {
-            yield return null;
-        }
+        // Load only the INSTRUCTION scene first
+        SceneManager.LoadScene("Instructions");
     }
 
     public void QuitGame()

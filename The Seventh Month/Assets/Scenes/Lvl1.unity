@@ -13686,7 +13686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posterPrefab: {fileID: 4621960600958379359, guid: 2349a05585be8274daac5f27547d4c78, type: 3}
   posterBoard: {fileID: 391058358}
-  posterDelay: 5
+  posterDelay: 10
   padding: {x: 70, y: 105}
 --- !u!4 &1214164729
 Transform:
