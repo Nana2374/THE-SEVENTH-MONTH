@@ -75,5 +75,7 @@ public class SolutionChecker : MonoBehaviour
         }
 
         customerManager.CustomerDone(customerManager.bufferTime);
+        //clear inv
+        inventoryManager.ClearInventory();
     }
 }

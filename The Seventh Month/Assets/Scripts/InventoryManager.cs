@@ -64,6 +64,14 @@ public class InventoryManager : MonoBehaviour
         PlaySound(removeSound);
     }
 
+    public void ClearInventory()
+    {
+        inventoryItems.Clear();
+        UpdateInventoryUI();
+        Debug.Log("[InventoryManager] Inventory cleared.");
+    }
+
+
     /// <summary>
     /// Get a copy of current inventory items
     /// </summary>
