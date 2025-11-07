@@ -4522,7 +4522,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.07
+  m_Intensity: 0.08
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -11232,6 +11232,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 535724884}
   customerManager: {fileID: 448714124}
   audioSource: {fileID: 941764504}
+  lightFlash: {fileID: 1401246075}
 --- !u!1 &756524411
 GameObject:
   m_ObjectHideFlags: 0
@@ -14535,7 +14536,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.407
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -18956,6 +18957,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394462824}
   m_CullTransparentMesh: 1
+--- !u!1 &1401246074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401246076}
+  - component: {fileID: 1401246075}
+  m_Layer: 0
+  m_Name: Light_Flicker Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1401246075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401246074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af73b7521c18ac44b877f1572e2bf0bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light2D: {fileID: 1013978483}
+  globalLight2D: {fileID: 297021435}
+  minIntensity: 0.5
+  maxIntensity: 0.8
+  normalIntervalMin: 0.08
+  normalIntervalMax: 1
+  failMinIntensity: 0
+  failMaxIntensity: 1
+  failIntervalMin: 0.01
+  failIntervalMax: 0.05
+  failDuration: 3
+  globalNormalIntensity: 0.08
+  globalFailMinIntensity: 0
+  globalFailMaxIntensity: 0.08
+  flickerSmoothness: 20
+--- !u!4 &1401246076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401246074}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.4078703, y: -7.616414, z: -0.09287365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413420684
 GameObject:
   m_ObjectHideFlags: 0
@@ -26679,11 +26739,12 @@ SceneRoots:
   - {fileID: 753602127}
   - {fileID: 69050635}
   - {fileID: 2060180511}
+  - {fileID: 1715333697}
   - {fileID: 1084247662}
   - {fileID: 1885670642}
-  - {fileID: 1715333697}
   - {fileID: 756524415}
   - {fileID: 1417329365}
   - {fileID: 1259154544}
   - {fileID: 297021436}
   - {fileID: 1013978484}
+  - {fileID: 1401246076}

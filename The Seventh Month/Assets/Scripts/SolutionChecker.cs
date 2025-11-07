@@ -7,6 +7,8 @@ public class SolutionChecker : MonoBehaviour
     public CustomerManager customerManager;
 
     public AudioSource audioSource;
+    public Light2DFlicker lightFlash;
+
 
     public void SubmitSolution()
     {
@@ -70,6 +72,13 @@ public class SolutionChecker : MonoBehaviour
             if (customerManager != null)
             {
                 audioSource.Play();
+
+                // Trigger failure flash
+                if (lightFlash != null)
+                    lightFlash.TriggerFailFlicker();
+                Debug.Log("Light flicker.");
+
+
                 customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
             }
         }
