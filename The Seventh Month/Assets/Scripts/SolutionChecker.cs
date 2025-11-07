@@ -9,6 +9,8 @@ public class SolutionChecker : MonoBehaviour
     public AudioSource audioSource;
     public Light2DFlicker lightFlash;
 
+    public ImageFlicker imageFlicker;
+
 
     public void SubmitSolution()
     {
@@ -77,6 +79,10 @@ public class SolutionChecker : MonoBehaviour
                 if (lightFlash != null)
                     lightFlash.TriggerFailFlicker();
                 Debug.Log("Light flicker.");
+
+                // Trigger image flash
+                if (imageFlicker != null)
+                    imageFlicker.TriggerFlicker();
 
 
                 customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
