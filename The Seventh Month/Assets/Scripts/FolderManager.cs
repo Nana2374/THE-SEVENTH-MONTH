@@ -45,14 +45,21 @@ public class FolderManager : MonoBehaviour
     public Vector3 foldedScale = Vector3.one;
     public Vector3 openScale = Vector3.one;
 
+    [Header("Audio Clips")]
+    public AudioSource audioSource;
+    public AudioClip folderOpenSound;
+    public AudioClip folderCloseSound;
+    public AudioClip flipSound; // page flips / memo toggles
+
     [Header("Progressive Unlocking")]
     public DayUnlockData[] dayUnlocks;
 
     [Header("Folded Memos per Page")]
     public PageFoldedMemos[] pageFoldedMemos; // Array of pages, each containing memos
 
-
     private int currentRightPage = 0;
+
+
 
     void Start()
     {
@@ -79,6 +86,11 @@ public class FolderManager : MonoBehaviour
         // 🔓 Hide all pages/tabs first, then initialize for Day 1
         InitializeFolder(1); // <-- this ensures Day 1 pages/tabs are unlocked immediately
         InitializeFoldedMemos();
+    }
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
     }
 
 
@@ -117,6 +129,7 @@ public class FolderManager : MonoBehaviour
 
         // Toggle the clicked memo page
         memoPage.SetActive(!memoPage.activeSelf);
+        PlaySound(flipSound);
     }
 
 
@@ -134,6 +147,8 @@ public class FolderManager : MonoBehaviour
         expandedFolder.SetActive(true);
         backgroundButton.gameObject.SetActive(true);
 
+        PlaySound(folderOpenSound);
+
         if (useScaleAnimation)
             LeanTween.scale(expandedFolder, openScale, openDuration).setEaseOutBack();
         else
@@ -142,6 +157,8 @@ public class FolderManager : MonoBehaviour
 
     public void CloseFolder()
     {
+        PlaySound(folderCloseSound);
+
         if (useScaleAnimation)
         {
             LeanTween.scale(expandedFolder, foldedScale, closeDuration).setEaseInBack()
@@ -159,9 +176,13 @@ public class FolderManager : MonoBehaviour
         }
     }
 
-    public void ShowRightPage(int index)
+
+    public void ShowRightPage(int index, bool playSound = true)
     {
         if (index < 0 || index >= rightPages.Length) return;
+
+        if (playSound)
+            PlaySound(flipSound);
 
         for (int i = 0; i < rightPages.Length; i++)
         {
@@ -176,6 +197,8 @@ public class FolderManager : MonoBehaviour
         if (prevPageButton != null)
             prevPageButton.interactable = (currentRightPage > 0);
     }
+
+
 
     public void NextPage() => ShowRightPage(currentRightPage + 1);
     public void PreviousPage() => ShowRightPage(currentRightPage - 1);
@@ -216,14 +239,14 @@ public class FolderManager : MonoBehaviour
 
     private void ShowFirstUnlockedPage()
     {
-        // Find the first page that’s active and show it
         for (int i = 0; i < rightPages.Length; i++)
         {
             if (rightPages[i] != null && rightPages[i].activeSelf)
             {
-                ShowRightPage(i);
+                ShowRightPage(i, false); // <-- no sound on startup
                 return;
             }
         }
     }
+
 }
