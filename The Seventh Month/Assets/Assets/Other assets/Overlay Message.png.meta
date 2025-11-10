@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 40dd4745a6c3d4b4fb33ead4257d9a4c
+guid: 0d40391b18a54ea44a009ff205c16a48
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: message_0
+      name: Overlay Message_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 483
-        width: 244
-        height: 156
+        x: 12
+        y: 526
+        width: 283
+        height: 153
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,104 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54853b6860c93f34b9036ef065095eb9
-      internalID: -238429162
+      spriteID: 327f6f3068b9ff04aaf327afc0c905c5
+      internalID: -548987849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: message_1
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 513
-        width: 266
-        height: 98
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42d984297b115c34f95ea7cb1f998779
-      internalID: -2028571191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: message_2
-      rect:
-        serializedVersion: 2
-        x: 597
-        y: 536
-        width: 286
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0706895d671bec646b792aa1fc21192c
-      internalID: 1326561175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: message_3
-      rect:
-        serializedVersion: 2
-        x: 918
-        y: 535
-        width: 257
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac1ac39e91258444867751d09113a91
-      internalID: -5184256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: message_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 273
-        width: 294
-        height: 188
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5784e3a1888f5464195452584ea6398c
-      internalID: 178679744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: message_5
+      name: Overlay Message_1
       rect:
         serializedVersion: 2
         x: 331
-        y: 293
-        width: 251
-        height: 163
+        y: 547
+        width: 278
+        height: 132
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47f97af95a1865b40b4209c50172fb4c
-      internalID: 2117289929
+      spriteID: 8da4c1a07beea874a8173a1fbfec6d75
+      internalID: 793486350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: message_6
+      name: Overlay Message_2
       rect:
         serializedVersion: 2
-        x: 622
-        y: 352
-        width: 207
-        height: 118
+        x: 625
+        y: 558
+        width: 303
+        height: 123
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ff2fcc9a09fc7a4f995649ebcb853d2
-      internalID: 1209347266
+      spriteID: 2e193fe2dc050f2438b097c3df911b44
+      internalID: -1454119595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: message_7
+      name: Overlay Message_3
       rect:
         serializedVersion: 2
-        x: 940
-        y: 326
-        width: 285
-        height: 173
+        x: 959
+        y: 559
+        width: 266
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +174,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bacfea30eac24b45baf66d171089099
-      internalID: -1236268769
+      spriteID: dfef7be7807c2e740ba65fbfcf0f5bbb
+      internalID: -572117707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: message_8
+      name: Overlay Message_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 377
+        width: 331
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5856594eb783ac40b8b6d674bcb2f66
+      internalID: 389244710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Overlay Message_5
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 365
+        width: 264
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4be6831d6de0a142a6ebd858d47b822
+      internalID: 1977273158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Overlay Message_6
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 418
+        width: 306
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed863d0074bbfe54b8921a74011b8dd9
+      internalID: 303894366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Overlay Message_7
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 411
+        width: 302
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b22bfea74b3d5428c610063222a042
+      internalID: 2121776248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Overlay Message_10
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 250
+        width: 346
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056a0fcffa0bd0e4da7b2e949eb837e4
+      internalID: 1546950127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Overlay Message_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 200
-        height: 193
+        y: 163
+        width: 383
+        height: 174
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a6edcc33e192e4ea3d4004a8d81917
-      internalID: 1683019808
+      spriteID: d37896fdfb478c741aa4b53983aadf55
+      internalID: 144434619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: message_9
+      name: Overlay Message_9
       rect:
         serializedVersion: 2
-        x: 288
-        y: 23
-        width: 213
-        height: 192
+        x: 390
+        y: 194
+        width: 234
+        height: 147
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a768dcc7b358ba42a5430b3f2cebe39
-      internalID: 2089940451
+      spriteID: df2cd498b692e104ab704f43d100e5e9
+      internalID: 1555540333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: message_10
+      name: Overlay Message_11
       rect:
         serializedVersion: 2
-        x: 598
-        y: 72
-        width: 287
-        height: 157
+        x: 1015
+        y: 88
+        width: 320
+        height: 182
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,50 +342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc4f96ad414f5ce47a1f1b52a165ffea
-      internalID: 1776232281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: message_11
-      rect:
-        serializedVersion: 2
-        x: 948
-        y: 13
-        width: 294
-        height: 221
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a64a31f52f9ae345a74227dc1793c61
-      internalID: 497776501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: message_28
-      rect:
-        serializedVersion: 2
-        x: 985
-        y: 0
-        width: 216
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46085dbf291122646a79018a26f6da86
-      internalID: -877608918
+      spriteID: 499ee94e3f2a1a243a62b8b145f60d00
+      internalID: -925895844
       vertices: []
       indices: 
       edges: []
@@ -393,30 +359,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      message_0: -238429162
-      message_1: -2028571191
-      message_10: 1776232281
-      message_11: 497776501
-      message_14: 602955968
-      message_15: 1231410910
-      message_17: 1907215152
-      message_19: 1678865473
-      message_2: 1326561175
-      message_20: 1100036591
-      message_22: 2040023012
-      message_23: -1777539992
-      message_24: 1742432309
-      message_25: 511923834
-      message_26: -339983273
-      message_27: 1769256680
-      message_28: -877608918
-      message_3: -5184256
-      message_4: 178679744
-      message_5: 2117289929
-      message_6: 1209347266
-      message_7: -1236268769
-      message_8: 1683019808
-      message_9: 2089940451
+      Overlay Message_0: -548987849
+      Overlay Message_1: 793486350
+      Overlay Message_10: 1546950127
+      Overlay Message_11: -925895844
+      Overlay Message_12: 1686571289
+      Overlay Message_15: -1552569387
+      Overlay Message_2: -1454119595
+      Overlay Message_3: -572117707
+      Overlay Message_4: 389244710
+      Overlay Message_5: 1977273158
+      Overlay Message_6: 303894366
+      Overlay Message_7: 2121776248
+      Overlay Message_8: 144434619
+      Overlay Message_9: 1555540333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
