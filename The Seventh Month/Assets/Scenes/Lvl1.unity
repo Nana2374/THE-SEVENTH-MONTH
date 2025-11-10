@@ -14604,7 +14604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &970719834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16243,19 +16243,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d95a9473e9cdf4e4da002d8c5f61d19e, type: 3}
   - {fileID: 21300000, guid: f562a9d01b776ff49bcd9dae07553458, type: 3}
   scribbleOverlays:
-  - {fileID: -238429162, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: -2028571191, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 1326561175, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: -5184256, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 178679744, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 2117289929, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 1209347266, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: -1236268769, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 1683019808, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 2089940451, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 1776232281, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: 497776501, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
-  - {fileID: -877608918, guid: 40dd4745a6c3d4b4fb33ead4257d9a4c, type: 3}
+  - {fileID: -548987849, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 793486350, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: -1454119595, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: -572117707, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 389244710, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 1977273158, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 303894366, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 2121776248, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 144434619, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 1555540333, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: 1546950127, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
+  - {fileID: -925895844, guid: 0d40391b18a54ea44a009ff205c16a48, type: 3}
   scribbleChance: 0.4
   currentDay: 1
 --- !u!1 &1134714031
