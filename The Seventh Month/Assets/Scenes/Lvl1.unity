@@ -10038,7 +10038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &631684985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21248,7 +21248,7 @@ MonoBehaviour:
   folderCloseSound: {fileID: 8300000, guid: c9393efe3b83caf40a28fccbbe6fa928, type: 3}
   flipSound: {fileID: 8300000, guid: 5d1b1a3fc193d4a40a3bed8857f48075, type: 3}
   dayUnlocks:
-  - dayNumber: 0
+  - dayNumber: 1
     pagesToUnlock:
     - {fileID: 243954980}
     - {fileID: 212678886}
@@ -21267,14 +21267,14 @@ MonoBehaviour:
     - {fileID: 1742170644}
     - {fileID: 831203071}
     - {fileID: 1134714033}
-  - dayNumber: 1
+  - dayNumber: 2
     pagesToUnlock:
     - {fileID: 1442789476}
     - {fileID: 2009362026}
     tabsToUnlock:
     - {fileID: 1289739280}
     - {fileID: 1298877104}
-  - dayNumber: 2
+  - dayNumber: 3
     pagesToUnlock:
     - {fileID: 1394462824}
     - {fileID: 1283377403}
@@ -21283,7 +21283,7 @@ MonoBehaviour:
     - {fileID: 1964386170}
     - {fileID: 1925823413}
     - {fileID: 1663361296}
-  - dayNumber: 3
+  - dayNumber: 4
     pagesToUnlock: []
     tabsToUnlock: []
   pageFoldedMemos:

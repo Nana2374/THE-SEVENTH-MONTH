@@ -83,8 +83,12 @@ public class FolderManager : MonoBehaviour
             tabButtons[i].onClick.AddListener(() => ShowRightPage(index));
         }
 
+        // 🔹 Load saved day, or default to 1 if none saved
+        int savedDay = PlayerPrefs.GetInt("SavedDay", 1); // match CustomerManager key
+
+
         // 🔓 Hide all pages/tabs first, then initialize for Day 1
-        InitializeFolder(1); // <-- this ensures Day 1 pages/tabs are unlocked immediately
+        InitializeFolder(savedDay); // <-- this ensures Day 1 pages/tabs are unlocked on the last day saved
         InitializeFoldedMemos();
     }
     private void PlaySound(AudioClip clip)
