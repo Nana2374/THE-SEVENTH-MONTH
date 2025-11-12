@@ -18,48 +18,44 @@ public class CameraMovement : MonoBehaviour
     private Vector3 targetPosition;
 
     public float moveAmount = 10f; // how far down to move from desk
+    public float uiDelay = 2f; // delay in seconds before showing UI
 
     void Start()
     {
-        // Save fixed desk/drawer positions
         deskPosition = transform.position;
         drawerPosition = deskPosition + new Vector3(0, -moveAmount, 0);
 
-        // Start at desk
         targetPosition = deskPosition;
 
         if (buttonUp != null) buttonUp.onClick.AddListener(MoveUp);
         if (buttonDown != null) buttonDown.onClick.AddListener(MoveDown);
 
-        // Start: show Down button, hide Up
         if (buttonUp != null) buttonUp.gameObject.SetActive(false);
         if (buttonDown != null) buttonDown.gameObject.SetActive(true);
     }
 
     void Update()
     {
-        // Smooth camera movement
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * moveSpeed);
     }
 
     public void MoveDown()
     {
-        targetPosition = drawerPosition; // go to fixed drawer pos
+        targetPosition = drawerPosition;
 
-        ToggleUI(false);
+        ToggleUI(false); // hide immediately
 
-        // Switch button visibility
         if (buttonUp != null) buttonUp.gameObject.SetActive(true);
         if (buttonDown != null) buttonDown.gameObject.SetActive(false);
     }
 
     public void MoveUp()
     {
-        targetPosition = deskPosition; // go back to fixed desk pos
+        targetPosition = deskPosition;
 
-        ToggleUI(true);
+        // Show UI with delay
+        StartCoroutine(ToggleUIWithDelay(true, uiDelay));
 
-        // Switch button visibility
         if (buttonUp != null) buttonUp.gameObject.SetActive(false);
         if (buttonDown != null) buttonDown.gameObject.SetActive(true);
     }
@@ -68,7 +64,19 @@ public class CameraMovement : MonoBehaviour
     {
         foreach (GameObject uiElement in uiElementsToToggle)
         {
-            if (uiElement != null) uiElement.SetActive(state);
+            if (uiElement != null)
+                uiElement.SetActive(state);
+        }
+    }
+
+    private IEnumerator ToggleUIWithDelay(bool state, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        foreach (GameObject uiElement in uiElementsToToggle)
+        {
+            if (uiElement != null)
+                uiElement.SetActive(state);
         }
     }
 }

@@ -13,14 +13,14 @@ public class DayUnlockData
 [System.Serializable]
 public class FoldedMemoData
 {
-    public Button memoButton;      // The small folded memo button
-    public GameObject memoPage;    // The page it opens
+    public Button memoButton;
+    public GameObject memoPage;
 }
 
 [System.Serializable]
 public class PageFoldedMemos
 {
-    public FoldedMemoData[] memos; // Array of memos for this page
+    public FoldedMemoData[] memos;
 }
 
 public class FolderManager : MonoBehaviour
@@ -49,17 +49,16 @@ public class FolderManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip folderOpenSound;
     public AudioClip folderCloseSound;
-    public AudioClip flipSound; // page flips / memo toggles
+    public AudioClip flipSound;
 
     [Header("Progressive Unlocking")]
     public DayUnlockData[] dayUnlocks;
 
     [Header("Folded Memos per Page")]
-    public PageFoldedMemos[] pageFoldedMemos; // Array of pages, each containing memos
+    public PageFoldedMemos[] pageFoldedMemos;
 
     private int currentRightPage = 0;
-
-
+    private bool[] pageUnlocked;
 
     void Start()
     {
@@ -83,20 +82,16 @@ public class FolderManager : MonoBehaviour
             tabButtons[i].onClick.AddListener(() => ShowRightPage(index));
         }
 
-        // 🔹 Load saved day, or default to 1 if none saved
-        int savedDay = PlayerPrefs.GetInt("SavedDay", 1); // match CustomerManager key
-
-
-        // 🔓 Hide all pages/tabs first, then initialize for Day 1
-        InitializeFolder(savedDay); // <-- this ensures Day 1 pages/tabs are unlocked on the last day saved
+        int savedDay = PlayerPrefs.GetInt("SavedDay", 1);
+        InitializeFolder(savedDay);
         InitializeFoldedMemos();
     }
+
     private void PlaySound(AudioClip clip)
     {
         if (audioSource != null && clip != null)
             audioSource.PlayOneShot(clip);
     }
-
 
     private void InitializeFoldedMemos()
     {
@@ -121,7 +116,6 @@ public class FolderManager : MonoBehaviour
 
     private void ToggleFoldedMemo(GameObject memoPage)
     {
-        // Hide all other memos of all pages
         foreach (var page in pageFoldedMemos)
         {
             foreach (var memo in page.memos)
@@ -131,11 +125,9 @@ public class FolderManager : MonoBehaviour
             }
         }
 
-        // Toggle the clicked memo page
         memoPage.SetActive(!memoPage.activeSelf);
         PlaySound(flipSound);
     }
-
 
     private void HideAllPagesAndTabs()
     {
@@ -143,14 +135,13 @@ public class FolderManager : MonoBehaviour
             if (page != null) page.SetActive(false);
 
         foreach (var tab in tabButtons)
-            if (tab != null) tab.gameObject.SetActive(false); // hide completely
+            if (tab != null) tab.gameObject.SetActive(false);
     }
 
     public void OpenFolder()
     {
         expandedFolder.SetActive(true);
         backgroundButton.gameObject.SetActive(true);
-
         PlaySound(folderOpenSound);
 
         if (useScaleAnimation)
@@ -180,10 +171,78 @@ public class FolderManager : MonoBehaviour
         }
     }
 
+    // ==============================
+    // 📖 PAGE MANAGEMENT SYSTEM
+    // ==============================
+
+    public void InitializeFolder(int currentDay)
+    {
+        pageUnlocked = new bool[rightPages.Length];
+        HideAllPagesAndTabs();
+        UpdateUnlockedPages(currentDay);
+        ShowFirstUnlockedPage();
+    }
+
+    public void UpdateUnlockedPages(int currentDay)
+    {
+        for (int i = 0; i < pageUnlocked.Length; i++)
+            pageUnlocked[i] = false;
+
+        foreach (var data in dayUnlocks)
+        {
+            if (data.dayNumber <= currentDay)
+            {
+                // Unlock pages
+                foreach (var page in data.pagesToUnlock)
+                {
+                    if (page != null)
+                    {
+                        for (int i = 0; i < rightPages.Length; i++)
+                        {
+                            if (rightPages[i] == page)
+                            {
+                                pageUnlocked[i] = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Unlock tabs
+                foreach (var tab in data.tabsToUnlock)
+                {
+                    if (tab != null)
+                        tab.gameObject.SetActive(true);
+                }
+            }
+        }
+
+        Debug.Log($"[FolderManager] Unlocked up to Day {currentDay}");
+    }
+
+    private void ShowFirstUnlockedPage()
+    {
+        for (int i = 0; i < rightPages.Length; i++)
+        {
+            if (pageUnlocked[i])
+            {
+                ShowRightPage(i, false);
+                return;
+            }
+        }
+
+        Debug.LogWarning("[FolderManager] No unlocked pages found!");
+    }
 
     public void ShowRightPage(int index, bool playSound = true)
     {
-        if (index < 0 || index >= rightPages.Length) return;
+        if (index < 0 || index >= rightPages.Length)
+            return;
+        if (!pageUnlocked[index])
+        {
+            Debug.Log("[FolderManager] Tried to access locked page index " + index);
+            return;
+        }
 
         if (playSound)
             PlaySound(flipSound);
@@ -195,62 +254,49 @@ public class FolderManager : MonoBehaviour
         }
 
         currentRightPage = index;
-
-        if (nextPageButton != null)
-            nextPageButton.interactable = (currentRightPage < rightPages.Length - 1);
-        if (prevPageButton != null)
-            prevPageButton.interactable = (currentRightPage > 0);
+        UpdateNavigationButtons();
     }
 
-
-
-    public void NextPage() => ShowRightPage(currentRightPage + 1);
-    public void PreviousPage() => ShowRightPage(currentRightPage - 1);
-
-    // 🔓 Build-up system: keeps previous days unlocked
-    public void UpdateUnlockedPages(int currentDay)
+    private void UpdateNavigationButtons()
     {
-        // Unlock all pages/tabs up to the current day
-        foreach (var data in dayUnlocks)
+        bool hasNext = false;
+        for (int i = currentRightPage + 1; i < pageUnlocked.Length; i++)
         {
-            if (data.dayNumber <= currentDay)
-            {
-                // Unlock pages
-                foreach (var page in data.pagesToUnlock)
-                {
-                    if (page != null)
-                        page.SetActive(true);
-                }
-
-                // Unlock tabs
-                foreach (var tab in data.tabsToUnlock)
-                {
-                    if (tab != null)
-                        tab.gameObject.SetActive(true); // show unlocked tab
-                }
-            }
+            if (pageUnlocked[i]) { hasNext = true; break; }
         }
 
-        Debug.Log($"[FolderManager] Up to Day {currentDay}: All previous pages/tabs unlocked.");
-    }
-
-    public void InitializeFolder(int currentDay)
-    {
-        HideAllPagesAndTabs(); // hide everything first
-        UpdateUnlockedPages(currentDay); // unlock pages/tabs up to saved day
-        ShowFirstUnlockedPage(); // show the first unlocked page
-    }
-
-    private void ShowFirstUnlockedPage()
-    {
-        for (int i = 0; i < rightPages.Length; i++)
+        bool hasPrev = false;
+        for (int i = currentRightPage - 1; i >= 0; i--)
         {
-            if (rightPages[i] != null && rightPages[i].activeSelf)
-            {
-                ShowRightPage(i, false); // <-- no sound on startup
-                return;
-            }
+            if (pageUnlocked[i]) { hasPrev = true; break; }
         }
+
+        if (nextPageButton != null) nextPageButton.interactable = hasNext;
+        if (prevPageButton != null) prevPageButton.interactable = hasPrev;
+    }
+
+    public void NextPage()
+    {
+        int nextIndex = currentRightPage + 1;
+        while (nextIndex < rightPages.Length && !pageUnlocked[nextIndex])
+            nextIndex++;
+
+        if (nextIndex < rightPages.Length)
+            ShowRightPage(nextIndex);
+        else
+            Debug.Log("[FolderManager] No further unlocked page to the right.");
+    }
+
+    public void PreviousPage()
+    {
+        int prevIndex = currentRightPage - 1;
+        while (prevIndex >= 0 && !pageUnlocked[prevIndex])
+            prevIndex--;
+
+        if (prevIndex >= 0)
+            ShowRightPage(prevIndex);
+        else
+            Debug.Log("[FolderManager] No further unlocked page to the left.");
     }
 
     public bool IsCaseUnlocked(CustomerCase customerCase)
@@ -258,5 +304,4 @@ public class FolderManager : MonoBehaviour
         int currentDay = PlayerPrefs.GetInt("SavedDay", 1);
         return customerCase.unlockDay <= currentDay;
     }
-
 }
