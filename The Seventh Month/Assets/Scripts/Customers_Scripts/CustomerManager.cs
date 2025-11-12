@@ -37,6 +37,7 @@ public class CustomerManager : MonoBehaviour
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
     private Dictionary<CustomerData, int> failureCounts = new Dictionary<CustomerData, int>();
     private Dictionary<CustomerData, int> lastFailureDay = new Dictionary<CustomerData, int>();
+    private Dictionary<CustomerData, CustomerCase> activeAssignedCases = new Dictionary<CustomerData, CustomerCase>();
 
     private int customersServed = 0;
     public int maxCustomers = 5;
@@ -236,6 +237,28 @@ public class CustomerManager : MonoBehaviour
 
     private CustomerCasePair PickCustomerCasePair()
     {
+        // Step 1: Prioritize customers who already have an assigned case
+        foreach (var kvp in activeAssignedCases)
+        {
+            CustomerData c = kvp.Key;
+            CustomerCase cc = kvp.Value;
+
+            // Only return them if they haven't died yet and can appear again
+            if (failureCounts.ContainsKey(c) && failureCounts[c] >= 2)
+                continue;
+
+            if (lastFailureDay.ContainsKey(c) && lastFailureDay[c] == currentDay)
+                continue; // skip if they failed today and are meant to return later
+
+            // Ensure we don’t spawn them twice
+            if (availablePairs.Exists(p => p.customer == c && p.customerCase == cc))
+            {
+                availablePairs.RemoveAll(p => p.customer == c); // remove other cases
+                return new CustomerCasePair(c, cc);
+            }
+        }
+
+        // Step 2: No returning customers waiting — pick a new random one
         int remaining = maxCustomers - customersServed;
         bool mustSpawnStalker = (stalkerSpawned == 0 && remaining == 1);
 
@@ -254,7 +277,6 @@ public class CustomerManager : MonoBehaviour
 
             float stalkerWeight = 1f + (currentDay - 1) * 0.5f;
             float totalWeight = ghosts.Count * 4 + stalkers.Count * stalkerWeight;
-
             float r = Random.Range(0f, totalWeight);
 
             if (r < ghosts.Count * 4 && ghosts.Count > 0)
@@ -266,8 +288,13 @@ public class CustomerManager : MonoBehaviour
         if (pair == null && availablePairs.Count > 0)
             pair = availablePairs[Random.Range(0, availablePairs.Count)];
 
+        // Step 3: Remember this assigned case for later
+        if (pair != null && !activeAssignedCases.ContainsKey(pair.customer))
+            activeAssignedCases[pair.customer] = pair.customerCase;
+
         return pair;
     }
+
 
     private IEnumerator ShowThumbnailNextFrame()
     {
@@ -383,16 +410,20 @@ public class CustomerManager : MonoBehaviour
         }
         else if (failures >= 2)
         {
-            customersDoomed++; //  Track doomed customers
+            customersDoomed++;
             Debug.Log($"[CustomerManager] {failedCustomer.customerName} has died after 2 failures.");
 
-            // Use the failure poster from the customer data now
             if (failurePosterManager != null && failedCustomer.failurePoster != null)
                 failurePosterManager.QueuePoster(failedCustomer.failurePoster);
 
             availablePairs.RemoveAll(pair => pair.customer == failedCustomer);
+
+            // Remove from active case memory since they’re gone
+            if (activeAssignedCases.ContainsKey(failedCustomer))
+                activeAssignedCases.Remove(failedCustomer);
         }
     }
+
 
     public CustomerData GetActiveCustomerData()
     {
