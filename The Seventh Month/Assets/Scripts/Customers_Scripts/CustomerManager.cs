@@ -142,6 +142,10 @@ public class CustomerManager : MonoBehaviour
     {
         availablePairs.Clear();
 
+        FolderManager folder = FindObjectOfType<FolderManager>();
+        if (folder == null)
+            return;
+
         foreach (var customer in customers)
         {
             // Skip dead customers
@@ -152,11 +156,13 @@ public class CustomerManager : MonoBehaviour
             if (lastFailureDay.ContainsKey(customer) && lastFailureDay[customer] == currentDay)
                 continue;
 
-            // Pick ONE random case for this customer
-            if (customer.possibleCases.Length > 0)
+            foreach (var custCase in customer.possibleCases)
             {
-                CustomerCase randomCase = customer.possibleCases[Random.Range(0, customer.possibleCases.Length)];
-                availablePairs.Add(new CustomerCasePair(customer, randomCase));
+                // Only add if the case is unlocked in folder
+                if (folder.IsCaseUnlocked(custCase))
+                {
+                    availablePairs.Add(new CustomerCasePair(customer, custCase));
+                }
             }
         }
     }

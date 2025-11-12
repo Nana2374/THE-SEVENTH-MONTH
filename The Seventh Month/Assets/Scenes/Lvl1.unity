@@ -21258,6 +21258,7 @@ MonoBehaviour:
     - {fileID: 850038236}
     - {fileID: 1357053997}
     - {fileID: 1060102686}
+    - {fileID: 78879143}
     tabsToUnlock:
     - {fileID: 127961029}
     - {fileID: 1672983835}
@@ -21265,6 +21266,7 @@ MonoBehaviour:
     - {fileID: 356065327}
     - {fileID: 1742170644}
     - {fileID: 831203071}
+    - {fileID: 1134714033}
   - dayNumber: 2
     pagesToUnlock:
     - {fileID: 719080970}
@@ -21291,13 +21293,11 @@ MonoBehaviour:
     - {fileID: 1964386170}
   - dayNumber: 4
     pagesToUnlock:
-    - {fileID: 78879143}
-    - {fileID: 1442789476}
     - {fileID: 2009362026}
+    - {fileID: 1442789476}
     tabsToUnlock:
-    - {fileID: 1134714033}
-    - {fileID: 1289739280}
     - {fileID: 1298877104}
+    - {fileID: 1289739280}
   pageFoldedMemos:
   - memos:
     - memoButton: {fileID: 303362375}

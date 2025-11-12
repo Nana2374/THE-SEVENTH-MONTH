@@ -40,4 +40,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc2fb795e8397a54493794e43c37ddf3, type: 2}
   failureOutcome: Penanggalan eats your baby
   successOutcome: Penanggalan expelled
-  caseGender: 1
+  unlockDay: 2

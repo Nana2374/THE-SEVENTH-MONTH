@@ -41,4 +41,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d909003010cdc7428d15a2b08efc8ce, type: 2}
   failureOutcome: Hungry ghost curse you
   successOutcome: Hungry ghost expelled!
-  caseGender: 0
+  unlockDay: 4

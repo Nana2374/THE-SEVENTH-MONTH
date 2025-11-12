@@ -43,3 +43,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcd6f16eafde1c14ba7323c4c3c7a699, type: 2}
   failureOutcome: Married to ghost
   successOutcome: Ghost expelled
+  unlockDay: 3

@@ -39,3 +39,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f107855b4462714cb838052fb7d300a, type: 2}
   failureOutcome: Ghost possess you
   successOutcome: Ghost expelled
+  unlockDay: 2

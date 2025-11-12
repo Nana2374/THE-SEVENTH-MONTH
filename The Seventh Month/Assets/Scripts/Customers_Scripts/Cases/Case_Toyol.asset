@@ -41,4 +41,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a208145d3f5e8a46ae23fd784ab35df, type: 2}
   failureOutcome: Toyol steals!
   successOutcome: Toyol expelled
-  caseGender: 0
+  unlockDay: 1

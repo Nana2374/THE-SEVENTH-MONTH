@@ -22,6 +22,8 @@ public class CustomerCase : ScriptableObject
     public string failureOutcome;
     public string successOutcome;
 
+    [Header("Unlocking")]
+    public int unlockDay; // <-- Add this here
 
 }
 

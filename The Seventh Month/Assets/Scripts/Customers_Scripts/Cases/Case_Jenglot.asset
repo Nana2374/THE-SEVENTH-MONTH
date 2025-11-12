@@ -39,4 +39,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 03d13860107f3ae429e87d96758034bf, type: 2}
   failureOutcome: Jenglot sucks your blood
   successOutcome: Jenglot expelled
-  caseGender: 0
+  unlockDay: 3

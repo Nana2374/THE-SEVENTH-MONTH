@@ -41,4 +41,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6dd00d060450f4d4d8c01ca06b820c01, type: 2}
   failureOutcome: WaterGhost Drowns you
   successOutcome: WaterGhost expelled
-  caseGender: 0
+  unlockDay: 1

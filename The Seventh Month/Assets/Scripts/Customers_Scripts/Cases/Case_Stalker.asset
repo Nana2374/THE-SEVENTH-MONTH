@@ -38,4 +38,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3b24b50acb92594aa5dd5fb3a275254, type: 2}
   failureOutcome: Stalker killss u
   successOutcome: Stalker in jail
-  caseGender: 0
+  unlockDay: 2

@@ -253,4 +253,10 @@ public class FolderManager : MonoBehaviour
         }
     }
 
+    public bool IsCaseUnlocked(CustomerCase customerCase)
+    {
+        int currentDay = PlayerPrefs.GetInt("SavedDay", 1);
+        return customerCase.unlockDay <= currentDay;
+    }
+
 }
