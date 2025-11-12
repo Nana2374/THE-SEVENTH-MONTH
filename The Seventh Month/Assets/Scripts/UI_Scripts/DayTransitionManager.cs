@@ -9,11 +9,20 @@ public class DayTransitionManager : MonoBehaviour
     public TextMeshProUGUI transitionText;
     public float fadeDuration = 1.5f;
 
+    public AudioSource audioSource;
+    public AudioClip dayTransitionSound;
+
     public IEnumerator PlayTransition(int day)
     {
         // Enable panel
         transitionPanel.gameObject.SetActive(true);
         transitionText.text = $"Day {day}";
+
+        // Play sound at the start of the transition
+        if (audioSource != null && dayTransitionSound != null)
+        {
+            audioSource.PlayOneShot(dayTransitionSound);
+        }
 
         // Fade in
         float t = 0f;
