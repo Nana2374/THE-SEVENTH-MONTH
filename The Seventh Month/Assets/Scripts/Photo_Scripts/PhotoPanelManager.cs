@@ -105,18 +105,20 @@ public class PhotoPanelManager : MonoBehaviour
 
                     case 3:
                         // Day 3: broader damage spread
-                        if (roll < 0.4f) damageIndex = 0;       // 40%
+                        if (roll < 0.2f) damageIndex = 0;       // 20%
                         else if (roll < 0.7f) damageIndex = 1;  // 30%
-                        else if (roll < 0.9f) damageIndex = 2;  // 20%
-                        else damageIndex = 3;                   // 10%
+                        else if (roll < 0.8f) damageIndex = 2;  // 20%
+                        else if (roll < 0.9f) damageIndex = 3;
+                        else damageIndex = 4;                   // 10%
                         break;
 
                     case 4:
-                        // Day 4: heavily damaged photos more common
-                        if (roll < 0.2f) damageIndex = 0;       // 20%
-                        else if (roll < 0.5f) damageIndex = 1;  // 30%
-                        else if (roll < 0.8f) damageIndex = 2;  // 30%
-                        else damageIndex = 3;                   // 20%
+                        // Day 4: all damaged
+                        if (roll < 0.2f) damageIndex = 1;       // 20%
+                        else if (roll < 0.5f) damageIndex = 2;  // 30%
+                        else if (roll < 0.8f) damageIndex = 3;  // 30%
+                        else if (roll < 0.9f) damageIndex = 4;
+                        else damageIndex = 5;                   // 20%
                         break;
 
                     default:
