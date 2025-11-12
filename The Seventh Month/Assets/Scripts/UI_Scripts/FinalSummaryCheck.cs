@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;   // <-- add this
 using System;
 
 public class FinalSummaryUI : MonoBehaviour
@@ -8,6 +9,16 @@ public class FinalSummaryUI : MonoBehaviour
     public TextMeshProUGUI doomedCountText;
     public TextMeshProUGUI paycheckText;
     public TextMeshProUGUI paycheckInWordsText; // new text field to show words
+
+    public Button nextButton; // <-- add this
+
+
+    void Start()
+    {
+        // Set up the button listener
+        if (nextButton != null)
+            nextButton.onClick.AddListener(OnNextButtonClicked);
+    }
 
     public void ShowSummary(int doomed)
     {
@@ -22,10 +33,11 @@ public class FinalSummaryUI : MonoBehaviour
         paycheckInWordsText.text = NumberToWords((int)finalPay); // show spelled out
     }
 
-    public void ReturnToMainMenu()
+    private void OnNextButtonClicked()
     {
-        SceneManager.LoadScene("MainMenu"); // adjust scene name
+        SceneManager.LoadScene("Credits"); // <-- make sure the name matches your actual Credits scene
     }
+
 
     // Helper function to convert numbers to words
     private string NumberToWords(int number)
