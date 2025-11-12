@@ -1,14 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CreditsManager : MonoBehaviour
 {
     public float scrollSpeed = 40f;
-    public float endDelay = 2f; // wait time after credits finish
+    public float endDelay = 2f;
     public RectTransform rectTransform;
-    public float endYPosition = 1200f; // Adjust this based on how tall your credits are
+    public float endYPosition = 1200f;
 
     void Start()
     {
@@ -18,20 +18,20 @@ public class CreditsManager : MonoBehaviour
 
     void Update()
     {
-        // Move the credits upward
         rectTransform.anchoredPosition += new Vector2(0, scrollSpeed * Time.deltaTime);
 
-        // Check if the credits have reached the target end position
         if (rectTransform.anchoredPosition.y >= endYPosition)
         {
             StartCoroutine(ReturnToMainMenuAfterDelay());
-            enabled = false; // stop further scrolling
+            enabled = false; // stop scrolling
         }
     }
 
     private IEnumerator ReturnToMainMenuAfterDelay()
     {
         yield return new WaitForSeconds(endDelay);
-        SceneManager.LoadScene("MainMenu"); // make sure this matches your main menu scene name
+        SceneManager.LoadScene("MainMenu"); // loads main menu directly
     }
 }
+
+
