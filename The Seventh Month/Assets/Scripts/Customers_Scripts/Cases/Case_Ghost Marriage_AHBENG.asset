@@ -16,7 +16,7 @@ MonoBehaviour:
   caseName: AHBENG_Ghost Marriage
   evidencePhotos:
   - photo: {fileID: 21300000, guid: 64732b9c6f4d32a4da824aafad608ac8, type: 3}
-    caption: 'Some cb play wedding music at night, siao gila
+    caption: 'Some cb play wedding music at night, siao gila(Crazy)
 
 '
     dayTaken: 0
@@ -26,10 +26,10 @@ MonoBehaviour:
 '
     dayTaken: 0
   - photo: {fileID: 21300000, guid: 691b208678a2d1742bd3abec6eae4c53, type: 3}
-    caption: I everytime kenah sick
+    caption: I everytime kenah(get) sick
     dayTaken: 0
   - photo: {fileID: 21300000, guid: 0ab661eae2453fe4ab6f1e3f9966e41f, type: 3}
-    caption: My zha bo feels cold at night
+    caption: My zha bo(girl) feels cold at night
     dayTaken: 0
   - photo: {fileID: 21300000, guid: abda295c11dc39f4a9c394d2cdb3b0e7, type: 3}
     caption: Sick all the time
