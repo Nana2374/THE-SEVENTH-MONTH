@@ -33,6 +33,54 @@ MonoBehaviour:
   - photo: {fileID: 21300000, guid: 9c229f483dcdddb448d0159f4a383988, type: 3}
     caption: "My neighbour\u2019s mail keeps getting mixed with mine."
     dayTaken: 0
+  - photo: {fileID: 21300000, guid: 5e534335b0dca8347bf03decebb6be96, type: 3}
+    caption: I keep receiving messages from an unknown number.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 46b984b5e42fe054d849b26070d64c24, type: 3}
+    caption: Wow, someone sent me lots of stuff!
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 7a4b204442e1bfd47927db2886e847fc, type: 3}
+    caption: Why does this person keep sending friend requests?
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 4504de939ac56d3489b3d3a7d1f2b845, type: 3}
+    caption: Sometimes I hear something in the night...
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 1c19a9df9c486ba4e9d3f8bf217eaa42, type: 3}
+    caption: Someone keeps sending me things.
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: af4eb489fa93db4428b5a6691933933f, type: 3}
+    caption: My wifi is so laggy nowadays...
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 556361b8690c5a34f85e4804eb5f8e54, type: 3}
+    caption: My phone keeps pinging...
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 6187e9cd16ed2bf46a5c3247842170b9, type: 3}
+    caption: Sometimes I think I hear footsteps behind me...
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 3582a5171b7a2864f83fe7cd1f4cbaf0, type: 3}
+    caption: I feel like I'm not alone...
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 0d715e68b0cdfeb4da059b58d1ea0ac1, type: 3}
+    caption: I swore I saw someone just now...
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 39273d9852189ce4db15d527f9da923e, type: 3}
+    caption: A package? I didn't order anything though?
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 8437b75c3bcd16049ba05d5607c41a79, type: 3}
+    caption: Who keeps on calling me non-stop!
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 23a2ef0e17d443240a5b728591f15ee6, type: 3}
+    caption: Did I forget to close the door?
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 2ab8c64a90aeaea4c9d220b3a54447a3, type: 3}
+    caption: I couldn't see it in the morning but is that a red light??
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 5b1ddb3204a4b4743938827658950f27, type: 3}
+    caption: My wifi is so slow...
+    dayTaken: 0
+  - photo: {fileID: 21300000, guid: 049d6730add4c664990278414a87f648, type: 3}
+    caption: These calls have GOT to stop!
+    dayTaken: 0
   acceptsAnyTalisman: 0
   requiredItems:
   - {fileID: 11400000, guid: b3b24b50acb92594aa5dd5fb3a275254, type: 2}
