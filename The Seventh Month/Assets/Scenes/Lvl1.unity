@@ -4734,8 +4734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.039}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -578.00006, y: 129.00003}
-  m_SizeDelta: {x: 380, y: 290}
+  m_AnchoredPosition: {x: -545, y: 105}
+  m_SizeDelta: {x: 297.1682, y: 226.7863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &303206585
 MonoBehaviour:
@@ -10038,7 +10038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &631684985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21258,7 +21258,6 @@ MonoBehaviour:
     - {fileID: 850038236}
     - {fileID: 1357053997}
     - {fileID: 1060102686}
-    - {fileID: 78879143}
     tabsToUnlock:
     - {fileID: 127961029}
     - {fileID: 1672983835}
@@ -21266,26 +21265,39 @@ MonoBehaviour:
     - {fileID: 356065327}
     - {fileID: 1742170644}
     - {fileID: 831203071}
-    - {fileID: 1134714033}
   - dayNumber: 2
     pagesToUnlock:
+    - {fileID: 719080970}
+    - {fileID: 309227257}
+    - {fileID: 551808790}
+    - {fileID: 929606375}
+    - {fileID: 2131500574}
+    tabsToUnlock:
+    - {fileID: 155956693}
+    - {fileID: 68837677}
+    - {fileID: 667240344}
+    - {fileID: 1647571066}
+    - {fileID: 946612701}
+  - dayNumber: 3
+    pagesToUnlock:
+    - {fileID: 519356064}
+    - {fileID: 558922039}
+    - {fileID: 1394462824}
+    - {fileID: 1283377403}
+    tabsToUnlock:
+    - {fileID: 1320899930}
+    - {fileID: 1663361296}
+    - {fileID: 1925823413}
+    - {fileID: 1964386170}
+  - dayNumber: 4
+    pagesToUnlock:
+    - {fileID: 78879143}
     - {fileID: 1442789476}
     - {fileID: 2009362026}
     tabsToUnlock:
+    - {fileID: 1134714033}
     - {fileID: 1289739280}
     - {fileID: 1298877104}
-  - dayNumber: 3
-    pagesToUnlock:
-    - {fileID: 1394462824}
-    - {fileID: 1283377403}
-    - {fileID: 558922039}
-    tabsToUnlock:
-    - {fileID: 1964386170}
-    - {fileID: 1925823413}
-    - {fileID: 1663361296}
-  - dayNumber: 4
-    pagesToUnlock: []
-    tabsToUnlock: []
   pageFoldedMemos:
   - memos:
     - memoButton: {fileID: 303362375}
@@ -22926,7 +22938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1685714969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22943,7 +22955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.909}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -98}
+  m_AnchoredPosition: {x: 21, y: -86}
   m_SizeDelta: {x: 59.999992, y: 232}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685714970
