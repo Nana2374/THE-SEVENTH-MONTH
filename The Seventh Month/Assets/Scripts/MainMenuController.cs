@@ -85,7 +85,21 @@ public class MainMenuController : MonoBehaviour
 
     public void ContinueGame()
     {
-        StartCoroutine(StartGameCoroutine());
+        // Check if there is saved progress
+        if (PlayerPrefs.HasKey("SavedDay"))
+        {
+            int savedDay = PlayerPrefs.GetInt("SavedDay");
+            Debug.Log($"[MainMenu] Continuing game from Day {savedDay}");
+
+            // Load main game scene (replace "GameScene" with your actual scene name)
+            SceneManager.LoadScene("Lvl1");
+        }
+        else
+        {
+            // No saved data, fallback to starting new game
+            Debug.Log("[MainMenu] No saved progress found. Starting tutorial instead.");
+            SceneManager.LoadScene("Instructions");
+        }
     }
 
     private IEnumerator StartGameCoroutine()
