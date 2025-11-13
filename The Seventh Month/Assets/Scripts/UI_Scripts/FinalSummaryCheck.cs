@@ -12,6 +12,9 @@ public class FinalSummaryUI : MonoBehaviour
 
     public Button nextButton; // <-- add this
 
+    public AudioSource audioSource;
+    public AudioClip moneySound;
+
 
     void Start()
     {
@@ -23,6 +26,7 @@ public class FinalSummaryUI : MonoBehaviour
     public void ShowSummary(int doomed)
     {
         gameObject.SetActive(true);
+        audioSource.PlayOneShot(moneySound);
 
         float basePay = 240f;            // Fixed base pay
         float penalty = doomed * 21f;     // $21 penalty per doomed customer
