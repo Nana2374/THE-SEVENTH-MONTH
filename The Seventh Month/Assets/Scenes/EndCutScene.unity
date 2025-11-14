@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 733137910}
   - component: {fileID: 733137909}
   m_Layer: 0
-  m_Name: CutsceneTEST
+  m_Name: Cutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
