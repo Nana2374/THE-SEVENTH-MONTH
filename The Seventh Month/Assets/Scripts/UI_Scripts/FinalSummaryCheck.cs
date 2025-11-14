@@ -1,56 +1,61 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;   // <-- add this
+using UnityEngine.UI;
 using System;
 
 public class FinalSummaryUI : MonoBehaviour
 {
     public TextMeshProUGUI doomedCountText;
     public TextMeshProUGUI paycheckText;
-    public TextMeshProUGUI paycheckInWordsText; // new text field to show words
+    public TextMeshProUGUI paycheckInWordsText;
 
-    public Button nextButton; // <-- add this
+    public Button nextButton;
 
     public AudioSource audioSource;
     public AudioClip moneySound;
 
+    private int totalFailures = 0; // Track failures
 
     void Start()
     {
-        // Set up the button listener
         if (nextButton != null)
             nextButton.onClick.AddListener(OnNextButtonClicked);
     }
 
     public void ShowSummary(int doomed)
     {
+        totalFailures = doomed; // store total failures
         gameObject.SetActive(true);
         audioSource.PlayOneShot(moneySound);
 
-        float basePay = 240f;            // Fixed base pay
-        float penalty = doomed * 21f;     // $21 penalty per doomed customer
-        float finalPay = Mathf.Max(0f, basePay - penalty);  // Prevent negative pay
+        float basePay = 240f;
+        float penalty = doomed * 21f;
+        float finalPay = Mathf.Max(0f, basePay - penalty);
 
         doomedCountText.text = $"{doomed}";
         paycheckText.text = $"{finalPay:F2}";
-        paycheckInWordsText.text = NumberToWords((int)finalPay); // show spelled out
+        paycheckInWordsText.text = NumberToWords((int)finalPay);
     }
 
     private void OnNextButtonClicked()
     {
-        SceneManager.LoadScene("EndCutScene"); // <-- make sure the name matches your actual Credits scene
+        if (totalFailures == 0)
+        {
+            // Perfect playthrough → show end cutscene
+            SceneManager.LoadScene("EndCutScene");
+        }
+        else
+        {
+            // Any failure → go straight to credits
+            SceneManager.LoadScene("Credits");
+        }
     }
 
-
-    // Helper function to convert numbers to words
     private string NumberToWords(int number)
     {
-        if (number == 0)
-            return "ZERO";
-
-        if (number < 0)
-            return "MINUS " + NumberToWords(Math.Abs(number));
+        if (number == 0) return "ZERO";
+        if (number < 0) return "MINUS " + NumberToWords(Math.Abs(number));
 
         string words = "";
 
@@ -62,8 +67,8 @@ public class FinalSummaryUI : MonoBehaviour
 
         if (number > 0)
         {
-            string[] unitsMap = { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN",
-                                  "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN" };
+            string[] unitsMap = { "ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN",
+                                  "ELEVEN","TWELVE","THIRTEEN","FOURTEEN","FIFTEEN","SIXTEEN","SEVENTEEN","EIGHTEEN","NINETEEN" };
             string[] tensMap = { "ZERO", "TEN", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY" };
 
             if (number < 20)
