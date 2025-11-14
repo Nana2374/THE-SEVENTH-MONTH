@@ -20,6 +20,11 @@ public class CustomerCasePair
 
 public class CustomerManager : MonoBehaviour
 {
+    [Header("ARG Spawn System")]
+    public GameObject[] argPrefabs;          // Prefabs to spawn
+    public Transform[] argSpawnPoints;       // Locations to spawn ARGs
+    private int successfulCount = 0;         // Tracks total successful customers
+
     private Dictionary<CustomerData, int> lastSuccessDay = new Dictionary<CustomerData, int>();
 
     public CustomerData[] customers;
@@ -347,6 +352,14 @@ public class CustomerManager : MonoBehaviour
                 lastSuccessDay[activePair.customer] = currentDay;
         }
 
+        // Count as a successful customer (no failures)
+        successfulCount++;
+
+        if (successfulCount % 5 == 0)
+        {
+            SpawnARGObject();
+        }
+
         customersServed++;
 
 
@@ -516,6 +529,26 @@ public class CustomerManager : MonoBehaviour
 
         // Start the day immediately
         StartDay();
+    }
+
+    private void SpawnARGObject()
+    {
+        if (argPrefabs.Length == 0 || argSpawnPoints.Length == 0)
+        {
+            Debug.LogWarning("[ARG] No ARG prefabs or spawn points assigned!");
+            return;
+        }
+
+        // Pick a random ARG prefab
+        GameObject argToSpawn = argPrefabs[Random.Range(0, argPrefabs.Length)];
+
+        // Pick a random location
+        Transform spawnPoint = argSpawnPoints[Random.Range(0, argSpawnPoints.Length)];
+
+        // Spawn it
+        GameObject spawnedARG = Instantiate(argToSpawn, spawnPoint.position, spawnPoint.rotation);
+
+        Debug.Log($"[ARG] Spawned ARG object: {spawnedARG.name} at {spawnPoint.name}");
     }
 
 }
