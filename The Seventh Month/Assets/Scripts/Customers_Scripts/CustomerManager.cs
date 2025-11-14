@@ -25,6 +25,8 @@ public class CustomerManager : MonoBehaviour
     public Transform[] argSpawnPoints;       // Locations to spawn ARGs
     private int successfulCount = 0;         // Tracks total successful customers
 
+    private List<(int prefabIndex, int spawnIndex)> spawnedARGs = new List<(int, int)>();
+
     private Dictionary<CustomerData, int> lastSuccessDay = new Dictionary<CustomerData, int>();
 
     public CustomerData[] customers;
@@ -61,6 +63,8 @@ public class CustomerManager : MonoBehaviour
     void Start()
     {
         LoadProgress();
+        LoadARGProgress();  // loads ARGs from previous session
+
         StartDay();
     }
 
@@ -533,22 +537,67 @@ public class CustomerManager : MonoBehaviour
 
     private void SpawnARGObject()
     {
-        if (argPrefabs.Length == 0 || argSpawnPoints.Length == 0)
+        int index = spawnedARGs.Count; // next ARG to unlock
+
+        // Safety check
+        if (index >= argPrefabs.Length || index >= argSpawnPoints.Length)
         {
-            Debug.LogWarning("[ARG] No ARG prefabs or spawn points assigned!");
+            Debug.LogWarning("[ARG] No more ARGs to spawn.");
             return;
         }
 
-        // Pick a random ARG prefab
-        GameObject argToSpawn = argPrefabs[Random.Range(0, argPrefabs.Length)];
+        // Spawn ARG i at spawnpoint i
+        GameObject spawnedARG = Instantiate(
+            argPrefabs[index],
+            argSpawnPoints[index].position,
+            argSpawnPoints[index].rotation
+        );
 
-        // Pick a random location
-        Transform spawnPoint = argSpawnPoints[Random.Range(0, argSpawnPoints.Length)];
+        Debug.Log($"[ARG] Spawned ARG index {index} at spawn point {index}");
 
-        // Spawn it
-        GameObject spawnedARG = Instantiate(argToSpawn, spawnPoint.position, spawnPoint.rotation);
+        // Save this ARG as unlocked
+        spawnedARGs.Add((index, index));
+        SaveARGProgress();
 
-        Debug.Log($"[ARG] Spawned ARG object: {spawnedARG.name} at {spawnPoint.name}");
+    }
+    // SAVE ARG DATA
+    // -----------------------------------------
+    private void SaveARGProgress()
+    {
+        PlayerPrefs.SetInt("ARG_Count", spawnedARGs.Count);
+
+        for (int i = 0; i < spawnedARGs.Count; i++)
+        {
+            PlayerPrefs.SetInt($"ARG_Prefab_{i}", spawnedARGs[i].prefabIndex);
+            PlayerPrefs.SetInt($"ARG_Spawn_{i}", spawnedARGs[i].spawnIndex);
+        }
+
+        PlayerPrefs.Save();
+        Debug.Log("[ARG] Saved ARG progress");
     }
 
+    // -----------------------------------------
+    // LOAD ARG DATA
+    // -----------------------------------------
+    private void LoadARGProgress()
+    {
+        spawnedARGs.Clear();
+
+        int count = PlayerPrefs.GetInt("ARG_Count", 0);
+
+        for (int i = 0; i < count; i++)
+        {
+            int index = i; // always match array index
+
+            spawnedARGs.Add((index, index));
+
+            Instantiate(
+                argPrefabs[index],
+                argSpawnPoints[index].position,
+                argSpawnPoints[index].rotation
+            );
+
+            Debug.Log($"[ARG] Restored ARG index {index}");
+        }
+    }
 }
