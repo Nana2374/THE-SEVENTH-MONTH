@@ -327,7 +327,17 @@ public class CustomerManager : MonoBehaviour
             activeCustomer = null;
         }
 
+        // <<< INSERT THIS BLOCK HERE >>>
+        if (activePair != null)
+        {
+            // Remove successfully served customer so they won't spawn again
+            availablePairs.RemoveAll(p => p.customer == activePair.customer);
+            activeAssignedCases.Remove(activePair.customer);
+        }
+
         customersServed++;
+
+
         if (clockManager != null)
         {
             clockManager.AdvanceHour();
