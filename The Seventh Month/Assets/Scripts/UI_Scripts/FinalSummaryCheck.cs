@@ -39,7 +39,7 @@ public class FinalSummaryUI : MonoBehaviour
 
     private void OnNextButtonClicked()
     {
-        SceneManager.LoadScene("Credits"); // <-- make sure the name matches your actual Credits scene
+        SceneManager.LoadScene("EndCutScene"); // <-- make sure the name matches your actual Credits scene
     }
 
 
