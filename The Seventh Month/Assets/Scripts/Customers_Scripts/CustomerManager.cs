@@ -20,6 +20,8 @@ public class CustomerCasePair
 
 public class CustomerManager : MonoBehaviour
 {
+    private Dictionary<CustomerData, int> lastSuccessDay = new Dictionary<CustomerData, int>();
+
     public CustomerData[] customers;
     public Transform spawnPoint;
     public PhotoPanelManager photoPanelManager;
@@ -149,17 +151,20 @@ public class CustomerManager : MonoBehaviour
 
         foreach (var customer in customers)
         {
-            // Skip dead customers
+            // Skip dead
             if (failureCounts.ContainsKey(customer) && failureCounts[customer] >= 2)
                 continue;
 
-            // Skip first-failure customers until the next day
+            // Skip failed today
             if (lastFailureDay.ContainsKey(customer) && lastFailureDay[customer] == currentDay)
+                continue;
+
+            // Skip customers that were already successfully served on earlier days
+            if (lastSuccessDay.ContainsKey(customer) && lastSuccessDay[customer] < currentDay)
                 continue;
 
             foreach (var custCase in customer.possibleCases)
             {
-                // Only add if the case is unlocked in folder
                 if (folder.IsCaseUnlocked(custCase))
                 {
                     availablePairs.Add(new CustomerCasePair(customer, custCase));
@@ -333,6 +338,13 @@ public class CustomerManager : MonoBehaviour
             // Remove successfully served customer so they won't spawn again
             availablePairs.RemoveAll(p => p.customer == activePair.customer);
             activeAssignedCases.Remove(activePair.customer);
+
+
+            // Mark customer as successfully served today
+            if (!lastSuccessDay.ContainsKey(activePair.customer))
+                lastSuccessDay.Add(activePair.customer, currentDay);
+            else
+                lastSuccessDay[activePair.customer] = currentDay;
         }
 
         customersServed++;
