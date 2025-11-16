@@ -25,6 +25,7 @@ public class CustomerManager : MonoBehaviour
     public Transform[] argSpawnPoints;       // Locations to spawn ARGs
     private int successfulCount = 0;         // Tracks total successful customers
 
+
     private List<(int prefabIndex, int spawnIndex)> spawnedARGs = new List<(int, int)>();
 
     private Dictionary<CustomerData, int> lastSuccessDay = new Dictionary<CustomerData, int>();
