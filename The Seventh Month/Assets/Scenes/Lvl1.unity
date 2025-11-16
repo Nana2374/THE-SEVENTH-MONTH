@@ -7103,6 +7103,7 @@ MonoBehaviour:
   - {fileID: 1608993607}
   - {fileID: 62743311}
   - {fileID: 1738632258}
+  argSpawnSound: {fileID: 8300000, guid: b648eb71541e8ea4c9d5476a131d0c4d, type: 3}
   customers:
   - customerName: Ah Lian
     customerSprite: {fileID: 21300000, guid: 3595e47be113f9243a72a226bbb0b7ff, type: 3}

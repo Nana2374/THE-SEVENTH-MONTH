@@ -25,6 +25,9 @@ public class CustomerManager : MonoBehaviour
     public Transform[] argSpawnPoints;       // Locations to spawn ARGs
     private int successfulCount = 0;         // Tracks total successful customers
 
+    public AudioClip argSpawnSound;   // the sound that plays when an ARG spawns
+
+
 
     private List<(int prefabIndex, int spawnIndex)> spawnedARGs = new List<(int, int)>();
 
@@ -553,6 +556,9 @@ public class CustomerManager : MonoBehaviour
             argSpawnPoints[index].position,
             argSpawnPoints[index].rotation
         );
+
+        if (audioSource != null && argSpawnSound != null)
+            audioSource.PlayOneShot(argSpawnSound);
 
         Debug.Log($"[ARG] Spawned ARG index {index} at spawn point {index}");
 
