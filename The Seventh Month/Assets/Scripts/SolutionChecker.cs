@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static CustomerCase;
 
 public class SolutionChecker : MonoBehaviour
 {
@@ -83,15 +84,14 @@ public class SolutionChecker : MonoBehaviour
                 if (lightFlickerAudioSource != null && lightFlickerClip != null)
                     lightFlickerAudioSource.PlayOneShot(lightFlickerClip);
 
-                // Trigger failure flash
+                // Trigger light flicker (always)
                 if (lightFlash != null)
                     lightFlash.TriggerFailFlicker();
                 Debug.Log("Light flicker.");
 
-                // Trigger image flash
-                if (imageFlicker != null)
+                // Trigger ARG image flash ONLY for stalker cases
+                if (currentCase.caseType == CaseType.Stalker && imageFlicker != null)
                     imageFlicker.TriggerFlicker();
-
 
                 customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
             }
