@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using static CustomerCase;
 
@@ -33,72 +33,86 @@ public class SolutionChecker : MonoBehaviour
         Debug.Log($"[SolutionChecker] Checking solution for: {currentCase.caseName}");
 
         List<ItemData> playerItems = inventoryManager.GetCurrentItemsData();
+        List<ItemData> requiredItems = new List<ItemData>(currentCase.requiredItems);
+
+
         bool solved = true;
 
-        foreach (ItemData required in currentCase.requiredItems)
+        // --- STEP 1: Extra items check ---
+        // If the player picked more items than required → FAIL immediately
+        if (playerItems.Count != requiredItems.Count)
         {
-            bool itemFound = false;
-
-            foreach (ItemData playerItem in playerItems)
+            solved = false;
+        }
+        else
+        {
+            // --- STEP 2: Item-by-item match ---
+            foreach (ItemData required in requiredItems)
             {
-                //  Exact match
-                if (playerItem == required)
+                bool foundMatch = false;
+
+                foreach (ItemData playerItem in playerItems)
                 {
-                    itemFound = true;
-                    break;
+                    // Exact match
+                    if (playerItem == required)
+                    {
+                        foundMatch = true;
+                        break;
+                    }
+
+                    // Flexible rule: accept ANY talisman
+                    if (currentCase.acceptsAnyTalisman &&
+                        playerItem.category == ItemData.ItemCategory.Talisman &&
+                        required.category == ItemData.ItemCategory.Talisman)
+                    {
+                        Debug.Log($"[SolutionChecker] {playerItem.itemName} accepted as valid talisman substitute!");
+                        foundMatch = true;
+                        break;
+                    }
                 }
 
-                //  Flexible rule: if case allows any talisman
-                if (currentCase.acceptsAnyTalisman &&
-                    playerItem.category == ItemData.ItemCategory.Talisman &&
-                    required.category == ItemData.ItemCategory.Talisman)
+                if (!foundMatch)
                 {
-                    Debug.Log($"[SolutionChecker] {playerItem.itemName} accepted as valid talisman substitute!");
-                    itemFound = true;
+                    solved = false;
                     break;
                 }
-            }
-
-            if (!itemFound)
-            {
-                solved = false;
-                break;
             }
         }
 
+        // ---------------------------------------
+        // FINAL RESULT
+        // ---------------------------------------
         if (solved)
         {
             Debug.Log($"[SolutionChecker] SUCCESS: {currentCase.successOutcome}");
-            // TODO: Trigger success UI/animation here
+            // TODO add your success handling
         }
         else
         {
             Debug.Log($"[SolutionChecker] FAILURE: {currentCase.failureOutcome}");
-            if (customerManager != null)
-            {
-                // Play main fail sound
-                if (audioSource != null)
-                    audioSource.Play();
 
-                // Play light flicker sound
-                if (lightFlickerAudioSource != null && lightFlickerClip != null)
-                    lightFlickerAudioSource.PlayOneShot(lightFlickerClip);
+            // Play main fail sound
+            audioSource?.Play();
 
-                // Trigger light flicker (always)
-                if (lightFlash != null)
-                    lightFlash.TriggerFailFlicker();
-                Debug.Log("Light flicker.");
+            // Light flicker audio
+            if (lightFlickerAudioSource != null && lightFlickerClip != null)
+                lightFlickerAudioSource.PlayOneShot(lightFlickerClip);
 
-                // Trigger ARG image flash ONLY for stalker cases
-                if (currentCase.caseType == CaseType.Stalker && imageFlicker != null)
-                    imageFlicker.TriggerFlicker();
+            // Light flicker effect
+            lightFlash?.TriggerFailFlicker();
+            Debug.Log("Light flicker.");
 
-                customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
-            }
+            // ARG image flash only for stalker cases
+            if (currentCase.caseType == CaseType.Stalker)
+                imageFlicker?.TriggerFlicker();
+
+            customerManager.RegisterFailure(customerManager.GetActiveCustomerData());
         }
 
+        // Finish day
         customerManager.CustomerDone(customerManager.bufferTime);
-        //clear inv
+
+        // Clear inventory
         inventoryManager.ClearInventory();
     }
 }

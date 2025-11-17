@@ -154,6 +154,12 @@ public class CustomerManager : MonoBehaviour
         }
         // >>> END <<<
 
+        FolderManager folder = FindObjectOfType<FolderManager>();
+        if (folder != null)
+        {
+            folder.InitializeFolder(currentDay); // use saved/current day
+        }
+
         FillAvailablePairs();
 
         if (clockManager != null)
@@ -162,11 +168,7 @@ public class CustomerManager : MonoBehaviour
         if (dayText != null)
             dayText.text = $"Day {currentDay}";
 
-        FolderManager folder = FindObjectOfType<FolderManager>();
-        if (folder != null)
-        {
-            folder.InitializeFolder(currentDay); // use saved/current day
-        }
+
 
         SpawnRandomCustomer();
     }
