@@ -200,8 +200,9 @@ MonoBehaviour:
     images \n\n\n\n\n\n\nMegalix (Pixabay)\n\nfreesound_community (Pixabay)\n\nfreesound_community
     (Pixabay)\n\nfreesound_community (Pixabay)\n\nJurij (Pixabay)\n\nfreesound_community
     (Pixabay)\n\nAlex (Pixabay)\n\nfreesound_community (Pixabay)\n\nAlex (Pixabay)\n\nDRAGON-STUDIO
-    (Pixabay)\n\nDRAGON-STUDIO (Pixabay)\n\nDRAGON-STUDIO (Pixabay)\n\nfreesound_community
-    (Pixabay)\n\nfreesound_community (Pixabay)\n\nOng Sze Ching\n\n\n\n"
+    (Pixabay)\n\nDRAGON-STUDIO (Pixabay)\n\nDRAGON-STUDIO (Pixabay)\n\nDRAGON-STUDIO
+    (Pixabay)\n\nDRAGON-STUDIO (Pixabay)\n\nfreesound_community (Pixabay)\n\nfreesound_community
+    (Pixabay)\n\nOng Sze Ching\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -336,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A game by:\n\nOng sze ching\n\n & \n\nDianna Haron Seah \n\n\n\nART\n\n\n\n\n\nmusic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecial
+  m_text: "A game by:\n\nOng sze ching\n\n & \n\nDianna Haron Seah \n\n\n\nART\n\n\n\n\n\nmusic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecial
     thanks to\n\nXuanming Zhou\n\n\n\nThank you for playing!\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -690,14 +691,21 @@ MonoBehaviour:
     Cash register kaching
 
 
-    Lights Flicker on and some electrical
-    Noise
+    Meow SFX
+
+
+    Glitch Effect 1
+
+
+    Lights
+    Flicker on and some electrical Noise
 
 
     Indistinct deep male mumble
 
 
-    Female sounds'
+    Female
+    sounds'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1030,7 +1038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1681}
+  m_AnchoredPosition: {x: 0, y: -1711}
   m_SizeDelta: {x: 1920, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008971082

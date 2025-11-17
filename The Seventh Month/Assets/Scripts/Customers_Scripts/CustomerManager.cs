@@ -405,6 +405,7 @@ public class CustomerManager : MonoBehaviour
             // Show final summary UI
             if (finalSummaryUI != null)
             {
+                int totalFailures = GetTotalFailures();
                 finalSummaryUI.ShowSummary(customersDoomed); // pass any stats you want
             }
 
@@ -507,6 +508,15 @@ public class CustomerManager : MonoBehaviour
         lastFailureDay.Clear();
         availablePairs.Clear();
     }
+
+    private int GetTotalFailures()
+    {
+        int total = 0;
+        foreach (var kvp in failureCounts)
+            total += kvp.Value; // sum of all failures (1+ or 2+)
+        return total;
+    }
+
 
     // For testing: skip directly to a specific day
     public void SkipToDay(int targetDay)
