@@ -20,19 +20,19 @@ MonoBehaviour:
 
 '
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 463c313b25e30ba479cb76fdad26a467, type: 3}
+  - photo: {fileID: 21300000, guid: 2c15398394b19724aaeced5de716e103, type: 3}
     caption: I keep dreaming of marrying someone, I draw ah?
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 2c15398394b19724aaeced5de716e103, type: 3}
+  - photo: {fileID: 21300000, guid: 82af4772070e3c34a9ce5161d399cae2, type: 3}
     caption: Feels like someone lying next to me
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 82af4772070e3c34a9ce5161d399cae2, type: 3}
+  - photo: {fileID: 21300000, guid: 5b7266dd828437d4aa7d56ec75c2d692, type: 3}
     caption: I not chao keng(pretending to be sick) okay.
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 5b7266dd828437d4aa7d56ec75c2d692, type: 3}
+  - photo: {fileID: 21300000, guid: 5b53ad00692a326469f95d46c80cd694, type: 3}
     caption: "I hear things at night\u2026"
     dayTaken: 0
-  - photo: {fileID: 21300000, guid: 5b53ad00692a326469f95d46c80cd694, type: 3}
+  - photo: {fileID: 21300000, guid: ee2e463ebbb19da48aa264e3f00c75e1, type: 3}
     caption: Cannot eat sia..
     dayTaken: 0
   acceptsAnyTalisman: 0
