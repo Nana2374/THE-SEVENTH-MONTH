@@ -6,19 +6,15 @@ using System.Collections;
 
 public class MainMenuController : MonoBehaviour
 {
-
     [Header("Buttons")]
     public Button startButton;
     public Button continueButton;
     public TMP_Text continueText; // optional: show "Continue Day X"
 
-
     [Header("Confirmation Popup")]
     public GameObject newGamePopup;  // The confirmation panel (set this in the Inspector)
     public Button yesButton;         // "Yes" button on popup
     public Button noButton;          // "No" button on popup
-
-
 
     private void Start()
     {
@@ -34,25 +30,37 @@ public class MainMenuController : MonoBehaviour
 
         if (noButton != null)
             noButton.onClick.AddListener(OnCancelNewGame);
-
     }
 
     private void CheckSavedProgress()
     {
+        // Always show continue button
+        continueButton.gameObject.SetActive(true);
+
         if (PlayerPrefs.HasKey("SavedDay"))
         {
             int savedDay = PlayerPrefs.GetInt("SavedDay");
-            continueButton.gameObject.SetActive(true);
+
+            continueButton.interactable = true;
 
             if (continueText != null)
+            {
                 continueText.text = $"(Day {savedDay})";
+                continueText.color = Color.white; // normal text color
+            }
         }
         else
         {
-            continueButton.gameObject.SetActive(false);
+            // Grey out if no save
+            continueButton.interactable = false;
+
+            if (continueText != null)
+            {
+                continueText.text = "(No Save)";
+                continueText.color = new Color(1, 1, 1, 0.4f); // dimmed text
+            }
         }
     }
-
 
     public void StartGame()
     {
@@ -70,7 +78,6 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
 
-
         Debug.Log("[MainMenu] Cleared all save data — starting fresh game.");
 
         StartCoroutine(StartGameCoroutine());
@@ -85,18 +92,15 @@ public class MainMenuController : MonoBehaviour
 
     public void ContinueGame()
     {
-        // Check if there is saved progress
         if (PlayerPrefs.HasKey("SavedDay"))
         {
             int savedDay = PlayerPrefs.GetInt("SavedDay");
             Debug.Log($"[MainMenu] Continuing game from Day {savedDay}");
 
-            // Load main game scene (replace "GameScene" with your actual scene name)
             SceneManager.LoadScene("Lvl1");
         }
         else
         {
-            // No saved data, fallback to starting new game
             Debug.Log("[MainMenu] No saved progress found. Starting tutorial instead.");
             SceneManager.LoadScene("Instructions");
         }
@@ -104,10 +108,8 @@ public class MainMenuController : MonoBehaviour
 
     private IEnumerator StartGameCoroutine()
     {
-        // No delay needed, and no loading screen here
         yield return null;
 
-        // Load only the INSTRUCTION scene first
         SceneManager.LoadScene("Instructions");
     }
 
@@ -119,5 +121,5 @@ public class MainMenuController : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-
 }
+
