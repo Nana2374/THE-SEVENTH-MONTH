@@ -23,7 +23,9 @@ public class CustomerManager : MonoBehaviour
     [Header("ARG Spawn System")]
     public GameObject[] argPrefabs;          // Prefabs to spawn
     public Transform[] argSpawnPoints;       // Locations to spawn ARGs
-    private int successfulCount = 0;         // Tracks total successful customers
+    //private int successfulCount = 0;         // Tracks total successful customers
+
+    private bool dayHadFailures = false;
 
     public AudioClip argSpawnSound;   // the sound that plays when an ARG spawns
 
@@ -70,6 +72,7 @@ public class CustomerManager : MonoBehaviour
         LoadARGProgress();  // loads ARGs from previous session
 
         StartDay();
+
     }
 
 
@@ -136,6 +139,8 @@ public class CustomerManager : MonoBehaviour
 
         customersServed = 0;
         stalkerSpawned = 0;
+
+        dayHadFailures = false;
 
         FillAvailablePairs();
 
@@ -360,13 +365,13 @@ public class CustomerManager : MonoBehaviour
                 lastSuccessDay[activePair.customer] = currentDay;
         }
 
-        // Count as a successful customer (no failures)
-        successfulCount++;
+        //// Count as a successful customer (no failures)
+        //successfulCount++;
 
-        if (successfulCount % 5 == 0)
-        {
-            SpawnARGObject();
-        }
+        //if (successfulCount % 5 == 0)
+        //{
+        //    SpawnARGObject();
+        //}
 
         customersServed++;
 
@@ -398,37 +403,35 @@ public class CustomerManager : MonoBehaviour
     {
         Debug.Log($"--- DAY {currentDay} END ---");
 
+        // Only spawn ARGs if the day had no failures
+        if (!dayHadFailures)
+        {
+            Debug.Log("[ARG] No failures today, spawning ARGs...");
+            SpawnARGObject();
+        }
+        else
+        {
+            Debug.Log("[ARG] Failures occurred today, no ARGs spawned.");
+        }
 
         if (currentDay >= maxDays)
         {
             Debug.Log("Game Over: all days completed!");
-            // Show final summary UI
             if (finalSummaryUI != null)
-            {
-                int totalFailures = GetTotalFailures();
-                finalSummaryUI.ShowSummary(customersDoomed); // pass any stats you want
-            }
+                finalSummaryUI.ShowSummary(customersDoomed);
 
-            // Optionally, disable further spawning
             StopAllCoroutines();
             if (activeCustomer != null)
                 Destroy(activeCustomer);
 
-            // Or load a GameOver scene
-            // SceneManager.LoadScene("GameOverScene");
-
-
             return;
-
         }
 
         currentDay++;
-
-        // Autosave progress here
         SaveProgress();
-
         StartCoroutine(PlayDayTransition(currentDay));
     }
+
 
     private IEnumerator PlayDayTransition(int day)
     {
@@ -441,6 +444,8 @@ public class CustomerManager : MonoBehaviour
 
     public void RegisterFailure(CustomerData failedCustomer)
     {
+        dayHadFailures = true;
+
         if (!failureCounts.ContainsKey(failedCustomer))
             failureCounts[failedCustomer] = 0;
 
