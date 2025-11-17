@@ -29,7 +29,7 @@ public class CustomerManager : MonoBehaviour
 
     public AudioClip argSpawnSound;   // the sound that plays when an ARG spawns
 
-
+    private List<CustomerCasePair> failedTodayTemp = new List<CustomerCasePair>();
 
     private List<(int prefabIndex, int spawnIndex)> spawnedARGs = new List<(int, int)>();
 
@@ -145,6 +145,14 @@ public class CustomerManager : MonoBehaviour
         stalkerSpawned = 0;
 
         dayHadFailures = false;
+
+        // >>> Add THIS block <<<
+        if (failedTodayTemp.Count > 0)
+        {
+            failedCustomersQueue.AddRange(failedTodayTemp);
+            failedTodayTemp.Clear();
+        }
+        // >>> END <<<
 
         FillAvailablePairs();
 
@@ -475,10 +483,10 @@ public class CustomerManager : MonoBehaviour
             lastFailureDay[failedCustomer] = currentDay;
             Debug.Log($"[CustomerManager] {failedCustomer.customerName} failed once, will return next day.");
 
-            // Add to failed customer queue for next day
+            // Store for tomorrow
             foreach (var custCase in failedCustomer.possibleCases)
             {
-                failedCustomersQueue.Add(new CustomerCasePair(failedCustomer, custCase));
+                failedTodayTemp.Add(new CustomerCasePair(failedCustomer, custCase));
             }
         }
         else if (failures >= 2)
