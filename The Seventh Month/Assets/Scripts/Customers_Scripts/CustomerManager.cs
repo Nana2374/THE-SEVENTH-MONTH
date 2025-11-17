@@ -35,6 +35,7 @@ public class CustomerManager : MonoBehaviour
 
     private Dictionary<CustomerData, int> lastSuccessDay = new Dictionary<CustomerData, int>();
 
+
     public CustomerData[] customers;
     public Transform spawnPoint;
     public PhotoPanelManager photoPanelManager;
@@ -52,6 +53,9 @@ public class CustomerManager : MonoBehaviour
     private List<CustomerCasePair> availablePairs = new List<CustomerCasePair>();
     private Dictionary<CustomerData, int> failureCounts = new Dictionary<CustomerData, int>();
     private Dictionary<CustomerData, int> lastFailureDay = new Dictionary<CustomerData, int>();
+
+    private List<CustomerCasePair> failedCustomersQueue = new List<CustomerCasePair>();
+
     private Dictionary<CustomerData, CustomerCase> activeAssignedCases = new Dictionary<CustomerData, CustomerCase>();
 
     private int customersServed = 0;
@@ -260,20 +264,34 @@ public class CustomerManager : MonoBehaviour
 
     private CustomerCasePair PickCustomerCasePair()
     {
-        // Step 1: Prioritize customers who already have an assigned case
+        // Step 0: Return failed customers first
+        if (failedCustomersQueue.Count > 0)
+        {
+            CustomerCasePair nextFailed = failedCustomersQueue[0];
+            failedCustomersQueue.RemoveAt(0);
+
+            // Ensure the failed customer is still available (not dead)
+            if (failureCounts.ContainsKey(nextFailed.customer) && failureCounts[nextFailed.customer] >= 2)
+                return PickCustomerCasePair(); // skip if doomed
+
+            // Remove this pair from availablePairs so it doesn’t spawn again
+            availablePairs.RemoveAll(p => p.customer == nextFailed.customer && p.customerCase == nextFailed.customerCase);
+
+            // Remember assigned case
+            activeAssignedCases[nextFailed.customer] = nextFailed.customerCase;
+
+            return nextFailed;
+        }
+
+        // Step 1: Return customers who already have assigned cases (continuing cases)
         foreach (var kvp in activeAssignedCases)
         {
             CustomerData c = kvp.Key;
             CustomerCase cc = kvp.Value;
 
-            // Only return them if they haven't died yet and can appear again
-            if (failureCounts.ContainsKey(c) && failureCounts[c] >= 2)
-                continue;
+            if (failureCounts.ContainsKey(c) && failureCounts[c] >= 2) continue; // dead
+            if (lastFailureDay.ContainsKey(c) && lastFailureDay[c] == currentDay) continue; // failed today
 
-            if (lastFailureDay.ContainsKey(c) && lastFailureDay[c] == currentDay)
-                continue; // skip if they failed today and are meant to return later
-
-            // Ensure we don’t spawn them twice
             if (availablePairs.Exists(p => p.customer == c && p.customerCase == cc))
             {
                 availablePairs.RemoveAll(p => p.customer == c); // remove other cases
@@ -281,7 +299,7 @@ public class CustomerManager : MonoBehaviour
             }
         }
 
-        // Step 2: No returning customers waiting — pick a new random one
+        // Step 2: Pick a new random customer
         int remaining = maxCustomers - customersServed;
         bool mustSpawnStalker = (stalkerSpawned == 0 && remaining == 1);
 
@@ -290,8 +308,7 @@ public class CustomerManager : MonoBehaviour
         if (mustSpawnStalker)
         {
             var stalkers = availablePairs.FindAll(p => p.customerCase.caseType == CaseType.Stalker);
-            if (stalkers.Count > 0)
-                pair = stalkers[Random.Range(0, stalkers.Count)];
+            if (stalkers.Count > 0) pair = stalkers[Random.Range(0, stalkers.Count)];
         }
         else
         {
@@ -311,12 +328,13 @@ public class CustomerManager : MonoBehaviour
         if (pair == null && availablePairs.Count > 0)
             pair = availablePairs[Random.Range(0, availablePairs.Count)];
 
-        // Step 3: Remember this assigned case for later
+        // Step 3: Remember assigned case
         if (pair != null && !activeAssignedCases.ContainsKey(pair.customer))
             activeAssignedCases[pair.customer] = pair.customerCase;
 
         return pair;
     }
+
 
 
     private IEnumerator ShowThumbnailNextFrame()
@@ -456,6 +474,12 @@ public class CustomerManager : MonoBehaviour
         {
             lastFailureDay[failedCustomer] = currentDay;
             Debug.Log($"[CustomerManager] {failedCustomer.customerName} failed once, will return next day.");
+
+            // Add to failed customer queue for next day
+            foreach (var custCase in failedCustomer.possibleCases)
+            {
+                failedCustomersQueue.Add(new CustomerCasePair(failedCustomer, custCase));
+            }
         }
         else if (failures >= 2)
         {
